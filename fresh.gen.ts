@@ -8,6 +8,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $index from "./routes/index.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
+import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
 import * as $ScrollText_ScrollText from "./islands/ScrollText/ScrollText.tsx";
 import * as $ServiceCard_ServiceCard from "./islands/ServiceCard/ServiceCard.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -22,6 +23,7 @@ const manifest = {
   },
   islands: {
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,
+    "./islands/MobileMenu/MobileMenu.tsx": $MobileMenu_MobileMenu,
     "./islands/ScrollText/ScrollText.tsx": $ScrollText_ScrollText,
     "./islands/ServiceCard/ServiceCard.tsx": $ServiceCard_ServiceCard,
   },

@@ -30,7 +30,7 @@ export default function ScrollText(scrollTextProps: ScrollTextProps) {
           scrollTrigger: {
             trigger: textRef.current,
             start: "top 90%", // Start earlier
-            end: "top 20%", // Finish faster
+            end: "top 40%", // Finish faster
             scrub: 0.1, // Smooth but faster animation
           },
         }
@@ -62,13 +62,13 @@ export default function ScrollText(scrollTextProps: ScrollTextProps) {
               {word}&nbsp;
             </span>
           ))}
-        <br />
+        <br />      <br />
         {`${scrollTextProps.text2}`
           .split(" ")
           .map((word, index) => (
             <span
               key={index + 100} // Ensures unique keys
-              className="inline-block pt-6"
+              className="inline-block"
               style={{ opacity: 0, display: "inline-block" }}
             >
               {word}&nbsp;

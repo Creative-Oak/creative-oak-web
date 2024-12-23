@@ -1,6 +1,6 @@
 import { AppProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import Navbar from "../components/navbar/navbar.tsx";
+import Navbar from "../components/sections/UtiliySections/NavbarSection.tsx";
 
 export default function App({ Component }: AppProps) {
   return (
@@ -26,7 +26,7 @@ export default function App({ Component }: AppProps) {
       </Head>
       <body class="text-brand-black">
         <Navbar />
-        <div class="pt-[-60px]">
+        <div class="pt-[60px]">
           <Component />
         </div>
       </body>

@@ -9,7 +9,7 @@ interface HeroSection1Props {
 
 export default function HeroSection1(props: HeroSection1Props) {
   return (
-    <section className="relative min-h-[90svh] flex items-center justify-between px-4 md:px-8 gap-6 container">
+    <section className="relative flex min-h-[90svh] pt-16 md:pt-4 flex-col md:flex-row items-center justify-between px-4 md:px-8 gap-6 container">
       <div className="w-full md:w-1/2 z-10 h-full">
         <h1 className="text-4xl text-brand-black md:text-5xl font-bold mb-4 font-lexend">{props.header}</h1>
         {props.subtitle && (
@@ -21,9 +21,9 @@ export default function HeroSection1(props: HeroSection1Props) {
       </div>
 
       {/* Splitter */}
-      <div className="hidden md:block w-[2px] bg-brand-black self-stretch"></div>
+      <div className="hidden md:flex w-[2px] bg-brand-black self-stretch"></div>
 
-      <div className="w-full md:w-1/2 hidden md:block">
+      <div className="w-full md:w-1/2 ">
         <img
           src={props.rightImage}
           alt={props.header}

@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className="[&_a]:underline [&_a]:decoration-transparent [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:decoration-inherit">
       <div class="container py-8 px-2 ">
-        <div class="flex flex-row p-12 border-2 gap-12 border-brand-black shadow-custom-black">
+        <div class="flex flex-col lg:flex-row  p-12 border-2 gap-12  border-brand-black shadow-custom-black">
           <div class="flex flex-col flex-grow">
             <h3 class="font-lexend text-lg font-bold">Creative Oak ApS</h3>
             <div class="max-w-md pt-6">
