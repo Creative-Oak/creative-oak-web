@@ -36,7 +36,6 @@ export const handler: Handlers<ProjectCardData[]> = {
 };
 
 export default function Home({ data }: PageProps<ProjectCardData[]>) {
-
   return (
     <>
       <Head>

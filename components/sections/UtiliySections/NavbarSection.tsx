@@ -23,8 +23,8 @@ export default function Navbar() {
           <div className="relative group">
             <button className="hover:text-gray-600">Services ▾</button>
             <div className="absolute invisible opacity-0 translate-y-[10px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 top-full mt-2 flex flex-col gap-2 bg-white shadow-custom-black border-brand-black p-2 border-2 transition-all duration-200 ease-in-out">
-              <a href="/services/design" className="block hover:text-gray-600">
-                Design
+              <a href="/koeb-hjemmeside" className="block hover:text-gray-600">
+                Hjemmeside
               </a>
               <a href="/services/development" className="block hover:text-gray-600">
                 Development
