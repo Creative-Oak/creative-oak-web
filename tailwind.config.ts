@@ -1,6 +1,3 @@
-import { type Config } from "tailwindcss";
-
-
 export default {
   content: [
     "{routes,islands,components}/**/*.{ts,tsx,js,jsx}",
@@ -11,7 +8,19 @@ export default {
         brand: {
           white: "#fdfdff",
           yellow: "#ffe51b",
-          black: "#333740",
+
+          black: {
+          100: "#d6d7d9",
+          200: "#adafb3",
+          300: "#85878c",
+          400: "#5c5f66",
+          500: "#333740",
+          600: "#292c33",
+          700: "#1f2126",
+          800: "#14161a",
+          900: "#0a0b0d",
+          DEFAULT: "#333740", // Original black
+},
           blue: "#62929e",
           purple: "#bd9cf7",
           red: "#ef767a",
@@ -32,7 +41,9 @@ export default {
         },
       },
       boxShadow: {
-        "custom-black": "4px 4px 0 0 #333740", // Directly using the color value
+        "custom-black-400": "4px 4px 0 0 #4a4e58", // Lighter shadow
+        "custom-black-500": "4px 4px 0 0 #3c4049", // Slightly darker shadow
+        "custom-black": "4px 4px 0 0 #333740", // Original
       },
       fontFamily: {
         lexend: ["Lexend Deca", "sans-serif"],
@@ -40,6 +51,5 @@ export default {
       },
     },
   },
-  plugins: [
-  ]
-} satisfies Config;
+  plugins: [],
+};

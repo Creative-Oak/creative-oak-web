@@ -4,7 +4,9 @@ const Footer = () => {
       <div class="container py-8 px-2 ">
         <div class="flex flex-col lg:flex-row  p-12 border-2 gap-12  border-brand-black shadow-custom-black">
           <div class="flex flex-col flex-grow">
-            <h3 class="font-lexend text-lg font-bold">Creative Oak ApS</h3>
+            <a href="/">
+              <img class="w-20" width={150} src="images/logo.svg" />
+              </a>
             <div class="max-w-md pt-6">
               <h4 class="font-bold">Addresse</h4>
               <p>Langelandsgade 62 St</p>

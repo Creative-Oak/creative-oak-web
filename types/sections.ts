@@ -8,13 +8,24 @@ import { Image } from "@sanity/types";
     subtitle: string;
   }
   
+interface PortfolioSectionData {
+    _type: "portfolioSection";
+    title: string;
+    projects: {
+      title: string;
+      shortDescription: string;
+      image: Image;
+    }[];
+}
+
+
   interface SplitterData {
     _type: "splitter";
     // Add any splitter-specific fields if needed
   }
   
   // Union type for all possible section types
-  export type Section = HeroSection1Data | SplitterData;
+  export type Section = HeroSection1Data | SplitterData | PortfolioSectionData;
   
   // Update the PageData interface
   export interface PageData {

@@ -43,10 +43,10 @@ const ServiceCard = (props: CardProps) => {
       </style>
       <div
         onClick={handleCardClick}
-        className="p-6 md:px-4 bg-brand-white flex flex-col justify-between border-brand-black border-2 hover:shadow-custom-black transition-shadow cursor-pointer"
+        className="p-12  md:px-8 bg-brand-white flex flex-col justify-between border-brand-black border-2 hover:shadow-custom-black transition-shadow cursor-pointer"
       >
         <h2 class="font-lexend text-4xl text-center font-bold">{props.title}</h2>
-        <div class="flex gap-4 mt-6 flex-wrap justify-center">
+        <div class="flex gap-4 mt-12 flex-wrap justify-center">
           {props.tags.map((tag) => (
             <button
               onClick={(e) => handleTagClick(e, tag)}

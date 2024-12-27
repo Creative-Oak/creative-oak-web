@@ -2,28 +2,32 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $_slug_ from "./routes/[slug].tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $index from "./routes/index.tsx";
+import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
+import * as $om_os from "./routes/om-os.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
 import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
+import * as $ProgressBar_ProgressBar from "./islands/ProgressBar/ProgressBar.tsx";
 import * as $ScrollText_ScrollText from "./islands/ScrollText/ScrollText.tsx";
 import * as $ServiceCard_ServiceCard from "./islands/ServiceCard/ServiceCard.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/[slug].tsx": $_slug_,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/api/joke.ts": $api_joke,
     "./routes/index.tsx": $index,
+    "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
+    "./routes/om-os.tsx": $om_os,
   },
   islands: {
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,
     "./islands/MobileMenu/MobileMenu.tsx": $MobileMenu_MobileMenu,
+    "./islands/ProgressBar/ProgressBar.tsx": $ProgressBar_ProgressBar,
     "./islands/ScrollText/ScrollText.tsx": $ScrollText_ScrollText,
     "./islands/ServiceCard/ServiceCard.tsx": $ServiceCard_ServiceCard,
   },

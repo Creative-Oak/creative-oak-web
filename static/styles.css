@@ -7,3 +7,19 @@
   :root {
     --black: #333740;
   }
+
+  .rich-text a {
+    @apply text-brand-red underline;
+  }
+
+  .progress-section {
+    position: relative;
+  }
+  
+  .progress-section h3 {
+    transition: color 0.3s;
+  }
+  
+  .progress-section div.w-6.h-6 {
+    transition: background-color 0.3s, border-color 0.3s;
+  }

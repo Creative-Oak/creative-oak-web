@@ -26,7 +26,7 @@ export default function App({ Component }: AppProps) {
       </Head>
       <body class="text-brand-black">
         <Navbar />
-        <div class="pt-[60px]">
+        <div class="pt-[95px]">
           <Component />
         </div>
       </body>

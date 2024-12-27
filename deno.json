@@ -25,6 +25,7 @@
   "@portabletext/to-html": "npm:@portabletext/to-html@^2.0.13",
   "@sanity/image-url": "npm:@sanity/image-url@^1.1.0",
   "@sanity/types": "npm:@sanity/types@^3.68.3",
+    "dompurify": "npm:dompurify@^3.2.3",
   "gsap": "npm:gsap@^3.12.5",
   "preact": "https://esm.sh/preact@10.22.0",
   "preact/": "https://esm.sh/preact@10.22.0/",
