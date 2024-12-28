@@ -12,8 +12,8 @@ const ListElement = (props: ListElementProps) => {
     <div className="p-6">
       <div className=" mb-4">
         <div class="w-8 mb-2">
-       {props.icon}
-       </div>
+          {props.icon}
+        </div>
         <h3 className="text-xl font-semibold font-lexend">
           {props.title}
         </h3>

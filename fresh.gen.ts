@@ -7,6 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $index from "./routes/index.tsx";
 import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
+import * as $kunstig_intelligens_og_digital_udvikling from "./routes/kunstig-intelligens-og-digital-udvikling.tsx";
 import * as $om_os from "./routes/om-os.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
 import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
@@ -22,6 +23,8 @@ const manifest = {
     "./routes/api/joke.ts": $api_joke,
     "./routes/index.tsx": $index,
     "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
+    "./routes/kunstig-intelligens-og-digital-udvikling.tsx":
+      $kunstig_intelligens_og_digital_udvikling,
     "./routes/om-os.tsx": $om_os,
   },
   islands: {

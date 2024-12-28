@@ -11,7 +11,7 @@ interface HeroSection1Props {
 
 export default function HeroSection1(props: HeroSection1Props) {
   return (
-    <section className="relative flex min-h-[80svh] pt-16 md:pt-0 flex-col md:flex-row items-center justify-between px-4 md:px-8 gap-6 container">
+    <section className="relative pt-[calc(95px+16px)] flex min-h-[80svh] md:pt-[95px] flex-col md:flex-row items-center justify-between px-4 md:px-8 gap-6 container">
       <div className="w-full md:w-1/2 z-10 h-full">
         <h1 className="text-4xl text-brand-black md:text-5xl font-bold mb-4 font-lexend">{props.header}</h1>
         {props.subtitle && (
