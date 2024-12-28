@@ -50,7 +50,11 @@ export const handler: Handlers<
   },
 };
 
-const Website = ({ data }: PageProps<{ projects: ProjectCardData[]; testimonials: Testemonial[] }>) => {
+const Website = (
+  { data }: PageProps<
+    { projects: ProjectCardData[]; testimonials: Testemonial[] }
+  >,
+) => {
   const { projects, testimonials } = data;
 
   return (
@@ -71,13 +75,28 @@ const Website = ({ data }: PageProps<{ projects: ProjectCardData[]; testimonials
       <ContentSection3 />
       <Splitter />
       <ContentSection
-        description="I en tid, hvor klimaforandringer er en af vores største udfordringer, spiller internettet en overraskende stor rolle. Vidste du, at internettets samlede CO2-aftryk overstiger luftfartsindustriens? Hver gang en bruger besøger en hjemmeside, bruges der energi til dataoverførsel, serverkapacitet og enhedens strømforbrug.
-        <br/><br/>
-        Når du vælger at købe hjemmeside hos os, får du en løsning, der ikke kun er topmoderne og effektiv, men også miljøvenlig. Vi hjælper dig med at reducere din hjemmesides CO2-aftryk, så du kan tage del i en grønnere digital fremtid. <br/>
-        <br/>
-        Læs mere om emnet <a href='#'>her</a>, ellers så lad os tage en snak!
-        <br/><br/>
-        Så finder vi en grøn løsning til jer."
+        description={
+          <>
+            I en tid, hvor klimaforandringer er en af vores største
+            udfordringer, spiller internettet en overraskende stor rolle. Vidste
+            du, at internettets samlede CO2-aftryk overstiger
+            luftfartsindustriens? Hver gang en bruger besøger en hjemmeside,
+            bruges der energi til dataoverførsel, serverkapacitet og enhedens
+            strømforbrug.
+            <br />
+            <br />
+            Når du vælger at købe hjemmeside hos os, får du en løsning, der ikke
+            kun er topmoderne og effektiv, men også miljøvenlig. Vi hjælper dig
+            med at reducere din hjemmesides CO2-aftryk, så du kan tage del i en
+            grønnere digital fremtid. <br />
+            <br />
+            Læs mere om emnet{" "}
+            <a href="#">her</a>, ellers så lad os tage en snak!
+            <br />
+            <br />
+            Så finder vi en grøn løsning til jer.
+          </>
+        }
         imageUrl="/images/wireframe+code.avif"
         teaser="Køb hjemmeside med bæredygtigt fokus"
         imageAlt="Wireframe og kode"

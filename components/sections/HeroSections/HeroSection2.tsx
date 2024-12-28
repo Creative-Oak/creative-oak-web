@@ -29,11 +29,14 @@ const HeroSection2 = (props: Hero2Props) => {
               )
               : (
                 <div className="absolute inset-0 -z-10">
-                <div className="absolute h-full w-[200%] right-[-20%]">  {/* Changed from right-0 to right-[20%] */}
-                  <div className="absolute h-24 bg-brand-blue w-full -rotate-45 transform origin-right -translate-y-96"></div>
-                  <div className="absolute h-24 bg-brand-purple w-full -rotate-45 transform origin-right -translate-y-56"></div>
+                  <div className="absolute h-full w-[200%] right-[-20%]">
+                    {/* Changed from right-0 to right-[20%] */}
+                    <div className="absolute h-24 bg-brand-blue w-full -rotate-45 transform origin-right -translate-y-96">
+                    </div>
+                    <div className="absolute h-24 bg-brand-purple w-full -rotate-45 transform origin-right -translate-y-56">
+                    </div>
+                  </div>
                 </div>
-              </div>
               )}
           </div>
           <div className="md:order-1">
