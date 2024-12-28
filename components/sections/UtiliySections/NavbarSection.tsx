@@ -8,7 +8,7 @@ export default function Navbar() {
         {/* Logo section - always visible */}
         <div className="flex-grow md:flex-grow-0">
           <a className="font-bold text-lg w-16 block" href="/">
-            <img src="images/logo.svg" className="w-16" alt="Logo" />
+            <img src="/images/logo.svg" className="w-16" alt="Logo" />
           </a>
         </div>
 
