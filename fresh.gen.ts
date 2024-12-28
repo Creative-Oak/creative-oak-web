@@ -5,13 +5,17 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $api_portfolio from "./routes/api/portfolio.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
 import * as $kunstig_intelligens_og_digital_udvikling from "./routes/kunstig-intelligens-og-digital-udvikling.tsx";
 import * as $om_os from "./routes/om-os.tsx";
+import * as $portfolio from "./routes/portfolio.tsx";
 import * as $projects_slug_ from "./routes/projects/[slug].tsx";
+import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
 import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
+import * as $PortfolioIsland from "./islands/PortfolioIsland.tsx";
 import * as $ProgressBar_ProgressBar from "./islands/ProgressBar/ProgressBar.tsx";
 import * as $ScrollText_ScrollText from "./islands/ScrollText/ScrollText.tsx";
 import * as $ServiceCard_ServiceCard from "./islands/ServiceCard/ServiceCard.tsx";
@@ -22,16 +26,20 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/api/joke.ts": $api_joke,
+    "./routes/api/portfolio.tsx": $api_portfolio,
     "./routes/index.tsx": $index,
     "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
     "./routes/kunstig-intelligens-og-digital-udvikling.tsx":
       $kunstig_intelligens_og_digital_udvikling,
     "./routes/om-os.tsx": $om_os,
+    "./routes/portfolio.tsx": $portfolio,
     "./routes/projects/[slug].tsx": $projects_slug_,
   },
   islands: {
+    "./islands/CategoryFilter.tsx": $CategoryFilter,
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,
     "./islands/MobileMenu/MobileMenu.tsx": $MobileMenu_MobileMenu,
+    "./islands/PortfolioIsland.tsx": $PortfolioIsland,
     "./islands/ProgressBar/ProgressBar.tsx": $ProgressBar_ProgressBar,
     "./islands/ScrollText/ScrollText.tsx": $ScrollText_ScrollText,
     "./islands/ServiceCard/ServiceCard.tsx": $ServiceCard_ServiceCard,
