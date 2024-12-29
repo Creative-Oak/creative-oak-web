@@ -19,7 +19,7 @@ export default function PortfolioIsland(
     allCategories,
     initialActiveCategories,
     initialTotalCount = 0, // fallback
-    initialLimit = 3,
+    initialLimit = 12,
   }: PortfolioIslandProps,
 ) {
   // Local state
@@ -102,7 +102,7 @@ export default function PortfolioIsland(
   }
 
   return (
-    <section class="container md:py-24">
+    <section class="container py-12 md:py-24">
       <CategoryFilter
         categories={allCategories}
         activeCategories={activeCategories}
@@ -111,7 +111,7 @@ export default function PortfolioIsland(
       />
 
       {/* Project Grid */}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
           <a
             class="border-2 border-brand-black hover:shadow-custom-black transition-shadow"
@@ -121,7 +121,7 @@ export default function PortfolioIsland(
             <img
               src={project.featuredImageUrl}
               alt={project.title}
-              class="w-full h-48 object-cover"
+              class="w-full h-80 object-cover"
             />
             <div class="p-4">
               <h2 class="text-xl font-semibold">{project.title}</h2>
@@ -145,9 +145,9 @@ export default function PortfolioIsland(
         <div class="flex justify-center mt-6">
           <button
             onClick={handleLoadMore}
-            class="px-4 py-2 bg-blue-500 text-white rounded shadow"
+            class="px-4 py-2 border-2  border-brand-black hover:shadow-custom-black transition-shadow"
           >
-            Load More
+            Se flere
           </button>
         </div>
       )}

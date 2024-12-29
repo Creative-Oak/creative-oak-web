@@ -13,6 +13,7 @@ import { client } from "../utils/sanity.ts";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import TestemonialSection from "../components/sections/UtiliySections/TestemonialSection.tsx";
 import Testemonial from "../types/Testemonials.ts";
+import FAQSection from "../components/sections/ContentSections/FAQSection.tsx";
 
 export const handler: Handlers<
   { projects: ProjectCardData[]; testimonials: Testemonial[] }
@@ -56,6 +57,31 @@ const Website = (
   >,
 ) => {
   const { projects, testimonials } = data;
+
+
+const faq = [
+  {
+    question: "Hvad er Lorem Ipsum?",
+    answer:
+      "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+  },
+  {
+    question: "Hvad er Lorem Ipsum?",
+    answer:
+      "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+  },
+  {
+    question: "Hvad er Lorem Ipsum?",
+    answer:
+      "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+  },
+  {
+    question: "Hvad er Lorem Ipsum?",
+    answer:
+      'Lorem Ipsum er ganske enkelt fyldtekst fra <a href="#" class="text-blue-600 hover:underline">print- og typografiindustrien</a>. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.',
+  },
+];
+
 
   return (
     <>
@@ -115,6 +141,7 @@ const Website = (
       <Splitter />
       <TestemonialSection testemonial={testimonials} />
       <Splitter />
+      <FAQSection  FAQData={faq} description="Få svar på nogle af dine spørgsmål her!" title="FAQ" />
       <Footer />
     </>
   );

@@ -15,7 +15,7 @@ export const handler: Handlers = {
 
     // convert to numbers (with fallback defaults: start=0, limit=6 for example)
     const start = startParam ? parseInt(startParam, 10) : 0;
-    const limit = limitParam ? parseInt(limitParam, 10) : 3; 
+    const limit = limitParam ? parseInt(limitParam, 10) : 12; 
 
     // We can limit the query from [start..(start+limit-1)]
     // e.g. [0..5] when start=0, limit=6

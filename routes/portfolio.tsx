@@ -24,7 +24,7 @@ export const handler: Handlers<{
     const startParam = url.searchParams.get("start");
     const limitParam = url.searchParams.get("limit");
     const start = startParam ? parseInt(startParam, 10) : 0;
-    const limit = limitParam ? parseInt(limitParam, 10) : 3; // Show only 3 on SSR
+    const limit = limitParam ? parseInt(limitParam, 10) : 12; // Show only 3 on SSR
 
     // 2) Create a count query for total results
     const countQuery = `
@@ -113,7 +113,7 @@ export default function PortfolioRoute(
         allCategories={data.categories}
         initialActiveCategories={data.activeCategories}
         initialTotalCount={data.totalCount}
-        initialLimit={3} // match the default SSR limit
+        initialLimit={12} // match the default SSR limit
       />
 
       <Splitter />
