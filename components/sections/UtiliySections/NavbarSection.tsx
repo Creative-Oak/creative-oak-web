@@ -1,7 +1,15 @@
+// components/sections/UtiliySections/NavbarSection.tsx
+
 import PrimaryButton from "../../other/PrimaryButton.tsx";
 import MobileMenu from "../../../islands/MobileMenu/MobileMenu.tsx";
 
-export default function Navbar() {
+import { NavigationItem } from "../../../types/navbarItems.ts";
+
+interface NavbarProps {
+  navigation: NavigationItem[];
+}
+
+export default function Navbar({ navigation }: NavbarProps) {
   return (
     <nav className="fixed top-0 py-4 px-4 md:px-16 w-full z-50 [&_a]:underline [&_a]:decoration-transparent [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:decoration-inherit">
       <div className="left-0 border-brand-black shadow-custom-black border-2 bg-brand-white flex items-center justify-between px-4 md:px-8 py-4 z-50">
@@ -13,27 +21,43 @@ export default function Navbar() {
         </div>
 
         {/* Mobile menu toggle island */}
-        <MobileMenu />
+        <MobileMenu navigation={navigation} />
 
-        {/* Desktop menu - static */}
+        {/* Desktop menu - dynamic */}
         <div className="hidden md:flex items-center gap-8 justify-end w-full space-x-4">
-          <a href="/om-os" className="hover:text-gray-600">Om os</a>
-
-          {/* Services dropdown */}
-          <div className="relative group">
-            <button className="hover:text-gray-600">Services ▾</button>
-            <div className="absolute invisible opacity-0 translate-y-[10px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 top-full mt-2 flex flex-col gap-2 bg-white shadow-custom-black border-brand-black p-2 border-2 transition-all duration-200 ease-in-out">
-              <a href="/koeb-hjemmeside" className="block hover:text-gray-600">
-                Hjemmeside
-              </a>
-              <a href="/services/development" className="block hover:text-gray-600">
-                Development
-              </a>
+          {navigation.map((item) => (
+            <div key={item.text} className="relative group">
+              {item.childLinks?.length
+                ? (
+                  <>
+                    <button className="hover:text-gray-600">
+                      {item.text} ▾
+                    </button>
+                    <div className="absolute invisible opacity-0 translate-y-[10px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 top-full mt-2 flex flex-col gap-2 bg-white shadow-custom-black border-brand-black p-2 border-2 transition-all duration-200 ease-in-out">
+                      {item.childLinks.map((child) => (
+                        <a
+                          key={child.text}
+                          href={child.link}
+                          target={child.openInNewTab ? "_blank" : "_self"}
+                          className="block hover:text-gray-600 whitespace-nowrap"
+                        >
+                          {child.text}
+                        </a>
+                      ))}
+                    </div>
+                  </>
+                )
+                : (
+                  <a
+                    href={item.link}
+                    target={item.openInNewTab ? "_blank" : "_self"}
+                    className="hover:text-gray-600"
+                  >
+                    {item.text}
+                  </a>
+                )}
             </div>
-          </div>
-
-          <a href="/portfolio" className="hover:text-gray-600">Portfolio</a>
-          <a href="/artikler" className="hover:text-gray-600">Artikler</a>
+          ))}
           <PrimaryButton href="/kontakt" text="Kontakt" />
         </div>
       </div>

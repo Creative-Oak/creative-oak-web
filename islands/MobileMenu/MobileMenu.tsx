@@ -1,9 +1,20 @@
 import { useState } from "preact/hooks";
-
-import {LuMenu, LuX} from 'react-icons/lu';
+import { LuMenu, LuX } from "react-icons/lu";
 import PrimaryButton from "../../components/other/PrimaryButton.tsx";
 
-export default function MobileMenu() {
+interface NavigationItem {
+  text: string;
+  link: string;
+  linkType: "static" | "external";
+  openInNewTab?: boolean;
+  childLinks?: NavigationItem[];
+}
+
+interface MobileMenuProps {
+  navigation: NavigationItem[];
+}
+
+export default function MobileMenu({ navigation }: MobileMenuProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -24,23 +35,37 @@ export default function MobileMenu() {
         }`}
       >
         <div className="flex flex-col gap-4">
-          <a href="/om-os" className="hover:text-gray-600">Om os</a>
-          
-          {/* Mobile services dropdown */}
-          <div className="flex flex-col gap-2">
-            <button className="text-left hover:text-gray-600">Services</button>
-            <div className="ml-4 flex flex-col gap-2">
-              <a href="/services/design" className="hover:text-gray-600">
-                Design
-              </a>
-              <a href="/services/development" className="hover:text-gray-600">
-                Development
-              </a>
+          {navigation.map((item) => (
+            <div key={item.text} className="flex flex-col gap-2">
+              {item.childLinks && item.childLinks.length > 0 ? (
+                <>
+                  {/* Dropdown for items with children */}
+                  <button className="text-left hover:text-gray-600">{item.text}</button>
+                  <div className="ml-4 flex flex-col gap-2">
+                    {item.childLinks.map((child) => (
+                      <a
+                        key={child.text}
+                        href={child.link}
+                        target={child.openInNewTab ? "_blank" : "_self"}
+                        className="hover:text-gray-600"
+                      >
+                        {child.text}
+                      </a>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                // Regular link
+                <a
+                  href={item.link}
+                  target={item.openInNewTab ? "_blank" : "_self"}
+                  className="hover:text-gray-600"
+                >
+                  {item.text}
+                </a>
+              )}
             </div>
-          </div>
-
-          <a href="/portfolio" className="hover:text-gray-600">Portfolio</a>
-          <a href="/artikler" className="hover:text-gray-600">Artikler</a>
+          ))}
           <PrimaryButton href="/kontakt" text="Kontakt" />
         </div>
       </div>
