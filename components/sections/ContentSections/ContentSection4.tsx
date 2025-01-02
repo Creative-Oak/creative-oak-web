@@ -1,59 +1,35 @@
-import { CodeIcon, CourseIcon, RobotIcon } from "../../icons/Icons.tsx";
+import { Content4CardType } from "../../../types/Content4Cards.ts";
 import Content4Card from "../../other/Content4Card.tsx";
 
-const ContentSection4 = () => {
+interface ContentSection4Props {
+  title?: string;
+  cards: Content4CardType[];
+  centerText?: boolean;
+  showBorder?: boolean;
+}
+
+const ContentSection4 = (props: ContentSection4Props) => {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
-      <h2 className="font-lexend font-bold text-2xl md:text-3xl lg:text-4xl max-w-xl mb-4 text-gray-900">
-        Udforsk vores løsninger inden for kunstig intelligens
-      </h2>
+      {props.title && (
+        <h2 className="font-lexend font-bold text-2xl md:text-3xl lg:text-4xl max-w-xl mb-4 text-gray-900">
+          {props.title}
+        </h2>
+      )}
 
-      <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-12">
-        <Content4Card
-          description={
-            <>
-              Bliv fortrolig med kunstig intelligens!
-              <br />
-              <br />
-              Vores kursus hjælper dig med at forstå og anvende AI i praksis,
-              både som enkeltperson og organisation.
-            </>
-          }
-          href="/kursis-i-ai"
-          icon={<CourseIcon />}
-          buttonText="Læs mere om vores kurser"
-          title="Kursus i AI"
-        />
-        <Content4Card
-          description={
-            <>
-              Læs, hvordan AI-chatbots kan automatisere kundeservice og skabe
-              bedre kundeoplevelser. <br />
-              <br />
-
-              Perfekt til virksomheder, der ønsker smartere kommunikation.
-            </>
-          }
-          href="/chatbots"
-          icon={<RobotIcon />}
-          buttonText="Læs mere om chatbots"
-          title="AI Chatbots"
-        />
-
-        <Content4Card
-          description={
-            <>
-              Opdag, hvordan du kan integrere AI i din virksomheds processer for
-              at øge effektiviteten og skabe bedre resultater.<br />
-              <br />
-              Skal i have noget AI ind i virksomheden?
-            </>
-          }
-          href="/kontakt"
-          icon={<CodeIcon />}
-          buttonText="Kontakt os for mere information"
-          title="Virksomhedsintegration af AI"
-        />
+      <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-12 ">
+        {props.cards.map((card) => (
+          <Content4Card
+            key={card.title}
+            centerText={props.centerText}
+            showBorder={props.showBorder}
+            description={card.description}
+            icon={card.icon}
+            buttonText={card.buttonText}
+            buttonLink={card.buttonLink}
+            title={card.title}
+          />
+        ))}
       </div>
     </section>
   );

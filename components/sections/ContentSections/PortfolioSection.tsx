@@ -34,7 +34,7 @@ const PortfolioSection = (props: PortfolioSectionProps) => {
           })}
         </div>
         <div class="flex justify-center">
-          <PrimaryButton href="#" text="Se alle projeker" />
+          <PrimaryButton href="/portfolio" text="Se alle projeker" />
         </div>
       </div>
     </section>

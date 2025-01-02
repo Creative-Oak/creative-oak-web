@@ -1,21 +1,11 @@
-import { JSX } from "preact/jsx-runtime";
 import PrimaryButton from "./PrimaryButton.tsx";
+import { Content4CardType } from "../../types/Content4Cards.ts";
 
-interface Content4CardProps {
-  title: string;
-  description: JSX.Element;
-  icon: JSX.Element;
-  href: string;
-  buttonText?: string;
-}
-
-const Content4Card = (props: Content4CardProps) => {
+const Content4Card = (props: Content4CardType) => {
   return (
-    <div
-      
-      className="bg-white border-2 border-brand-black p-6 hover:shadow-custom-black transition-shadow duration-300"
-    >
-      <div className="text-brand-black w-10 h-10 mb-2">
+    // Only show border, if props.showBorder is true
+    <div className={`bg-white p-6 transition-shadow duration-300 ${props.showBorder ? 'border-2 border-brand-black  hover:shadow-custom-black' : ''} ${props.centerText ? 'text-center' : ''}`}>
+      <div className={`text-brand-black w-10 h-10 mb-2 ${props.centerText ? 'mx-auto' : ''}`}>
         {props.icon}
       </div>
 
@@ -26,13 +16,14 @@ const Content4Card = (props: Content4CardProps) => {
       <p className="font-lexend text-base  text-gray-600">
         {props.description}
       </p>
-
-      <div class="mt-8">
-        <PrimaryButton
-          text={props.buttonText || "Læs mere"}
-          href={props.href}
-        />
-      </div>
+      {props.buttonLink && (
+        <div class="mt-8">
+          <PrimaryButton
+            text={props.buttonText || "Læs mere"}
+            href={props.buttonLink}
+          />
+        </div>
+      )}
     </div>
   );
 };

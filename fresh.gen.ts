@@ -5,14 +5,19 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
+import * as $ai_chatbots from "./routes/ai-chatbots.tsx";
+import * as $ai_kursus from "./routes/ai-kursus.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_portfolio from "./routes/api/portfolio.tsx";
+import * as $hjemmeside_priser from "./routes/hjemmeside-priser.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
+import * as $kontakt from "./routes/kontakt.tsx";
 import * as $kunstig_intelligens_og_digital_udvikling from "./routes/kunstig-intelligens-og-digital-udvikling.tsx";
 import * as $om_os from "./routes/om-os.tsx";
 import * as $portfolio from "./routes/portfolio.tsx";
 import * as $projects_slug_ from "./routes/projects/[slug].tsx";
+import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
 import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
@@ -27,15 +32,20 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_middleware.ts": $_middleware,
+    "./routes/ai-chatbots.tsx": $ai_chatbots,
+    "./routes/ai-kursus.tsx": $ai_kursus,
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/portfolio.tsx": $api_portfolio,
+    "./routes/hjemmeside-priser.tsx": $hjemmeside_priser,
     "./routes/index.tsx": $index,
     "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
+    "./routes/kontakt.tsx": $kontakt,
     "./routes/kunstig-intelligens-og-digital-udvikling.tsx":
       $kunstig_intelligens_og_digital_udvikling,
     "./routes/om-os.tsx": $om_os,
     "./routes/portfolio.tsx": $portfolio,
     "./routes/projects/[slug].tsx": $projects_slug_,
+    "./routes/video-og-fotoproduktion.tsx": $video_og_fotoproduktion,
   },
   islands: {
     "./islands/CategoryFilter.tsx": $CategoryFilter,

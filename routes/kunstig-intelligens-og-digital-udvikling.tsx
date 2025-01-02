@@ -6,6 +6,55 @@ import ContentSection4 from "../components/sections/ContentSections/ContentSecti
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
 import CTASection from "../components/sections/UtiliySections/CTASection.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
+import { Content4CardType } from "../types/Content4Cards.ts";
+import { CodeIcon, CourseIcon, RobotIcon } from "../components/icons/Icons.tsx";
+
+const content4Cards: Content4CardType[] = [
+  {
+    description: (
+      <>
+        Bliv fortrolig med kunstig intelligens!
+        <br />
+        <br />
+        Vores kursus hjælper dig med at forstå og anvende AI i praksis, både som
+        enkeltperson og organisation.
+      </>
+    ),
+    icon: <CourseIcon />,
+    title: "Kursus i AI",
+    buttonLink: "/ai-kursus",
+    buttonText: "Læs om vores kurser",
+  },
+  {
+    description: (
+      <>
+        Læs, hvordan AI-chatbots kan automatisere kundeservice og skabe bedre
+        kundeoplevelser. <br />
+        <br />
+
+        Perfekt til virksomheder, der ønsker smartere kommunikation.
+      </>
+    ),
+    icon: <RobotIcon />,
+    title: "AI Chatbots",
+    buttonLink: "/chatbots",
+    buttonText: "Læs om vores vores AI Chatbots",
+  },
+  {
+    description: (
+      <>
+      Opdag, hvordan du kan integrere AI i din virksomheds processer for
+      at øge effektiviteten og skabe bedre resultater.<br />
+      <br />
+      Skal i have noget AI ind i virksomheden?
+    </>
+    ),
+    icon: <CodeIcon />,
+    title: "Virksomhedsintegration af AI",
+    buttonLink: "/kontakt",
+    buttonText: "Kontakt os for mere information",
+  },
+];
 
 const AiDigitalPage = () => {
   return (
@@ -22,7 +71,10 @@ const AiDigitalPage = () => {
         title="Kunstig intelligens og digital udvikling"
       />
       <Splitter />
-      <ContentSection4 />
+      <ContentSection4
+        cards={content4Cards}
+        title="Udforsk vores løsninger inden for kunstig intelligens"
+      />
       <Splitter />
       <ContentSection
         extraStyles="bg-brand-blue text-brand-white"
@@ -87,8 +139,8 @@ const AiDigitalPage = () => {
         }
         title="Hvad er kunstig intelligens?"
       />
-      <Splitter/>
-      <CTASection 
+      <Splitter />
+      <CTASection
         buttonLink="/kontakt"
         buttonText="Kontakt os for mere information"
         title="Er i klar til kunstig intelligens?"
@@ -97,7 +149,6 @@ const AiDigitalPage = () => {
       <Splitter />
       <Footer />
     </>
-    
   );
 };
 

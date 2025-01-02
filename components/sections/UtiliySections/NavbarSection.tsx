@@ -12,11 +12,11 @@ interface NavbarProps {
 export default function Navbar({ navigation }: NavbarProps) {
   return (
     <nav className="fixed top-0 py-4 px-4 md:px-16 w-full z-50 [&_a]:underline [&_a]:decoration-transparent [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:decoration-inherit">
-      <div className="left-0 border-brand-black shadow-custom-black border-2 bg-brand-white flex items-center justify-between px-4 md:px-8 py-4 z-50">
+      <div className="left-0 border-brand-black shadow-custom-black border-2 bg-brand-white flex items-center justify-between px-4 md:px-8  z-50">
         {/* Logo section - always visible */}
         <div className="flex-grow md:flex-grow-0">
-          <a className="font-bold text-lg w-16 block" href="/">
-            <img src="/images/logo.svg" className="w-16" alt="Logo" />
+          <a className="font-bold text-lg w-20 block" href="/">
+            <img src="/images/logo.svg" className="w-24" alt="Logo" />
           </a>
         </div>
 
@@ -24,7 +24,7 @@ export default function Navbar({ navigation }: NavbarProps) {
         <MobileMenu navigation={navigation} />
 
         {/* Desktop menu - dynamic */}
-        <div className="hidden md:flex items-center gap-8 justify-end w-full space-x-4">
+        <div className="hidden md:flex items-center gap-8 justify-end w-full py-4 space-x-4">
           {navigation.map((item) => (
             <div key={item.text} className="relative group">
               {item.childLinks?.length

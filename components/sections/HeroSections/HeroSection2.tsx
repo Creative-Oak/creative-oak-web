@@ -4,6 +4,7 @@ import SecondaryButton from "../../other/SecondayButton.tsx";
 interface Hero2Props {
   title: string;
   description: string;
+  tagLine?: string;
   imageUrl?: string;
   imageAlt?: string;
   buttonLink?: string;
@@ -40,6 +41,11 @@ const HeroSection2 = (props: Hero2Props) => {
               )}
           </div>
           <div className="md:order-1">
+            {props.tagLine && (
+              <p className="text-lg  text-brand-black mb-2">
+                {props.tagLine}
+              </p>
+            )}
             <h1 className="text-4xl md:text-5xl font-bold text-brand-black mb-4 font-lexend">
               {props.title}
             </h1>

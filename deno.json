@@ -20,24 +20,24 @@
   "exclude": [
     "**/_fresh/*"
   ],
-"imports": {
-  "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-  "@portabletext/to-html": "npm:@portabletext/to-html@^2.0.13",
-  "@sanity/image-url": "npm:@sanity/image-url@^1.1.0",
-  "@sanity/types": "npm:@sanity/types@^3.68.3",
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "@portabletext/to-html": "npm:@portabletext/to-html@^2.0.13",
+    "@sanity/image-url": "npm:@sanity/image-url@^1.1.0",
+    "@sanity/types": "npm:@sanity/types@^3.68.3",
     "dompurify": "npm:dompurify@^3.2.3",
-  "gsap": "npm:gsap@^3.12.5",
-  "preact": "https://esm.sh/preact@10.22.0",
-  "preact/": "https://esm.sh/preact@10.22.0/",
-  "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
-  "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
-  "tailwindcss": "npm:tailwindcss@3.4.1",
-  "tailwindcss/": "npm:/tailwindcss@3.4.1/",
-  "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-  "react-icons/lu":  "https://cdn.jsdelivr.net/gh/urielch/react-icons-lu@1.0.10/mod.ts",
-  "react-icons/lu/": "https://cdn.jsdelivr.net/gh/urielch/react-icons-lu@1.0.10/ico/",
-  "$std/": "https://deno.land/std@0.216.0/"
-},
+    "gsap": "npm:gsap@^3.12.5",
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact/": "https://esm.sh/preact@10.22.0/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "tailwindcss": "npm:tailwindcss@3.4.1",
+    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
+    "react-icons/lu": "https://cdn.jsdelivr.net/gh/urielch/react-icons-lu@1.0.10/mod.ts",
+    "react-icons/lu/": "https://cdn.jsdelivr.net/gh/urielch/react-icons-lu@1.0.10/ico/",
+    "$std/": "https://deno.land/std@0.216.0/"
+  },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
@@ -46,6 +46,7 @@
   "deploy": {
     "project": "cc470114-372c-4afd-b45c-cfdfcc875731",
     "exclude": [
+      "**/node_modules",
       "**/node_modules"
     ],
     "include": [],

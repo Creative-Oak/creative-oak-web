@@ -60,10 +60,10 @@ const About = () => {
         title="Hvad betyder en kollektivistisk virksomhed?"
         imageUrl="/images/magnus-heine-baal.jpeg"
         imageAlt="2 mennesker der, hvor den ene sidder i en sofa, og den anden sidder og ved et bål"
-        box1="Beslutninger tages demokratisk"
-        box2="Alle får det samme i løn"
-        box3="Den (semi) firedages arbejdsuge"
-        description="Vi stræber efter at blive en kollektivistisk virksomhed. Hvad mener vi så med det? Vi vil gerne skabe en atmosfære, hvor arbejdet hos Creative Oak føles som et kollektiv—hvor vi sammen kan opnå noget stort ved fælles indsats. Hvordan gør vi så det? Vi har valgt tre principper, som forhåbentlig bidrager til en kollektivistisk tankegang:"
+        box1={<>"Beslutninger tages demokratisk"</>}
+        box2={<>"Alle får det samme i løn"</>}
+        box3={<>"Den (semi) firedages arbejdsuge"</>}
+        description={<>"Vi stræber efter at blive en kollektivistisk virksomhed. Hvad mener vi så med det? Vi vil gerne skabe en atmosfære, hvor arbejdet hos Creative Oak føles som et kollektiv—hvor vi sammen kan opnå noget stort ved fælles indsats. Hvordan gør vi så det? Vi har valgt tre principper, som forhåbentlig bidrager til en kollektivistisk tankegang:"</>}
       />
       <Splitter />
       <ContentSection2

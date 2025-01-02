@@ -1,5 +1,8 @@
+
+
 interface ContentSection2Props {
     title: string;
+    description?: string;
     text: {header: string, txt: string}[];
 }
 
@@ -19,6 +22,8 @@ const ContentSection2 = (props: ContentSection2Props) => {
     return (
         <div className="container max-w-4xl py-16 px-2">
             <h2 class="text-3xl font-bold font-lexend">{props.title}</h2>
+            {props.description && <p class="mt-4">{props.description}</p>}
+           
             <div className="content-section-2__text">
                 {props.text.map((el, i) => (
                     <div class="my-8" key={i}>

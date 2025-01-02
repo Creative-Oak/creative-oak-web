@@ -40,7 +40,6 @@ export default function Home({ data }: PageProps<ProjectCardData[]>) {
     <>
       <Head>
         <title>Creative Oak</title>
-        <meta name="debug" content="Head function is working!" />
       </Head>
       <HeroSection1
         rightImage="./images/hero1.avif"
