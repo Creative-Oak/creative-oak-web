@@ -1,4 +1,5 @@
 import { SMTPClient } from "https://deno.land/x/denomailer/mod.ts";
+import "https://deno.land/std@0.205.0/dotenv/load.ts";
 
 export const handler = async (req: Request): Promise<Response> => {
     if (req.method !== "POST") {
@@ -21,14 +22,14 @@ export const handler = async (req: Request): Promise<Response> => {
                 port: 465,
                 tls: true,
                 auth: {
-                    username: "***REMOVED***", // Your Workspace email
-                    password: "***REMOVED***", // App Password if 2FA enabled
+                    username: Deno.env.get("SMTP_USERNAME") || "", // Load from env
+                    password: Deno.env.get("SMTP_PASSWORD") || "", // Load from env
                 },
             },
         });
 
         await client.send({
-            from: `"Creative Oak Kontaktformular" <***REMOVED***>`,
+            from: `"Creative Oak Kontaktformular" <${Deno.env.get("SMTP_USERNAME")}>`,
             to: "hej@creativeoak.dk", // Change to your recipient email
             subject: `New website contact from ${name}`,
             content: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,

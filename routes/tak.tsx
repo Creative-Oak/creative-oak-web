@@ -1,9 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
-import ContentSection2 from "../components/sections/ContentSections/ContentSection2.tsx";
-import ContentSection3 from "../components/sections/ContentSections/ContentSection3.tsx";
-import ContentSection4 from "../components/sections/ContentSections/ContentSection4.tsx";
+
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 
