@@ -8,6 +8,7 @@ import * as $_middleware from "./routes/_middleware.ts";
 import * as $ai_chatbots from "./routes/ai-chatbots.tsx";
 import * as $ai_kursus from "./routes/ai-kursus.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $api_mail from "./routes/api/mail.ts";
 import * as $api_portfolio from "./routes/api/portfolio.tsx";
 import * as $hjemmeside_priser from "./routes/hjemmeside-priser.tsx";
 import * as $index from "./routes/index.tsx";
@@ -17,6 +18,7 @@ import * as $kunstig_intelligens_og_digital_udvikling from "./routes/kunstig-int
 import * as $om_os from "./routes/om-os.tsx";
 import * as $portfolio from "./routes/portfolio.tsx";
 import * as $projects_slug_ from "./routes/projects/[slug].tsx";
+import * as $tak from "./routes/tak.tsx";
 import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
@@ -35,6 +37,7 @@ const manifest = {
     "./routes/ai-chatbots.tsx": $ai_chatbots,
     "./routes/ai-kursus.tsx": $ai_kursus,
     "./routes/api/joke.ts": $api_joke,
+    "./routes/api/mail.ts": $api_mail,
     "./routes/api/portfolio.tsx": $api_portfolio,
     "./routes/hjemmeside-priser.tsx": $hjemmeside_priser,
     "./routes/index.tsx": $index,
@@ -45,6 +48,7 @@ const manifest = {
     "./routes/om-os.tsx": $om_os,
     "./routes/portfolio.tsx": $portfolio,
     "./routes/projects/[slug].tsx": $projects_slug_,
+    "./routes/tak.tsx": $tak,
     "./routes/video-og-fotoproduktion.tsx": $video_og_fotoproduktion,
   },
   islands: {

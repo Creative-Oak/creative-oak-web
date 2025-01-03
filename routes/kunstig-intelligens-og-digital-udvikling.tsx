@@ -43,11 +43,11 @@ const content4Cards: Content4CardType[] = [
   {
     description: (
       <>
-      Opdag, hvordan du kan integrere AI i din virksomheds processer for
-      at øge effektiviteten og skabe bedre resultater.<br />
-      <br />
-      Skal i have noget AI ind i virksomheden?
-    </>
+        Opdag, hvordan du kan integrere AI i din virksomheds processer for at
+        øge effektiviteten og skabe bedre resultater.<br />
+        <br />
+        Skal i have noget AI ind i virksomheden?
+      </>
     ),
     icon: <CodeIcon />,
     title: "Virksomhedsintegration af AI",

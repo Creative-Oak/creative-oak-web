@@ -13,6 +13,7 @@ import Splitter from "../components/other/splitter.tsx";
 import ContentSection2 from "../components/sections/ContentSections/ContentSection2.tsx";
 import TeamSection from "../components/sections/ContentSections/TeamSection.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
+import ContactSection from "../components/sections/UtiliySections/ContactSecton.tsx";
 
 const content4Cards: Content4CardType[] = [
   {
@@ -90,6 +91,9 @@ const contactPage = () => {
         showBorder={false}
         cards={content4Cards}
       />
+
+<ContactSection />
+<Splitter />
       <ContentSection2
         title="Stillinger"
         text={[{
@@ -105,6 +109,7 @@ const contactPage = () => {
         subtitle="Lær menneskerne bag Creative Oak at kende"
       />
       <Splitter />
+  
       <Footer />
     </>
   );
