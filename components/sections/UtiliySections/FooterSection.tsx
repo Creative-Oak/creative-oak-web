@@ -1,3 +1,10 @@
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  YoutubeIcon,
+} from "../../icons/Icons.tsx";
+
 const Footer = () => {
   return (
     <footer className="[&_a]:underline [&_a]:decoration-transparent [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:decoration-inherit">
@@ -6,7 +13,7 @@ const Footer = () => {
           <div class="flex flex-col flex-grow">
             <a href="/">
               <img class="w-20" width={150} src="/images/logo.svg" />
-              </a>
+            </a>
             <div class="max-w-md pt-6">
               <h4 class="font-bold">Addresse</h4>
               <p>Langelandsgade 62 St</p>
@@ -20,6 +27,41 @@ const Footer = () => {
               <p>+45 53 53 42 90</p>
 
               <a href="mailto:hej@creativeoak.dk">hej@creativeoak.dk</a>
+            </div>
+
+            <div class="flex h-6 mt-4 fill-brand-black space-x-4">
+              <a
+                href="#"
+                class="h-full"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href="#"
+                class="h-full"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon />
+              </a>
+              <a
+                href="#"
+                class="h-full fill-brand-black"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookIcon />
+              </a>
+              <a
+                href="#"
+                class="h-full"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <YoutubeIcon />
+              </a>
             </div>
 
             <ul class="footer-social">
@@ -84,9 +126,14 @@ const Footer = () => {
               <li>
                 <a href="#">Artikler</a>
               </li>
+              <li>
+                <a href="https://www.newsletter.creativeoak.dk/subscribe" target="_blank">Nyhedsbrev</a>
+              </li>
             </ul>
           </div>
+        
         </div>
+        
       </div>
     </footer>
   );
