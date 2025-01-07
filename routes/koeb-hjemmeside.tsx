@@ -3,6 +3,12 @@ import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 
 import ContentSection3 from "../components/sections/ContentSections/ContentSection3.tsx";
+import {
+  ConnectedIcon,
+  DesignIcon,
+  SearchIcon,
+} from "../components/icons/Icons.tsx";
+
 import PortfolioSection from "../components/sections/ContentSections/PortfolioSection.tsx";
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
 import ProgressBarSection from "../components/sections/UtiliySections/ProgressBarSection.tsx";
@@ -58,30 +64,28 @@ const Website = (
 ) => {
   const { projects, testimonials } = data;
 
-
-const faq = [
-  {
-    question: "Hvad er Lorem Ipsum?",
-    answer:
-      "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
-  },
-  {
-    question: "Hvad er Lorem Ipsum?",
-    answer:
-      "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
-  },
-  {
-    question: "Hvad er Lorem Ipsum?",
-    answer:
-      "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
-  },
-  {
-    question: "Hvad er Lorem Ipsum?",
-    answer:
-      'Lorem Ipsum er ganske enkelt fyldtekst fra <a href="#" class="text-blue-600 hover:underline">print- og typografiindustrien</a>. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.',
-  },
-];
-
+  const faq = [
+    {
+      question: "Hvad er Lorem Ipsum?",
+      answer:
+        "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+    },
+    {
+      question: "Hvad er Lorem Ipsum?",
+      answer:
+        "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+    },
+    {
+      question: "Hvad er Lorem Ipsum?",
+      answer:
+        "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+    },
+    {
+      question: "Hvad er Lorem Ipsum?",
+      answer:
+        'Lorem Ipsum er ganske enkelt fyldtekst fra <a href="#" class="text-blue-600 hover:underline">print- og typografiindustrien</a>. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.',
+    },
+  ];
 
   return (
     <>
@@ -98,7 +102,44 @@ const faq = [
         button2Text="Læs mere om bæredygtig webdesign"
       />
       <Splitter />
-      <ContentSection3 />
+      <ContentSection3
+        title="Køb hjemmeside hos os og få skræddersyede løsninger, der både fungerer og ser godt ud"
+        description="Når vi udvikler din nye hjemmeside, sørger vi for at have fokus på de vigtigste elementer, så du får en løsning, der er både funktionel, brugervenlig og visuelt tiltalende."
+        elements={[
+          {
+            type: "list",
+            icon: <DesignIcon />,
+            title: "Design",
+            content: [
+              "Kreative designløsninger, der bringer din vision til live",
+              "Du kan selv opdaterer indholdet på din side",
+              "Bæredygtigt design",
+              "Responsivt design, så din side fungerer på alle enheder",
+              "Brugervenlige navigationsstrukturer",
+            ],
+          },
+          {
+            type: "list",
+            icon: <SearchIcon />,
+            title: "SEO",
+            content: [
+              "Teknisk SEO-optimering fra bunden",
+              "Mulighed for optimering af både on-page og off-page SEO",
+              "Konkrete strategier tilpasset dine behov",
+            ],
+          },
+          {
+            type: "list",
+            icon: <ConnectedIcon />,
+            title: "Forbundet",
+            content: [
+              "Integration med eksisterende IT- og CRM-systemer.",
+              "Mulighed for at forbinde hjemmesiden til sociale medier.",
+              "Hjemmesider, der er skræddersyet til at arbejde sammen med dine nuværende systemer.",
+            ],
+          },
+        ]}
+      />
       <Splitter />
       <ContentSection
         description={
@@ -141,7 +182,11 @@ const faq = [
       <Splitter />
       <TestemonialSection testemonial={testimonials} />
       <Splitter />
-      <FAQSection  FAQData={faq} description="Få svar på nogle af dine spørgsmål her!" title="FAQ" />
+      <FAQSection
+        FAQData={faq}
+        description="Få svar på nogle af dine spørgsmål her!"
+        title="FAQ"
+      />
       <Footer />
     </>
   );

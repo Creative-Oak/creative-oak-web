@@ -1,53 +1,106 @@
-import ListElement from "../../other/List.tsx";
-import { ConnectedIcon, DesignIcon, SearchIcon } from "../../icons/Icons.tsx";
-const ContentSection3 = () => {
+// ContentSection3.tsx
+import { VNode } from "preact";
+
+interface BaseElementProps {
+  icon: VNode;
+  title: string;
+}
+
+interface ListElementProps extends BaseElementProps {
+  type: "list";
+  content: string[];
+}
+
+interface TextElementProps extends BaseElementProps {
+  type: "text";
+  content: string;
+}
+
+type ContentElementProps = ListElementProps | TextElementProps;
+
+interface ContentSection3Props {
+  title: string;
+  description: string;
+  elements: ContentElementProps[];
+  backgroundColor?: string;
+  containerMaxWidth?: string;
+}
+
+const ContentElement = ({ element }: { element: ContentElementProps }) => {
   return (
-    <section class="py-24 bg-brand-yellow">
-    <div class="container max-w-5xl flex items-center justify-center">
-      <div class="bg-brand-white border-2 border-brand-black shadow-custom-black p-8">
-        <div class="text-center my-8">
-        <h2 class="text-4xl max-w-5xl mx-auto font-bold font-lexend mb-4">
-          Køb hjemmeside hos os og få skræddersyede løsninger, der både fungerer og ser godt ud
-        </h2>
-        <p class="max-w-2xl text-pretty mx-auto mb-8">
-          Når vi udvikler din nye hjemmeside, sørger vi for at have fokus på de vigtigste elementer, så du får en løsning, der er både funktionel, brugervenlig og visuelt tiltalende.
-        </p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          <ListElement
-            icon={<DesignIcon />}
-            list={[
-              "Kreative designløsninger, der bringer din vision til live",
-              "Du kan selv opdaterer indholdet på din side",
-              "Bæredygtigt design",
-              "Responsivt design, så din side fungerer på alle enheder",
-              "Brugervenlige navigationsstrukturer",
-            ]}
-            title="Design"
-          />
-          <ListElement
-            icon={<SearchIcon />}
-            list={[
-              "Teknisk SEO-optimering fra bunden",
-              "Mulighed for optimering af både on-page og off-page SEO",
-              "Konkrete strategier tilpasset dine behov",
-            ]}
-            title="SEO"
-          />
-          <ListElement
-            icon={<ConnectedIcon />}
-            list={[
-              "Integration med eksisterende IT- og CRM-systemer.",
-              "Mulighed for at forbinde hjemmesiden til sociale medier.",
-              "Hjemmesider, der er skræddersyet til at arbejde sammen med dine nuværende systemer.",
-            ]}
-            title="Forbundet"
-          />
+    <div class="p-6 flex flex-col items-center text-center">
+      <div class="mb-4 w-12 h-12">
+        {element.icon}
+      </div>
+      <h3 class="text-xl font-bold mb-4">
+        {element.title}
+      </h3>
+      {element.type === "list"
+        ? (
+          <ul class="text-left space-y-2">
+            {element.content.map((item, index) => (
+              <li key={index} class="flex">
+                <span class="mr-2">•</span>
+                <span class="flex-1">{item}</span>
+              </li>
+            ))}
+          </ul>
+        )
+        : (
+          <p class="text-left">
+            {element.content}
+          </p>
+        )}
+    </div>
+  );
+};
+
+const ContentSection3 = ({
+  title,
+  description,
+  elements,
+  backgroundColor = "bg-brand-yellow",
+  containerMaxWidth = "max-w-5xl",
+}: ContentSection3Props) => {
+  // Calculate grid columns based on number of elements
+  const getGridCols = (elementsCount: number) => {
+    if (elementsCount === 1) return "grid-cols-1";
+    if (elementsCount === 2) return "grid-cols-1 md:grid-cols-2";
+    return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+  };
+
+  // Calculate grid justification based on number of elements
+  const getGridJustify = (elementsCount: number) => {
+    if (elementsCount < 3) return "justify-center";
+    return "";
+  };
+
+  return (
+    <section class={`py-24 ${backgroundColor}`}>
+      <div
+        class={`container ${containerMaxWidth} flex items-center justify-center`}
+      >
+        <div class="bg-brand-white border-2 border-brand-black shadow-custom-black p-8 w-full">
+          <div class="text-center my-8">
+            <h2 class="text-4xl max-w-5xl mx-auto font-bold font-lexend mb-4">
+              {title}
+            </h2>
+            <p class="max-w-2xl text-pretty mx-auto mb-8">
+              {description}
+            </p>
+          </div>
+          <div
+            class={`grid ${getGridCols(elements.length)} gap-8 ${
+              getGridJustify(elements.length)
+            }`}
+          >
+            {elements.map((element, index) => (
+              <ContentElement key={index} element={element} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  
+    </section>
   );
 };
 

@@ -90,25 +90,27 @@ const Footer = () => {
           <div class="">
             <ul class="space-y-4">
               <li>
-                <a href="#">Køb Hjemmeside</a>
+                <a href="/koeb-hjemmeside">Køb Hjemmeside</a>
               </li>
               <li>
-                <a href="#">AI Kursus</a>
+                <a href="/AI-kursus">AI Kursus</a>
               </li>
               <li>
-                <a href="#">Chatbots</a>
+                <a href="/ai-chatbots">Chatbots</a>
               </li>
               <li>
-                <a href="#">AI & digitale services</a>
+                <a href="/kunstig-intelligens-og-digital-udvikling">
+                  AI & digitale services
+                </a>
               </li>
               <li>
-                <a href="#">Hjemmesider Priser</a>
+                <a href="/hjemmeside-priser">Hjemmesider Priser</a>
               </li>
               <li>
-                <a href="#">Video- og fotoproduktion</a>
+                <a href="/video-og-fotoproduktion">Video- og fotoproduktion</a>
               </li>
               <li>
-                <a href="#">Visuel identitet</a>
+                <a href="/visuel-identitet">Visuel identitet</a>
               </li>
             </ul>
           </div>
@@ -127,13 +129,16 @@ const Footer = () => {
                 <a href="#">Artikler</a>
               </li>
               <li>
-                <a href="https://www.newsletter.creativeoak.dk/subscribe" target="_blank">Nyhedsbrev</a>
+                <a
+                  href="https://www.newsletter.creativeoak.dk/subscribe"
+                  target="_blank"
+                >
+                  Nyhedsbrev
+                </a>
               </li>
             </ul>
           </div>
-        
         </div>
-        
       </div>
     </footer>
   );

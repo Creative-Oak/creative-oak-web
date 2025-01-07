@@ -20,6 +20,7 @@ import * as $portfolio from "./routes/portfolio.tsx";
 import * as $projects_slug_ from "./routes/projects/[slug].tsx";
 import * as $tak from "./routes/tak.tsx";
 import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx";
+import * as $visuel_identitet from "./routes/visuel-identitet.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
 import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
@@ -50,6 +51,7 @@ const manifest = {
     "./routes/projects/[slug].tsx": $projects_slug_,
     "./routes/tak.tsx": $tak,
     "./routes/video-og-fotoproduktion.tsx": $video_og_fotoproduktion,
+    "./routes/visuel-identitet.tsx": $visuel_identitet,
   },
   islands: {
     "./islands/CategoryFilter.tsx": $CategoryFilter,
