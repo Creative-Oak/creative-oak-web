@@ -58,7 +58,7 @@ const renderMainContent = (mainContent: BlockContent[]): JSX.Element[] => {
                   className="w-full h-auto object-cover border-2 border-brand-black shadow-custom-black"
                 />
                 {block.caption && (
-                  <p className="text-sm text-gray-600 italic mt-2">{block.caption}</p>
+                  <p className="text-sm text-brand-black-500 italic mt-2">{block.caption}</p>
                 )}
               </div>
             );
@@ -112,7 +112,7 @@ const renderMainContent = (mainContent: BlockContent[]): JSX.Element[] => {
           switch (block.style) {
             case "h2":
               return (
-                <h2 key={block._key || index} className="text-3xl font-bold mt-8 mb-4 text-gray-900">
+                <h2 key={block._key || index} className="text-3xl font-bold mt-8 mb-4 text-brand-black">
                   {block.children.map((child, idx) => 
                     renderTextContent(child, idx, block.markDefs)
                   )}
@@ -121,7 +121,7 @@ const renderMainContent = (mainContent: BlockContent[]): JSX.Element[] => {
 
             case "h3":
               return (
-                <h3 key={block._key || index} className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
+                <h3 key={block._key || index} className="text-2xl font-semibold mt-6 mb-3 text-brand-black">
                   {block.children.map((child, idx) => 
                     renderTextContent(child, idx, block.markDefs)
                   )}
@@ -131,7 +131,7 @@ const renderMainContent = (mainContent: BlockContent[]): JSX.Element[] => {
             case "normal":
             default:
               return (
-                <p key={block._key || index} className="text-gray-700 leading-relaxed mb-4">
+                <p key={block._key || index} className="text-brand-black leading-relaxed mb-4">
                   {block.children.map((child, idx) => 
                     renderTextContent(child, idx, block.markDefs)
                   )}
@@ -146,43 +146,50 @@ const renderMainContent = (mainContent: BlockContent[]): JSX.Element[] => {
     })
     .filter((element): element is JSX.Element => element !== null);
 };
-
 const renderTextContent = (
   child: { text: string; marks?: string[]; _key: string },
   idx: number,
-  markDefs?: { _key: string; _type: string; href: string }[]
+  markDefs?: { 
+    _key: string; 
+    _type: string; 
+    href: string;
+    targetBlank?: boolean; // Add this to handle the new property
+  }[]
 ): JSX.Element => {
   if (!child.text) {
     return <span key={idx}></span>;
   }
   
+  let element = <span key={idx}>{child.text}</span>;
+  
   if (child.marks?.length) {
-    // Handle strong text
-    if (child.marks.includes('strong')) {
-      return <strong key={idx} className="font-semibold">{child.text}</strong>;
+    // First wrap with any links (if present)
+    if (markDefs?.length) {
+      const linkMark = markDefs.find(def => child.marks?.includes(def._key));
+      if (linkMark) {
+        element = (
+          <a 
+            href={linkMark.href}
+            key={idx}
+            {...(linkMark.targetBlank ? {
+              target: "_blank",
+              rel: "noopener noreferrer"
+            } : {})}
+            className="text-brand-red hover:underline"
+          >
+            {child.text}
+          </a>
+        );
+      }
     }
     
-    // Handle links
-    const linkMark = markDefs?.find((def) => 
-      child.marks?.includes(def._key)
-    );
-    
-    if (linkMark) {
-      return (
-        <a 
-          key={idx}
-          href={linkMark.href}
-          className="text-blue-600 hover:text-blue-800 underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {child.text}
-        </a>
-      );
+    // Then wrap with strong if present
+    if (child.marks.includes('strong')) {
+      element = <strong key={idx} className="font-semibold">{element}</strong>;
     }
   }
   
-  return <span key={idx}>{child.text}</span>;
+  return element;
 };
 
 export default renderMainContent;

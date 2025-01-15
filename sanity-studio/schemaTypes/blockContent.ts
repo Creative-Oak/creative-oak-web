@@ -14,6 +14,35 @@ export default defineType({
         { title: 'Heading 3', value: 'h4' },
       ],
       lists: [{ title: 'Bullet', value: 'bullet' }],
+      marks: {
+        decorators: [
+          { title: 'Strong', value: 'strong' },
+          { title: 'Emphasis', value: 'em' },
+        ],
+        annotations: [
+          {
+            name: 'link',
+            type: 'object',
+            title: 'Link',
+            fields: [
+              {
+                name: 'href',
+                type: 'url',
+                title: 'URL',
+                validation: (Rule) => Rule.uri({
+                  scheme: ['http', 'https', 'mailto', 'tel']
+                })
+              },
+              {
+                name: 'targetBlank',
+                type: 'boolean',
+                title: 'Open in new tab',
+                initialValue: false
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       type: 'image',
@@ -25,7 +54,7 @@ export default defineType({
           type: 'string',
           description: 'Important for SEO and accessibility.',
           options: {
-            isHighlighted: true, // Show this field in the image editor
+            isHighlighted: true,
           },
         },
         {
@@ -34,13 +63,13 @@ export default defineType({
           type: 'string',
           description: 'Image caption for additional context.',
           options: {
-            isHighlighted: true, // Show this field in the image editor
+            isHighlighted: true,
           },
         },
       ],
     },
     {
-      type: 'videoEmbed', // Add support for video embeds
+      type: 'videoEmbed',
     },
   ],
 });

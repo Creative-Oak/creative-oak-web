@@ -433,12 +433,6 @@
         "marks": {
           "annotations": [
             {
-              "i18nTitleKey": "inputs.portable-text.annotation.link",
-              "options": {
-                "modal": {
-                  "type": "popover"
-                }
-              },
               "fields": [
                 {
                   "validation": [
@@ -451,10 +445,10 @@
                               "scheme": [
                                 "/^http$/",
                                 "/^https$/",
-                                "/^tel$/",
-                                "/^mailto$/"
+                                "/^mailto$/",
+                                "/^tel$/"
                               ],
-                              "allowRelative": true,
+                              "allowRelative": false,
                               "relativeOnly": false,
                               "allowCredentials": false
                             }
@@ -464,10 +458,15 @@
                       "level": "error"
                     }
                   ],
-                  "description": "A valid web, email, phone, or relative link.",
                   "name": "href",
                   "type": "url",
-                  "title": "Link"
+                  "title": "URL"
+                },
+                {
+                  "initialValue": false,
+                  "name": "targetBlank",
+                  "type": "boolean",
+                  "title": "Open in new tab"
                 }
               ],
               "name": "link",
@@ -481,19 +480,7 @@
             },
             {
               "value": "em",
-              "title": "Italic"
-            },
-            {
-              "value": "code",
-              "title": "Code"
-            },
-            {
-              "value": "underline",
-              "title": "Underline"
-            },
-            {
-              "value": "strike-through",
-              "title": "Strike"
+              "title": "Emphasis"
             }
           ]
         },
@@ -760,6 +747,33 @@
             "rules": [
               {
                 "flag": "max",
+                "constraint": 2
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Select 1-2 related articles that readers might be interested in",
+        "of": [
+          {
+            "to": [
+              {
+                "type": "article"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to articles"
+          }
+        ],
+        "name": "relatedArticles",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
                 "constraint": 200
               }
             ],
@@ -772,19 +786,24 @@
         "title": "Article Short Description"
       },
       {
-        "of": [
+        "validation": [
           {
-            "to": [
+            "rules": [
               {
-                "type": "projectCategories"
+                "flag": "presence",
+                "constraint": "required"
               }
             ],
-            "type": "reference",
-            "title": "Reference to project categories"
+            "level": "error"
           }
         ],
-        "name": "categories",
-        "type": "array"
+        "to": [
+          {
+            "type": "employee"
+          }
+        ],
+        "name": "author",
+        "type": "reference"
       },
       {
         "name": "releaseDate",
@@ -861,5 +880,186 @@
     "name": "about-page",
     "type": "document",
     "title": "About"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Full Name"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "position",
+        "type": "string",
+        "title": "Position/Role"
+      },
+      {
+        "name": "pronouns",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "profileImage",
+        "type": "image"
+      },
+      {
+        "name": "bio",
+        "type": "blockContent",
+        "title": "Biography"
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "title": "Email Address"
+      },
+      {
+        "name": "phoneNumber",
+        "type": "string"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "linkedin",
+            "type": "url",
+            "title": "LinkedIn"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "instagram",
+            "type": "url"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "github",
+            "type": "url",
+            "title": "GitHub"
+          }
+        ],
+        "name": "socialLinks",
+        "type": "object",
+        "title": "Social Media Links"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "project"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to projects"
+          }
+        ],
+        "name": "projects",
+        "type": "array"
+      }
+    ],
+    "name": "employee",
+    "type": "document",
+    "title": "Employees"
   }
 ]

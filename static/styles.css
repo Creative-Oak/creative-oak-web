@@ -7,9 +7,15 @@
   :root {
     --black: #333740;
   }
-
+  .rich-text {
+    @apply text-brand-black
+  }
   .rich-text a {
-    @apply text-brand-red underline;
+    @apply  underline;
+  }
+
+  .rich-text a:hover {
+    @apply text-brand-red transition-colors
   }
 
   .progress-section {

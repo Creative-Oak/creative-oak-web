@@ -36,16 +36,30 @@ export default {
         },
       },
       {
+        name: 'relatedArticles',
+        type: 'array',
+        title: 'Related Articles',
+        description: 'Select 1-2 related articles that readers might be interested in',
+        of: [
+          {
+            type: 'reference',
+            to: [{ type: 'article' }]
+          }
+        ],
+        validation: (Rule: Rule) => Rule.max(2),
+      },
+      {
         name: 'shortDescription',
         type: 'text',
         title: 'Article Short Description',
         validation: (Rule: Rule) => Rule.max(200).warning('Shorter descriptions are better!'),
       },
       {
-        name: 'categories',
-        type: 'array',
-        title: 'Categories',
-        of: [{ type: 'reference', to: [{ type: 'projectCategories' }] }],
+        name: 'author',
+        type: 'reference',
+        title: 'Author',
+        to: [{ type: 'employee' }],
+        validation: (Rule: Rule) => Rule.required(),
       },
       {
         name: "releaseDate",

@@ -9,6 +9,7 @@ import homepage from "./pages/homepage.ts";
 import about from "./pages/about.ts";
 import testemonial from "./objects/Testemonial.ts";
 import article from "./pages/articles.ts";
+import employee from "./pages/employee.ts";
 export const schemaTypes = [
   seo,
   globalSettings,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   homepage,
   article,
   about,
+  employee
 ];

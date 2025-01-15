@@ -7,9 +7,13 @@ import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
 import * as $ai_chatbots from "./routes/ai-chatbots.tsx";
 import * as $ai_kursus from "./routes/ai-kursus.tsx";
+import * as $api_article from "./routes/api/article.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_mail from "./routes/api/mail.ts";
 import * as $api_portfolio from "./routes/api/portfolio.tsx";
+import * as $articles_slug_ from "./routes/articles/[slug].tsx";
+import * as $artikler from "./routes/artikler.tsx";
+import * as $employee_slug_ from "./routes/employee/[slug].tsx";
 import * as $hjemmeside_priser from "./routes/hjemmeside-priser.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
@@ -20,6 +24,7 @@ import * as $portfolio from "./routes/portfolio.tsx";
 import * as $projects_slug_ from "./routes/projects/[slug].tsx";
 import * as $tak from "./routes/tak.tsx";
 import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx";
+import * as $ArticlesIsland from "./islands/ArticlesIsland.tsx";
 import * as $visuel_identitet from "./routes/visuel-identitet.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
@@ -37,9 +42,13 @@ const manifest = {
     "./routes/_middleware.ts": $_middleware,
     "./routes/ai-chatbots.tsx": $ai_chatbots,
     "./routes/ai-kursus.tsx": $ai_kursus,
+    "./routes/api/article.tsx": $api_article,
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/mail.ts": $api_mail,
     "./routes/api/portfolio.tsx": $api_portfolio,
+    "./routes/articles/[slug].tsx": $articles_slug_,
+    "./routes/artikler.tsx": $artikler,
+    "./routes/employee/[slug].tsx": $employee_slug_,
     "./routes/hjemmeside-priser.tsx": $hjemmeside_priser,
     "./routes/index.tsx": $index,
     "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
@@ -54,6 +63,7 @@ const manifest = {
     "./routes/visuel-identitet.tsx": $visuel_identitet,
   },
   islands: {
+    "./islands/ArticlesIsland.tsx": $ArticlesIsland,
     "./islands/CategoryFilter.tsx": $CategoryFilter,
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,
     "./islands/MobileMenu/MobileMenu.tsx": $MobileMenu_MobileMenu,
