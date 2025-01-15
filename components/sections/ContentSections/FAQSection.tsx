@@ -1,8 +1,9 @@
+import { JSX } from "preact/jsx-runtime";
 
 interface FAQSectionProps {
     title: string;
     description: string;
-    FAQData: {question: string, answer: string}[];
+    FAQData: {question: string, answer: JSX.Element}[];
 }
 
 export default function FAQSection(props: FAQSectionProps) {
@@ -68,9 +69,10 @@ export default function FAQSection(props: FAQSectionProps) {
               <div class="faq-content">
                 <div>
                   <div 
-                    class="faq-answer mt-4 text-gray-600"
-                    dangerouslySetInnerHTML={{ __html: data.answer }}
-                  />
+                    className="faq-answer mt-4 text-brand-black-600 [&>p]:mb-4 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:space-y-2 [&>ul]:mb-4  [&_a]:transition-colors [&_a]:underline [&_a:hover]:text-brand-red "
+                  >
+                  {data.answer}
+                  </div>
                 </div>
               </div>
             </details>

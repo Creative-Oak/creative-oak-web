@@ -1,20 +1,13 @@
-// Marquee.tsx
 import { JSX } from "preact";
 import { useEffect, useRef } from "preact/hooks";
-
-interface Logo {
-  id: number;
-  name: string;
-  alt: string;
-  src: string;
-}
+import { Logo } from "../../types/Logo.ts";
 
 interface MarqueeProps {
   logos: Logo[];
   duration?: number;
 }
 
-export default function Marquee({ logos, duration = 20 }: MarqueeProps): JSX.Element {
+export default function Marquee({ logos, duration = 30 }: MarqueeProps): JSX.Element {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const primaryRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +23,34 @@ export default function Marquee({ logos, duration = 20 }: MarqueeProps): JSX.Ele
     const root = document.documentElement;
     root.style.setProperty('--animation-duration', `${speed}s`);
   }, [duration]);
+
+  // Render logo with optional link
+  const renderLogo = (logo: Logo, isDuplicate = false) => (
+    <div
+      key={isDuplicate ? `${logo._id}-duplicate` : logo._id}
+      class="flex-shrink-0 mx-4 md:mx-20 w-auto h-10 md:h-24 flex items-center justify-center transition-transform hover:scale-110"    >
+      {logo.url ? (
+        <a
+          href={logo.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block w-full h-full"
+        >
+          <img
+            src={logo.image}
+            alt={logo.alt || logo.name}
+            class="w-full h-full object-contain"
+          />
+        </a>
+      ) : (
+        <img
+          src={logo.image}
+          alt={logo.alt || logo.name}
+          class="w-full h-full object-contain"
+        />
+      )}
+    </div>
+  );
 
   return (
     <div class="relative group">
@@ -69,32 +90,10 @@ export default function Marquee({ logos, duration = 20 }: MarqueeProps): JSX.Ele
       <div ref={scrollerRef} class="scroller w-full overflow-hidden">
         <div ref={primaryRef} class="scroller__inner flex">
           {/* Primary set of logos */}
-          {logos.map((logo) => (
-            <div
-              key={logo.id}
-              class="flex-shrink-0 mx-20 w-24 h-24 flex items-center justify-center transition-transform hover:scale-110"
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                class="w-full h-full object-contain"
-              />
-            </div>
-          ))}
+          {logos.map((logo) => renderLogo(logo))}
           
           {/* Duplicate set for seamless scrolling */}
-          {logos.map((logo) => (
-            <div
-              key={`${logo.id}-duplicate`}
-              class="flex-shrink-0 mx-20 w-24 h-24 flex items-center justify-center transition-transform hover:scale-110"
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                class="w-full h-full object-contain"
-              />
-            </div>
-          ))}
+          {logos.map((logo) => renderLogo(logo, true))}
         </div>
       </div>
     </div>

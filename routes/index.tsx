@@ -3,7 +3,7 @@ import { Head } from "$fresh/runtime.ts";
 
 import HeroSection1 from "../components/sections/HeroSections/heroSection1.tsx";
 import Splitter from "../components/other/splitter.tsx";
-import CarouselSection from "../components/sections/UtiliySections/MarqueeSection.tsx";
+import MarqueeSection from "../components/sections/UtiliySections/MarqueeSection.tsx";
 import ServiceCardSection from "../components/sections/ContentSections/ServiceCardSection.tsx";
 import InvisibleTextSection from "../components/sections/ContentSections/InvisibleTextSection.tsx";
 import PortfolioSection from "../components/sections/ContentSections/PortfolioSection.tsx";
@@ -12,10 +12,17 @@ import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { ProjectCardData } from "../types/projectCardData.ts";
 import { client } from "../utils/sanity.ts";
+import { Logo } from "../types/Logo.ts";
 
-export const handler: Handlers<ProjectCardData[]> = {
+// Define a combined data type interface
+interface HomePageData {
+  projects: ProjectCardData[];
+  logos: Logo[];
+}
+
+export const handler: Handlers = {
   async GET(_, ctx) {
-    const query = `
+    const projectQuery = `
       *[_type == "project"] | order(isFeatured desc, releaseDate desc)[0...3] {
         title,
         "featuredImage": featuredImage,
@@ -24,10 +31,22 @@ export const handler: Handlers<ProjectCardData[]> = {
         "categories": categories[]->title
       }
     `;
-
+    
+    const logoQuery = `*[_type == "partnerLogo"] | order(order asc) {
+      _id,
+      name,
+      alt,
+      url,
+      "image": image.asset->url
+    }`;
+    
     try {
-      const projects = await client.fetch(query);
-      return ctx.render(projects);
+      const [projects, logos] = await Promise.all([
+        client.fetch(projectQuery),
+        client.fetch(logoQuery)
+      ]);
+      
+      return ctx.render({ projects, logos });
     } catch (error) {
       console.error("Error fetching data from Sanity:", error);
       return new Response("Internal Server Error", { status: 500 });
@@ -35,7 +54,9 @@ export const handler: Handlers<ProjectCardData[]> = {
   },
 };
 
-export default function Home({ data }: PageProps<ProjectCardData[]>) {
+
+export default function Home({ data }: PageProps<HomePageData>) {
+  const { projects, logos } = data;
   return (
     <>
       <Head>
@@ -49,14 +70,14 @@ export default function Home({ data }: PageProps<ProjectCardData[]>) {
         subtitle="Creative Oak er en kreativ virksomhed med fokus på at udvikle hjemmesider og software der styrker din virksomhed."
       />
       <Splitter />
-      <CarouselSection />
+      <MarqueeSection data={{logos}} />
       <Splitter />
       <ServiceCardSection />
       <Splitter />
       <InvisibleTextSection />
       <Splitter />
       <PortfolioSection
-        projects={data}
+        projects={projects}
         teaser="Se vores"
         title="Projekter"
       />

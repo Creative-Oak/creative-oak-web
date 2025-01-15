@@ -108,7 +108,7 @@ const aiCourse = () => {
           imageUrl="/images/robot.avif"
           description={
             <>
-              <p class="text-base leading-6 mb-4">
+              <p class="text-base text-brand-white leading-6 mb-4">
                 Hos Creative Oak tilbyder vi skræddersyede AI-undervisninger og
                 kurser, der er designet til at opfylde dine unikke behov og mål.
                 Vi forstår, at hver virksomhed er forskellig, og derfor arbejder
@@ -152,29 +152,29 @@ const aiCourse = () => {
             {
               question: "Hvad er fokus i jeres AI-kurser?",
               answer:
-                "Vores AI-kurser er designet til at tage din virksomhed til nye højder. Vi fokuserer på praktisk anvendelse af AI i virksomhedsmiljøet, med øvelser og virkelige eksempler. Vi guider dig gennem processen med at udnytte AI i din virksomhed til at træffe klogere beslutninger, automatisere repetitive opgaver, og skabe innovative AI-produkter.",
-            },
+              <>"Vores AI-kurser er designet til at tage din virksomhed til nye højder. Vi fokuserer på praktisk anvendelse af AI i virksomhedsmiljøet, med øvelser og virkelige eksempler. Vi guider dig gennem processen med at udnytte AI i din virksomhed til at træffe klogere beslutninger, automatisere repetitive opgaver, og skabe innovative AI-produkter.",
+            </>},
             {
               question: "Hvem er AI-kurserne hos Creative Oak for?",
               answer:
-                "Kurserne er for virksomheder, der ønsker at forbedre deres digitale strategi og kompetencer. Uanset om du er nybegynder eller har erfaring med AI, vil vores kurser hjælpe dig med at udnytte AI's potentiale fuldt ud.",
-            },
+              <>"Kurserne er for virksomheder, der ønsker at forbedre deres digitale strategi og kompetencer. Uanset om du er nybegynder eller har erfaring med AI, vil vores kurser hjælpe dig med at udnytte AI's potentiale fuldt ud.",
+            </>},
             {
               question:
                 "Handler AI kun om programmering og komplekse algoritmer?",
               answer:
-                "Nej, AI er meget mere end det. Selvom AI har rødder, der går over 60 år tilbage, og ofte involverer avanceret teknologi, fokuserer vi på at gøre AI tilgængelig og anvendelig for alle typer virksomheder. Vi viser dig, hvordan AI kan bruges til at forudsige kundeadfærd, effektivisere dataanalyse, og meget mere.",
-            },
+                <>"Nej, AI er meget mere end det. Selvom AI har rødder, der går over 60 år tilbage, og ofte involverer avanceret teknologi, fokuserer vi på at gøre AI tilgængelig og anvendelig for alle typer virksomheder. Vi viser dig, hvordan AI kan bruges til at forudsige kundeadfærd, effektivisere dataanalyse, og meget mere.",
+            </>},
             {
               question: "Hvordan adskiller jeres AI-kurser sig fra andre?",
               answer:
-                "Udover at være praktisk orienteret, integrerer vi AI med vores ekspertise inden for webdesign, fotografi, videoproduktion og visuel identitet. Dette giver en unik mulighed for at kombinere AI med kreative felter for at skabe holistiske og innovative løsninger.",
-            },
+              <>"Udover at være praktisk orienteret, integrerer vi AI med vores ekspertise inden for webdesign, fotografi, videoproduktion og visuel identitet. Dette giver en unik mulighed for at kombinere AI med kreative felter for at skabe holistiske og innovative løsninger.",
+           </> },
             {
               question: "Hvordan kan jeg booke et AI-kursus hos Creative Oak?",
               answer:
-                "Du kan kontakte os direkte via vores website eller sociale mediekanaler. Vi vil gerne diskutere dine behov og tilpasse kurset, så det passer til din virksomheds unikke krav og mål.",
-            },
+              <>"Du kan kontakte os direkte via vores website eller sociale mediekanaler. Vi vil gerne diskutere dine behov og tilpasse kurset, så det passer til din virksomheds unikke krav og mål.",
+            </>},
           ]}
         />
         <Splitter />

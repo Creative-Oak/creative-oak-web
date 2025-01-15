@@ -66,25 +66,102 @@ const Website = (
 
   const faq = [
     {
-      question: "Hvad er Lorem Ipsum?",
+      question: "Kan jeg modtage et tilbud?",
       answer:
-        "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+        <p>Ja, selvfølgelig kan du det! Smid os en besked, og så får vi hurtigt strikket et tilbud sammen til dig. Vi har brug for lidt information om, hvad du ønsker og forventer, men det kan vi aftale over en virtuel kop kaffe eller mail."</p>,
     },
     {
-      question: "Hvad er Lorem Ipsum?",
-      answer:
-        "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+      question: "Hvad er prisen for en bæredygtig hjemmeside?",
+      answer: <>
+      <p>
+          Når vi prissætter en hjemmeside, er der en række faktorer, der spiller ind:
+      </p>
+      
+      <ul>
+          <li>Hvor mange unikke sider skal vi lave til dig?</li>
+          <li>Har du allerede et design, eller skal vi lave et for dig?</li>
+          <li>Hvor stor en rolle spiller SEO (søgemaskineoptimering)?</li>
+          <li>Skal din nye hjemmeside integreres med et nuværende IT-system?</li>
+          <li>Ønsker du en meget kompleks løsning, eller noget mere ligetil som en 1-pager?</li>
+          <li>Skal vi give os i kast med at udvikle nogle sjove og spændende animationer, man kan interagere med?</li>
+          <li>Ønsker du video- og fotoproduktion?</li>
+      </ul>
+  
+      <p>
+          Kort sagt, der er mange variabler, når man prissætter en hjemmeside. Vi har erfaring med at udvikle sider til alt mellem 5.000,- og 50.000,-, så vi har helt sikkert også en løsning til det prisleje, du ønsker.
+      </p>
+  
+      <p>
+          Som et lille bureau forstår vi, hvor vigtigt det er at være konkurrencedygtige, så du kan være sikker på, at vi finder den helt rigtige pris til dig! Vi har lavet et lille overblik over hvad en hjemmeside kunne koste for dig. 
+          
+      </p>
+      <a href="/hjemmeside-priser"> Læs mere her</a>
+  </>
     },
     {
-      question: "Hvad er Lorem Ipsum?",
-      answer:
-        "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.",
+      question: "Koster en bæredygtig hjemmeside mere end en almindelig?",
+      answer: <>
+      <p>
+          Nej! I udviklingsfasen skal man blot sikre sig, at man gør tingene rigtigt – det skal vi nok sørge for! En væsentlig del af at skabe en hjemmeside handler også om at overveje, hvilke elementer der er nødvendige, og hvordan de kan optimeres for at forbedre ydeevnen og reducere ressourcetrækket. <a href="/articles/baeredygtig-hjemmeside">Læs eventuelt vores artikel om emnet her</a>
+      </p>
+  
+      <p>
+          Ved at fokusere på effektiv kodning, optimerede billeder og minimere brugen af tunge scripts og plugins, kan vi faktisk reducere både udviklings- og driftsomkostningerne. En bæredygtig hjemmeside er ikke kun bedre for miljøet, men giver også en hurtigere og mere responsiv brugeroplevelse, hvilket kan føre til højere kundetilfredshed og konverteringsrater.
+      </p>
+  
+      <p>
+          Desuden kan en mere effektiv hjemmeside reducere hostingomkostninger, da den kræver mindre båndbredde og lagerplads. Så i stedet for at koste mere, kan en bæredygtig hjemmeside faktisk spare dig penge på lang sigt.
+      </p>
+  </>
     },
     {
-      question: "Hvad er Lorem Ipsum?",
-      answer:
-        'Lorem Ipsum er ganske enkelt fyldtekst fra <a href="#" class="text-blue-600 hover:underline">print- og typografiindustrien</a>. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte til brug i sit bogtrykkeri.',
+      question: "Tilbyder i vedligeholdelse af bæredygtige hjemmesider?",
+      answer: 
+      <>
+        <p>
+        Vi kan sagtens stå for vedligeholdelse og opdatering af dit indhold, hvis det er dit behov. Vi er dog ikke interesserede i, at du skal stå med en følelse af, at du smider penge ned i et hul uden at vide, hvad du får for det. Derfor insisterer vi høfligt på, at vi løbende må opdatere dig om vores arbejde for dig.
+        </p>
+      </>
     },
+    {
+      question: "Kan i hjælpe med SEO?",
+      answer: 
+      <>
+        <p>
+          Ja! Vi tilbyder to forskellige løsninger. Vi kan enten sætte det hele op for dig, så du selv kan opdatere din SEO med hjælp og rådgivning fra os. Alternativt kan vi stå for det hele. Det er helt op til dig, hvilken løsning der passer dig bedst!
+        </p>
+      </>
+    },
+    {
+      question: "Kan i hjælpe med video og foto?",
+      answer: 
+      <>
+        <p>
+        Ja - Vi kan sagtens hjælpe jer med video- og fotoproduktion. Vi har godt gear, og gode kundskaber til at få jeres side til at stå knivskarpt - læs evt mere <a href="/">her</a>
+        </p>
+      </>
+    },
+    {
+      question: "Kan jeg selv opdaterer indeholdet på min egen side?",
+      answer: 
+      <>
+        <p>
+
+Selvfølgelig! Vi er ikke de eneste, der skal have nøglen til dit kongerige. Alt efter hvordan vi udvikler din side, bliver det gjort på forskellige måder. Her anbefaler vi at udvikle i Webflow, for så har du fuld kontrol over din egen side.
+     </p>
+      </>
+    },
+    {
+      question: "Hvor hurtigt kan i lave en hjemmeside?",
+      answer: 
+      <>
+        <p>
+        Hvis der skal være lidt fart på, kan vi godt reagere hurtigt. En simpel side kan være klar til dig på et par dage. Er den mere kompleks, kan vi have den klar på en uge.
+        Send os en besked, så finder vi et hul i kalenderen til dig!
+        </p>
+      </>
+    }
+   
   ];
 
   return (
@@ -143,7 +220,7 @@ const Website = (
       <Splitter />
       <ContentSection
         description={
-          <>
+          <span class="text-brand-white">
             I en tid, hvor klimaforandringer er en af vores største
             udfordringer, spiller internettet en overraskende stor rolle. Vidste
             du, at internettets samlede CO2-aftryk overstiger
@@ -158,11 +235,11 @@ const Website = (
             grønnere digital fremtid. <br />
             <br />
             Læs mere om emnet{" "}
-            <a href="#">her</a>, ellers så lad os tage en snak!
+            <a href="/articles/baeredygtig-hjemmeside">her</a>, ellers så lad os tage en snak!
             <br />
             <br />
             Så finder vi en grøn løsning til jer.
-          </>
+          </span>
         }
         imageUrl="/images/wireframe+code.avif"
         teaser="Køb hjemmeside med bæredygtigt fokus"
@@ -176,7 +253,7 @@ const Website = (
       <Splitter />
       <PortfolioSection
         projects={projects}
-        title="Se et par af vores hjemmeside"
+        title="Se et par af vores hjemmesider"
         teaser="Portfolio"
       />
       <Splitter />

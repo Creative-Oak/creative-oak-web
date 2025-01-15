@@ -16,35 +16,50 @@ export interface PricingSectionProps {
 
 const PricingSection = (props: PricingSectionProps) => {
   return (
-    <section className=" bg-brand-purple  py-24 md:py-12">
-      <div class="container  px-4 md:px-8">
-        <h2 class="text-3xl font-bold font-lexend">{props.title}</h2>
-        {props.description && <div class="mt-4">{props.description}</div>}
+    <section className="bg-brand-purple py-12 md:py-24">
+      <div className="container px-4 md:px-8">
+        <h2 className="text-2xl md:text-3xl font-bold font-lexend text-center md:text-left">
+          {props.title}
+        </h2>
+        
+        {props.description && (
+          <div className="mt-4 text-center md:text-left">
+            {props.description}
+          </div>
+        )}
 
-        <div class="flex flex-row gap-4 mt-8">
+        <div className="flex flex-col md:flex-row gap-4 mt-8 space-y-4 md:space-y-0">
           {props.priceColumns.map((el, i) => (
             <div
-              class="p-6 border-2 flex-grow mt-6 bg-brand-white border-brand-black transition-shadow hover:shadow-custom-black text-center"
               key={i}
-              style={{ flex: "1 1 0%" }} // Set a consistent max width
+              className="p-6 border-2 w-full md:w-auto md:flex-1 bg-brand-white border-brand-black 
+                         transition-shadow hover:shadow-custom-black text-center 
+                         flex flex-col justify-between"
             >
-              <h3 class="font-bold text-center">{el.name}</h3>
-              <span class="text-3xl mt-2 font-bold">{el.price}</span>
-              <ul class="mt-4">
-                {el.features.map((feature, i) => (
-                  <div class="flex items-center my-4 text-left" key={i}>
-                    <div class="w-4 h-4 flex-shrink-0">
-                      <CheckmarkIcon />
+              <div>
+                <h3 className="font-bold text-xl">{el.name}</h3>
+                <span className="text-2xl md:text-3xl mt-2 block font-bold">{el.price}</span>
+                <ul className="mt-4 space-y-3">
+                  {el.features.map((feature, featureIndex) => (
+                    <div 
+                      key={featureIndex} 
+                      className="flex items-center justify-center md:justify-start"
+                    >
+                      <div className="w-4 h-4 flex-shrink-0 mr-2">
+                        <CheckmarkIcon />
+                      </div>
+                      <li className="text-sm md:text-base">{feature}</li>
                     </div>
-                    <li class="ml-2">{feature}</li>
-                  </div>
-                ))}
-              </ul>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
 
-        <div class="text-sm italic mt-4">{props.footnote}</div>
+        <div className="text-xs md:text-sm italic mt-4 text-center md:text-left">
+          {props.footnote}
+        </div>
       </div>
     </section>
   );
