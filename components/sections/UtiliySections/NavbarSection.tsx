@@ -15,7 +15,7 @@ export default function Navbar({ navigation }: NavbarProps) {
       <div className="left-0 border-brand-black shadow-custom-black border-2 bg-brand-white flex items-center justify-between px-4 md:px-8  z-50">
         {/* Logo section - always visible */}
         <div className="flex-grow md:flex-grow-0">
-          <a className="font-bold text-lg w-20 block" href="/">
+          <a className="font-bold text-lg py-2 w-20 block" href="/">
             <img src="/images/logo.svg" className="w-24" alt="Logo" />
           </a>
         </div>
