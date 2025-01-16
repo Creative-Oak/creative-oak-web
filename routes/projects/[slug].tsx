@@ -61,7 +61,7 @@ export const handler: Handlers<{ projects: Project }> = {
       }
     }
   `;
-  
+
     try {
       const project = await client.fetch(projectQuery, { slug });
       if (!project) {
@@ -113,15 +113,7 @@ const ProjectPage = ({ data }: PageProps<Project>) => {
                     </span>
                   ))}
                 </div>
-                <div class="flex items-center space-x-2 mt-4">
-                  <span class="text-brand-black-500 text-sm">
-                    {new Date(data.releaseDate).toLocaleDateString("dk-DK", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </span>
-                </div>
+               
               </div>
 
               <div class="prose max-w-none rich-text">
