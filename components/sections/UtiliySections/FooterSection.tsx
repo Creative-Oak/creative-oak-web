@@ -15,13 +15,13 @@ const Footer = () => {
               <img class="w-20" width={150} src="/images/logo.svg" />
             </a>
             <div class="max-w-md pt-6">
-              <h4 class="font-bold">Addresse</h4>
+              <p class="font-bold">Addresse</p>
               <p>Langelandsgade 62 St</p>
               <p>8000 Aarhus C</p>
             </div>
 
             <div class="max-w-md pt-6">
-              <h4 class="font-bold">Kontakt</h4>
+              <p class="font-bold">Kontakt</p>
               <p>CVR: 44912791</p>
               <p>Creative Oak ApS</p>
               <p>+45 53 53 42 90</p>
@@ -93,7 +93,7 @@ const Footer = () => {
                 <a href="/koeb-hjemmeside">Køb Hjemmeside</a>
               </li>
               <li>
-                <a href="/AI-kursus">AI Kursus</a>
+                <a href="/ai-kursus">AI Kursus</a>
               </li>
               <li>
                 <a href="/ai-chatbots">Chatbots</a>
@@ -107,7 +107,7 @@ const Footer = () => {
                 <a href="/hjemmeside-priser">Hjemmesider Priser</a>
               </li>
               <li>
-                <a href="/video-og-fotoproduktion">Video- og fotoproduktion</a>
+                <a href="/foto-video">Video- og fotoproduktion</a>
               </li>
               <li>
                 <a href="/visuel-identitet">Visuel identitet</a>
@@ -117,16 +117,16 @@ const Footer = () => {
           <div class="">
             <ul class="space-y-4">
               <li>
-                <a href="#">Portfolio</a>
+                <a href="/portfolio">Portfolio</a>
               </li>
               <li>
-                <a href="#">Kontakt</a>
+                <a href="/kontakt">Kontakt</a>
               </li>
               <li>
-                <a href="#">Om os</a>
+                <a href="/om-os">Om os</a>
               </li>
               <li>
-                <a href="#">Artikler</a>
+                <a href="/artikler">Artikler</a>
               </li>
               <li>
                 <a

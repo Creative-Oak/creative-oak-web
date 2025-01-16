@@ -60,7 +60,11 @@ export default function Home({ data }: PageProps<HomePageData>) {
   return (
     <>
       <Head>
-        <title>Creative Oak</title>
+        <title>Creative Oak | Kreativt strategisk digitalt studio</title>
+        <meta
+          name="description"
+          content="Vi skaber rammerne for, at organisationer kan forene menneskelig kreativitet og teknologisk innovation og sammen skabe en bæredygtig og positiv fremtid."
+        />
       </Head>
       <HeroSection1
         rightImage="./images/hero1.avif"

@@ -410,3 +410,90 @@ export const FacebookIcon = () => {
     </svg>
   );
 };
+export const CameraIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+      viewBox="0 0 24 24"
+      fill="none"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+      role="img"
+    >
+      <path
+        d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM4 18V6H20V18H4Z"
+        fill="currentColor"
+      />
+      <path
+        d="M12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z"
+        fill="currentColor"
+      />
+      <path
+        d="M17 7H19V9H17V7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export const VideoIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+      viewBox="0 0 24 24"
+      fill="none"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+      role="img"
+    >
+      <path
+        d="M17 10.5V7C17 6.45 16.55 6 16 6H4C3.45 6 3 6.45 3 7V17C3 17.55 3.45 18 4 18H16C16.55 18 17 17.55 17 17V13.5L21 17.5V6.5L17 10.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export const PaletteIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+      viewBox="0 0 24 24"
+      fill="none"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+      role="img"
+    >
+      <path
+        d="M12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21C12.83 21 13.5 20.33 13.5 19.5C13.5 19.11 13.35 18.76 13.11 18.49C12.88 18.23 12.73 17.88 12.73 17.5C12.73 16.67 13.4 16 14.23 16H16C18.76 16 21 13.76 21 11C21 6.58 16.97 3 12 3ZM6.5 12C5.67 12 5 11.33 5 10.5C5 9.67 5.67 9 6.5 9C7.33 9 8 9.67 8 10.5C8 11.33 7.33 12 6.5 12ZM9.5 8C8.67 8 8 7.33 8 6.5C8 5.67 8.67 5 9.5 5C10.33 5 11 5.67 11 6.5C11 7.33 10.33 8 9.5 8ZM14.5 8C13.67 8 13 7.33 13 6.5C13 5.67 13.67 5 14.5 5C15.33 5 16 5.67 16 6.5C16 7.33 15.33 8 14.5 8ZM17.5 12C16.67 12 16 11.33 16 10.5C16 9.67 16.67 9 17.5 9C18.33 9 19 9.67 19 10.5C19 11.33 18.33 12 17.5 12Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export const BrushIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+      viewBox="0 0 24 24"
+      fill="none"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+      role="img"
+    >
+      <path
+        d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H18L22 22V4C22 2.9 21.1 2 20 2ZM13 14H7C6.45 14 6 13.55 6 13C6 12.45 6.45 12 7 12H13C13.55 12 14 12.45 14 13C14 13.55 13.55 14 13 14ZM17 10H7C6.45 10 6 9.55 6 9C6 8.45 6.45 8 7 8H17C17.55 8 18 8.45 18 9C18 9.55 17.55 10 17 10ZM17 6H7C6.45 6 6 5.55 6 5C6 4.45 6.45 4 7 4H17C17.55 4 18 4.45 18 5C18 5.55 17.55 6 17 6Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -7,7 +7,8 @@
     "start": "deno run -A --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
-    "update": "deno run -A -r https://fresh.deno.dev/update ."
+    "update": "deno run -A -r https://fresh.deno.dev/update .",
+    "generate-sitemap": "deno run -A utils/sitemap.ts"
   },
   "lint": {
     "rules": {
@@ -22,6 +23,7 @@
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "@elsoul/fresh-sitemap": "jsr:@elsoul/fresh-sitemap@^1.3.1",
     "@portabletext/to-html": "npm:@portabletext/to-html@^2.0.13",
     "@sanity/image-url": "npm:@sanity/image-url@^1.1.0",
     "@sanity/types": "npm:@sanity/types@^3.68.3",

@@ -14,6 +14,8 @@ import * as $api_portfolio from "./routes/api/portfolio.tsx";
 import * as $articles_slug_ from "./routes/articles/[slug].tsx";
 import * as $artikler from "./routes/artikler.tsx";
 import * as $employee_slug_ from "./routes/employee/[slug].tsx";
+import * as $foto_video from "./routes/foto-video.tsx";
+import * as $grafisk_design from "./routes/grafisk-design.tsx";
 import * as $hjemmeside_priser from "./routes/hjemmeside-priser.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
@@ -22,6 +24,8 @@ import * as $kunstig_intelligens_og_digital_udvikling from "./routes/kunstig-int
 import * as $om_os from "./routes/om-os.tsx";
 import * as $portfolio from "./routes/portfolio.tsx";
 import * as $projects_slug_ from "./routes/projects/[slug].tsx";
+import * as $robots_txt from "./routes/robots.txt.ts";
+import * as $sitemap_xml from "./routes/sitemap.xml.tsx";
 import * as $tak from "./routes/tak.tsx";
 import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx";
 import * as $visuel_identitet from "./routes/visuel-identitet.tsx";
@@ -49,6 +53,8 @@ const manifest = {
     "./routes/articles/[slug].tsx": $articles_slug_,
     "./routes/artikler.tsx": $artikler,
     "./routes/employee/[slug].tsx": $employee_slug_,
+    "./routes/foto-video.tsx": $foto_video,
+    "./routes/grafisk-design.tsx": $grafisk_design,
     "./routes/hjemmeside-priser.tsx": $hjemmeside_priser,
     "./routes/index.tsx": $index,
     "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
@@ -58,6 +64,8 @@ const manifest = {
     "./routes/om-os.tsx": $om_os,
     "./routes/portfolio.tsx": $portfolio,
     "./routes/projects/[slug].tsx": $projects_slug_,
+    "./routes/robots.txt.ts": $robots_txt,
+    "./routes/sitemap.xml.tsx": $sitemap_xml,
     "./routes/tak.tsx": $tak,
     "./routes/video-og-fotoproduktion.tsx": $video_og_fotoproduktion,
     "./routes/visuel-identitet.tsx": $visuel_identitet,

@@ -3,20 +3,29 @@ import { JSX } from "preact";
 interface CardProps {
   title: string;
   href: string;
-  tags: string[];
+  tags: Tags[];
 }
 
+interface Tags {
+  title: string
+  href: string;
+}
+
+
+
 const ServiceCard = (props: CardProps) => {
-  const handleTagClick = (e: JSX.TargetedMouseEvent<HTMLSpanElement>, tag: string) => {
+
+  const handleTagClick = (e: JSX.TargetedMouseEvent<HTMLSpanElement>, tag: Tags) => {
     e.stopPropagation();
 
     console.log(tag + " clicked!");
+    globalThis.location.href = tag.href;
     // Your tag navigation logic here
   };
 
   const handleCardClick = () => {
     // Handle main card navigation
-    console.log("Card clicked!");
+    console.log(props.href)
     globalThis.location.href = props.href;
   };
 
@@ -53,7 +62,7 @@ const ServiceCard = (props: CardProps) => {
               data-tag
               class="bg-brand-yellow p-1 z-10 px-2 text-sm border border-brand-black hover:shadow-custom-black transition-shadow cursor-pointer"
             >
-              {tag}
+              {tag.title}
             </button>
           ))}
         </div>
