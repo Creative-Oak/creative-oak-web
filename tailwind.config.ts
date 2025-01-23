@@ -36,11 +36,11 @@ export default {
         center: true,
         padding: "1rem",
         screens: {
-          sm: "640px",
-          md: "768px",
-          lg: "1024px",
-          xl: "1280px",
-          "2xl": "1440px",
+          sm: "40rem",
+          md: "48rem",
+          lg: "64rem",
+          xl: "80rem",
+          "2xl": "90rem",
         },
       },
       boxShadow: {

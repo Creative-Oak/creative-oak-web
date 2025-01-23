@@ -23,7 +23,7 @@ interface HomePageData {
 export const handler: Handlers = {
   async GET(_, ctx) {
     const projectQuery = `
-      *[_type == "project"] | order(isFeatured desc, releaseDate desc)[0...3] {
+      *[_type == "project"] | order(isFeatured desc, releaseDate desc)[0...6] {
         title,
         "featuredImage": featuredImage,
         projectShortDescription,
@@ -68,10 +68,12 @@ export default function Home({ data }: PageProps<HomePageData>) {
       </Head>
       <HeroSection1
         rightImage="./images/hero1.avif"
-        header="Velkommen til"
+        header="Kreativt strategisk digitalt studio"
         buttonText1="Læs mere om os"
         buttonLink1="/om-os"
-        subtitle="Creative Oak er en kreativ virksomhed med fokus på at udvikle hjemmesider og software der styrker din virksomhed."
+        buttonText2="Fortæl os om din vision"
+        buttonLink2="/kontakt"
+        subtitle="Din partner for bæredygtige digitale løsninger, der vokser med din forretning"
       />
       <Splitter />
       <MarqueeSection data={{logos}} />
@@ -82,8 +84,8 @@ export default function Home({ data }: PageProps<HomePageData>) {
       <Splitter />
       <PortfolioSection
         projects={projects}
-        teaser="Se vores"
-        title="Projekter"
+        teaser="Fra skærm til skønhed"
+        title="Se vores udvalgte projekter"
       />
       <Splitter />
       <CTASection
