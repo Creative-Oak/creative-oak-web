@@ -1,6 +1,6 @@
 import { client } from "../../utils/sanity.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
+
 import HeroSection2 from "../../components/sections/HeroSections/HeroSection2.tsx";
 import Splitter from "../../components/other/splitter.tsx";
 import { Image } from "@sanity/types";
@@ -8,6 +8,7 @@ import { urlFor } from "../../utils/imageBuild.ts";
 import renderMainContent, { BlockContent } from "../../utils/renderText.tsx";
 import Footer from "../../components/sections/UtiliySections/FooterSection.tsx";
 import CTASection from "../../components/sections/UtiliySections/CTASection.tsx";
+import CustomHead from "../../components/other/CustomHead.tsx";
 
 interface SocialLinks {
   linkedin?: string;
@@ -111,37 +112,14 @@ const EmployeePage = ({ data, url  }: PageProps<Employee>) => {
 
   return (
     <>
-      <Head>
-        <title>{data.name} - {data.position}</title>
-        <meta
-          name="description"
-          content={`${data.name} er ${data.position} ved Creative Oak. Kontakt: ${data.email}.`}
-        />
-        {/* Open Graph meta tags */}
-        <meta property="og:title" content={data.name} />
-        <meta
-          property="og:description"
-          content={urlFor(data.profileImage)}
-        />
-        {data.profileImage && (
-          <meta property="og:image" content={urlFor(data.profileImage)} />
-        )}
-        <meta property="og:type" content="article" />
-        {/* You might want to add your domain here */}
-        <meta property="og:url" content={currentUrl.toString()} />
-
-        {/* Twitter Card meta tags (optional but recommended) */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={data.name} />
-        <meta
-          name="twitter:description"
-          content={`${data.name} er ${data.position} ved Creative Oak. Kontakt dem på ${data.email}.`}
-        />
-        {data.profileImage && (
-          <meta name="twitter:image" content={urlFor(data.profileImage)} />
-        )}
-      </Head>
-
+    <CustomHead 
+      title={`${data.name} - ${data.position}`}
+      imageUrl={urlFor(data.profileImage)}
+      metaDescription={`${data.name} er ${data.position} ved Creative Oak. Kontakt: ${data.email}.`}
+      url={currentUrl.toString()}
+      ogType="profile"
+    />
+     
       <HeroSection2
         title={data.name}
         description={data.position}

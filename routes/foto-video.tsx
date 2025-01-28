@@ -1,4 +1,3 @@
-import { Head } from "$fresh/runtime.ts";
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
@@ -8,17 +7,19 @@ import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import ContentSection3 from "../components/sections/ContentSections/ContentSection3.tsx";
 import { CameraIcon, VideoIcon } from "../components/icons/Icons.tsx";
 import FAQSection from "../components/sections/ContentSections/FAQSection.tsx";
+import CustomHead from "../components/other/CustomHead.tsx";
+import { PageProps } from "$fresh/server.ts";
 
-const ContentCreationPage = () => {
+const ContentCreationPage = ({ url }: PageProps) => {
   return (
     <>
-      <Head>
-        <title>Foto & Video Content | Få dit brand til at fange øjet</title>
-        <meta
-          name="description"
-          content="Professionelt foto og video content der får din hjemmeside til at stråle. Vi skaber visuelt indhold der fanger din målgruppe og fortæller din historie."
-        />
-      </Head>
+      <CustomHead
+        title="Videoproduktion Aarhus | Professionel Video & Foto | Creative Oak"
+        metaDescription="Professionel videoproduktion i Aarhus der fanger din virksomheds sjæl. Fra koncept til færdig film. Skræddersyede videoløsninger der performer."
+        imageUrl={`${url.origin}/images/foto-video.avif`}
+        url={url.href}
+        ogType="website"
+      />
       <HeroSection2
         description="Lad os skabe det content, der får dine besøgende til at blive hængende (og komme tilbage efter mere). Slut med kedelige stock-fotos og generic video - vi laver ægte content der viser præcis hvem I er."
         title="Er din hjemmeside klar til sit close-up?"
@@ -49,8 +50,8 @@ const ContentCreationPage = () => {
         title="Hvad får du med i pakken?"
         description={
           <>
-            "Content er konge, men kvalitet er dronningen. Her er hvad du får når
-            du vælger os:"
+            "Content er konge, men kvalitet er dronningen. Her er hvad du får
+            når du vælger os:"
           </>
         }
         box1={
@@ -68,7 +69,7 @@ const ContentCreationPage = () => {
           <>
             <strong>Engagerende videoindhold</strong>{" "}
             <p>
-              Korte, knivskarpe videoer der fanger essensen af dit brand. 
+              Korte, knivskarpe videoer der fanger essensen af dit brand.
               Perfekt til din hjemmeside, sociale medier eller næste kampagne.
               Vi håndterer alt fra koncept til klipning, så du får færdigt
               content der er klar til brug.
@@ -77,10 +78,11 @@ const ContentCreationPage = () => {
         }
         box3={
           <>
-            <strong>Content-strategi (eller: Din visuelle køreplan)</strong>{" "}
+            <strong>Content-strategi (eller: Din visuelle køreplan)</strong>
+            {" "}
             <p>
-              Du får ikke bare en bunke filer - du får en gennemtænkt plan
-              for hvordan du bedst bruger dit nye content. Vi guider dig gennem
+              Du får ikke bare en bunke filer - du får en gennemtænkt plan for
+              hvordan du bedst bruger dit nye content. Vi guider dig gennem
               hvilke billeder og videoer der virker bedst hvor, og hvordan du
               får mest muligt ud af materialet.
             </p>
@@ -88,19 +90,45 @@ const ContentCreationPage = () => {
         }
       />
       <Splitter />
- 
+
+     
+      <ContentSection
+        title="Vores løsninger"
+        rightAlignedText={true}
+        imageUrl="/images/foto-video.avif"
+        imageAlt="Stilbillede af Danmarks Største Fredagsbar. Billedet er fra en koncert, hvor mange af publikum står med hænderne i luften"
+        description={
+          <>
+            Hos Creative Oak tilbyder vi en lang række forskellige
+            videoproduktionstjenester. Med velproducerede videoer kan du styrke
+            din synlighed og formidle dit brand til dine kunder. Vi kan med en
+            kombination af håndholdt kamera- og droneoptagelser hjælpe dig med
+            at: ‍<br />
+            <br />
+            Brande et nyt produkt <br />
+            Dokumentere et arrangement <br />
+            Finde nye medarbejdere
+            <br />Lave en musikvideo
+            <br />Eller måske noget helt andet? ‍<br />
+            <br />
+            Mulighederne er mange, og det er kun fantasien, der skal sætte
+            grænsen for dig. Vi er pjattede med udfordringer, så hold dig ikke
+            tilbage med at kontakte os, hvis du har en skør idé!
+          </>
+        }
+      />
+      
+      <Splitter />
       <CTASection
         buttonLink="/kontakt"
         buttonText="Book en gratis content-snak"
         title="Klar til at give din hjemmeside det visuelle boost den fortjener?"
         description="Lad os tage en uforpligtende snak om, hvordan vi kan hjælpe dig med at skabe content der ikke bare ser godt ud, men også performer. Vi har kameraet klar (og kaffen er varm)!"
-      />
-      <Splitter />
+      /><Splitter />
       <FAQSection
         FAQData={[
           {
-            question:
-              "Kan jeg ikke bare bruge stock-fotos og færdige videoer?",
+            question: "Kan jeg ikke bare bruge stock-fotos og færdige videoer?",
             answer: (
               <>
                 Tja, du kan også gå med paryk, men folk kan som regel godt se
@@ -114,9 +142,9 @@ const ContentCreationPage = () => {
             question: "Hvor lang tid tager det at producere content?",
             answer: (
               <>
-                Det kommer an på omfanget, men regn med 2-3 uger fra første
-                møde til færdigt materiale. God ting tar' tid, som man siger -
-                men vi lover at holde tempoet oppe uden at gå på kompromis med
+                Det kommer an på omfanget, men regn med 2-3 uger fra første møde
+                til færdigt materiale. God ting tar' tid, som man siger - men vi
+                lover at holde tempoet oppe uden at gå på kompromis med
                 kvaliteten.
               </>
             ),
@@ -127,19 +155,22 @@ const ContentCreationPage = () => {
               <>
                 No worries! Vi er danskere - vi har backup-planer til vores
                 backup-planer når det handler om vejret. Plus, nogle gange er
-                gråvejr faktisk bedre for billederne end skarp sol. Vi finder
-                ud af det!
+                gråvejr faktisk bedre for billederne end skarp sol. Vi finder ud
+                af det!
               </>
             ),
           },
           {
-            question: "Hvor meget koster det at få lavet professionelt content?",
+            question:
+              "Hvor meget koster det at få lavet professionelt content?",
             answer: (
               <>
                 Det er lidt som at spørge hvad en bil koster - det afhænger af
-                model og udstyr. <br/><br/> Men helt ærligt: Vi sammensætter en
-                pakke der matcher både dine behov og dit budget. Og husk, godt
-                content er en investering der bliver ved med at give tilbage.
+                model og udstyr. <br />
+                <br />{" "}
+                Men helt ærligt: Vi sammensætter en pakke der matcher både dine
+                behov og dit budget. Og husk, godt content er en investering der
+                bliver ved med at give tilbage.
               </>
             ),
           },
@@ -147,10 +178,9 @@ const ContentCreationPage = () => {
             question: "Kan I arbejde med vores eksisterende content?",
             answer: (
               <>
-                Selvfølgelig! Hvis du allerede har noget godt content, bygger
-                vi videre på det. Vi er ikke content-snobber - vi er
-                pragmatiske og fokuserer på at skabe den bedste løsning for
-                dig.
+                Selvfølgelig! Hvis du allerede har noget godt content, bygger vi
+                videre på det. Vi er ikke content-snobber - vi er pragmatiske og
+                fokuserer på at skabe den bedste løsning for dig.
               </>
             ),
           },

@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 
@@ -20,6 +20,7 @@ import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import TestemonialSection from "../components/sections/UtiliySections/TestemonialSection.tsx";
 import Testemonial from "../types/Testemonials.ts";
 import FAQSection from "../components/sections/ContentSections/FAQSection.tsx";
+import CustomHead from "../components/other/CustomHead.tsx";
 
 export const handler: Handlers<
   { projects: ProjectCardData[]; testimonials: Testemonial[] }
@@ -58,12 +59,14 @@ export const handler: Handlers<
 };
 
 const Website = (
-  { data }: PageProps<
+  { data, url }: PageProps<
     { projects: ProjectCardData[]; testimonials: Testemonial[] }
   >,
 ) => {
   const { projects, testimonials } = data;
-
+  const currentUrl = typeof window !== "undefined"
+  ? globalThis.location.href
+  : url;
   const faq = [
     {
       question: "Kan jeg modtage et tilbud?",
@@ -166,9 +169,15 @@ Selvfølgelig! Vi er ikke de eneste, der skal have nøglen til dit kongerige. Al
 
   return (
     <>
-      <Head>
-        <title>Køb hjemmeside</title>
-      </Head>
+
+      <CustomHead 
+        title="Køb Hjemmeside | Bæredygtig Webudvikling fra 12.500 kr. | Creative Oak"
+        metaDescription="Køb hjemmeside med bæredygtigt fokus hos os. Vi udvikler moderne, miljøbevidste websites der performer. Fokus på design og brugeroplevelse. Fra 12.500 kr."
+        url={currentUrl.toString()}
+        imageUrl={`${url.origin}/images/wireframe+code.avif`}
+        
+       
+      />
 
       <HeroSection2
         title="Køb hjemmeside med bæredygtigt fokus"

@@ -36,9 +36,9 @@ const ContentSection = (props: ContentSectionProps) => {
               <p class="font-medium font-lexend">{props.teaser}</p>
             )}
 
-            <h1 className="text-4xl mt-4 md:text-5xl font-bold mb-4 font-lexend">
+            <h2 className="text-4xl mt-4 md:text-5xl font-bold mb-4 font-lexend">
               {props.title}
-            </h1>
+            </h2>
             <div className="text-lg font-poppins mb-6 ">
               {props.description}
             </div>

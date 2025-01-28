@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
@@ -8,17 +8,19 @@ import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import ContentSection3 from "../components/sections/ContentSections/ContentSection3.tsx";
 import { PaletteIcon, BrushIcon } from "../components/icons/Icons.tsx";
 import FAQSection from "../components/sections/ContentSections/FAQSection.tsx";
+import CustomHead from "../components/other/CustomHead.tsx";
+import { PageProps } from "$fresh/server.ts";
 
-const GraphicDesignPage = () => {
+const GraphicDesignPage = ({url}: PageProps) => {
   return (
     <>
-      <Head>
-        <title>Grafisk Design | Fra idé til wow-effekt</title>
-        <meta
-          name="description"
-          content="Professionelt grafisk design der får dit brand til at stråle. Vi skaber alt fra plakater og brochurer til SoMe-content og præsentationer der fanger øjet."
-        />
-      </Head>
+     <CustomHead
+      title="Grafisk Design Aarhus | Kreativ Marketing & Design | Creative Oak"
+      metaDescription="Professionelt grafisk design i Aarhus der skiller sig ud. Fra marketing materialer til digital design. Vi skaber designs der performer."
+      imageUrl={`${url.origin}/images/og/og-logo.jpg`}
+      url={url.href}
+     />
+
       <HeroSection2
         description="Lad os forvandle dine idéer til eye-catching design der både ser fantastisk ud og virker efter hensigten. Slut med kedelige PowerPoints og standard-templates - vi skaber grafisk design der får folk til at kigge én gang til."
         title="Mangler dit marketing-materiale det sidste pift?"

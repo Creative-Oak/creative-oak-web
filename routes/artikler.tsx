@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+
 import { Handlers, PageProps } from "$fresh/server.ts";
 import Splitter from "../components/other/splitter.tsx";
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
@@ -8,6 +8,7 @@ import { client } from "../utils/sanity.ts";
 import { urlFor } from "../utils/imageBuild.ts";
 import { Image } from "@sanity/types";
 import ArticleIsland from "../islands/ArticlesIsland.tsx";
+import CustomHead from "../components/other/CustomHead.tsx";
 
 export const handler: Handlers<{
     articles: ArticleCardData[];
@@ -66,19 +67,22 @@ export const handler: Handlers<{
     },
 };
 
-const ArticlePage = ({ data }: PageProps<{
+const ArticlePage = ({ data, url }: PageProps<{
     articles: ArticleCardData[];
     totalCount: number;
 }>) => {
 
     return (
         <>
-            <Head>
-                <title>Artikler</title>
-            </Head>
+            <CustomHead 
+                title="Digitale trends | AI, web & design indsigter | Creative Oak"
+                metaDescription="Få indsigt i de nyeste digitale trends inden for AI, webudvikling og design. Praktiske tips, guides og inspiration fra eksperterne hos Creative Oak"
+                imageUrl={`${url.origin}/images/buywebsite.avif`}
+                url={url.href}
+            />
             <HeroSection2
-                title="Artikler"
-                description="Læs med"
+                title="Vores artikler | Din guide til fremtidens digitale landskab"
+                description="Velkommen til vores vidensbank! Her deler vi ud af alt det, der gør os klogere (og nogle gange holder os vågne om natten). Ingen tørre akademiske afhandlinger eller copy-paste artikler - kun ægte indsigt fra folk der faktisk arbejder med det her til daglig."
             />
             <Splitter />
             <ArticleIsland

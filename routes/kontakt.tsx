@@ -15,8 +15,9 @@ import TeamSection from "../components/sections/ContentSections/TeamSection.tsx"
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import ContactSection from "../components/sections/UtiliySections/ContactSecton.tsx";
 import { Employee } from "../types/Employee.ts";
-import { Handlers } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 import { client } from "../utils/sanity.ts";
+import CustomHead from "../components/other/CustomHead.tsx";
 
 const content4Cards: Content4CardType[] = [
   {
@@ -99,9 +100,15 @@ export const handler: Handlers<PageData> = {
   }
 };
 
-const contactPage = ({ data }: { data: PageData }) => {
+const contactPage = ({ data,url }: PageProps) => {
   return (
     <>
+    <CustomHead 
+      title="Kontakt Creative Oak | AI, Web & Foto/Video | Aarhus"
+      imageUrl={`${url.origin}/images/og/og-logo.jpg`}
+      url={url.href}
+      metaDescription="Kontakt Creative Oak for bæredygtige hjemmesider, AI-løsninger og visuel produktion. Ring på +45 53 53 42 90 eller skriv til hej@creativeoak.dk. Find os i hjertet af Aarhus."
+    />
       <Head>
         <title>Kontakt os</title>
       </Head>

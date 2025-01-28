@@ -1,5 +1,6 @@
-import { Head } from "$fresh/runtime.ts";
-import { Handlers } from "$fresh/server.ts";
+
+import { Handlers, PageProps } from "$fresh/server.ts";
+import CustomHead from "../components/other/CustomHead.tsx";
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import ContentSection2 from "../components/sections/ContentSections/ContentSection2.tsx";
@@ -43,7 +44,7 @@ export const handler: Handlers<PageData> = {
   }
 };
 
-const About = ({ data }: { data: PageData }) => {
+const About = ({ data, url }: PageProps) => {
 
   const text = [
     {
@@ -69,9 +70,14 @@ const About = ({ data }: { data: PageData }) => {
 
   return (
     <>
-      <Head>
-        <title>Om os</title>
-      </Head>
+  
+        <CustomHead 
+          title="Om Creative Oak | Digital Innovation med Kollektivt Ansvar | Aarhus"
+          metaDescription="Mød Creative Oak - et digitalt kollektiv i Aarhus med fokus på bæredygtighed, demokratiske beslutninger og lige løn. Vi skaber med mennesker i centrum."
+          imageUrl={`${url.origin}/images/magnus-heine-baal.jpeg`}
+          url={url.href}
+          />
+  
       <HeroSection2
         description="Creative Oak er en kreativ virksomhed med fokus på at udarbejde skarpe digitale produkter, der kan gøre underværker for din virksomhed. Men vi har også ambitioner om at være en demokratisk og kollektivistisk virksomhed."
         title="Hvem er vi?"

@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
@@ -8,17 +8,18 @@ import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import ContentSection3 from "../components/sections/ContentSections/ContentSection3.tsx";
 import { DesignIcon, GlassesIcon } from "../components/icons/Icons.tsx";
 import FAQSection from "../components/sections/ContentSections/FAQSection.tsx";
+import CustomHead from "../components/other/CustomHead.tsx";
+import { PageProps } from "$fresh/server.ts";
 
-const VisualIdentityPage = () => {
+const VisualIdentityPage = ({url}: PageProps) => {
   return (
     <>
-      <Head>
-        <title>Visuel Identitet & Branding | Fra kedelig til kendelig</title>
-        <meta
-          name="description"
-          content="Få en unik visuel identitet der skiller dig ud fra mængden. Vi hjælper med logo, farver, typografi og brandguide - alt du behøver for at blive husket."
-        />
-      </Head>
+      <CustomHead 
+        title="Visuel Identitet Aarhus | Skab et Unikt Brand | Creative Oak"
+        metaDescription="Få skabt en unik visuel identitet i Aarhus der skiller dig ud fra mængden. Professionel brandudvikling med personlighed og kant."
+        imageUrl={`${url.origin}/images/buywebsite.avif`}
+        url={url.href}
+      />
       <HeroSection2
         description="Vi hjælper dig med at skabe et visuelt udtryk, der er lige så unikt som din virksomhed. Slut med kedelige standardløsninger - lad os give dit brand det særpræg, der får dine kunder til at huske dig (og glemme konkurrenterne)."
         title="Trænger din visuelle identitet til en makeover?"

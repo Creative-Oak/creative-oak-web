@@ -1,6 +1,6 @@
 // routes/portfolio.tsx
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
+
 import { client } from "../utils/sanity.ts";
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
 import Splitter from "../components/other/splitter.tsx";
@@ -9,6 +9,7 @@ import { ProjectCardData } from "../types/projectCardData.ts";
 import PortfolioIsland from "../islands/PortfolioIsland.tsx";
 import { urlFor } from "../utils/imageBuild.ts";
 import { Image } from "@sanity/types";
+import CustomHead from "../components/other/CustomHead.tsx";
 
 export const handler: Handlers<{
   projects: ProjectCardData[];
@@ -90,7 +91,7 @@ export const handler: Handlers<{
 };
 
 export default function PortfolioRoute(
-  { data }: PageProps<{
+  { data, url }: PageProps<{
     projects: ProjectCardData[];
     categories: string[];
     activeCategories: string[];
@@ -99,12 +100,16 @@ export default function PortfolioRoute(
 ) {
   return (
     <>
-      <Head>
-        <title>Portfolio</title>
-      </Head>
+      <CustomHead 
+          title="Portfolio | Digitale Løsninger & Bæredygtige Cases | Creative Oak"
+          metaDescription="Se udvalgte cases fra Creative Oak. Fra bæredygtige hjemmesider til AI-løsninger. Se hvordan vi har hjulpet virksomheder med at skabe digitalt impact."
+          imageUrl={`${url.origin}/images/buywebsite.avif`}
+          url={url.href}
+        />
       <HeroSection2
-        title="Portfolio"
-        description="Se nogle af de projekter vi har arbejdet på"
+        title="Portfolio | Digitale Løsninger & Bæredygtige Cases"
+        description="Vores portfolio viser hvordan vi omsætter kreative idéer til digitale succeser. Dyk ned i vores cases og se hvordan vi kan hjælpe din virksomhed"
+        
       />
       <Splitter />
 

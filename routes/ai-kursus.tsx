@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import ContentSection4 from "../components/sections/ContentSections/ContentSection4.tsx";
@@ -13,6 +13,8 @@ import ContentSection2 from "../components/sections/ContentSections/ContentSecti
 import CTASection from "../components/sections/UtiliySections/CTASection.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import FAQSection from "../components/sections/ContentSections/FAQSection.tsx";
+import CustomHead from "../components/other/CustomHead.tsx";
+import { PageProps } from "$fresh/server.ts";
 
 const content4Cards: Content4CardType[] = [
   {
@@ -48,12 +50,15 @@ const content4Cards: Content4CardType[] = [
   },
 ];
 
-const aiCourse = () => {
+const aiCourse = ({url}: PageProps) => {
   return (
     <>
-      <Head>
-        <title>AI Kursus</title>
-      </Head>
+      <CustomHead 
+        title="AI Kurser | Skræddersyet AI Undervisning til Virksomheder | Creative Oak"
+        metaDescription="Få praktisk hands-on erfaring med AI gennem skræddersyede kurser til din virksomhed. Vi gør kunstig intelligens forståeligt. Book dit kursus i dag!"
+        url={url.href}
+        imageUrl={`${url.origin}/images/oak-hand.avif`}
+      />
       <div>
         <HeroSection2
           tagLine="AI - på din måde"

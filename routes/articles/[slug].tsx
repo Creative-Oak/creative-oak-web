@@ -1,6 +1,6 @@
 import { client } from "../../utils/sanity.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
+
 import HeroSection2 from "../../components/sections/HeroSections/HeroSection2.tsx";
 import Splitter from "../../components/other/splitter.tsx";
 import { Image } from "@sanity/types";
@@ -10,6 +10,7 @@ import { BlockContent } from "../../utils/renderText.tsx";
 import Footer from "../../components/sections/UtiliySections/FooterSection.tsx";
 import CTASection from "../../components/sections/UtiliySections/CTASection.tsx";
 import { Employee } from "../../types/Employee.ts";
+import CustomHead from "../../components/other/CustomHead.tsx";
 
 
 interface Article {
@@ -94,33 +95,14 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
 
   return (
     <>
-      <Head>
-        <title>{data.title}</title>
-        <meta name="description" content={data.metaDescription} />
-        {/* Open Graph meta tags */}
-        <meta property="og:title" content={data.title} />
-        <meta
-          property="og:description"
-          content={urlFor(data.featuredImage)}
-        />
-        {data.featuredImage && (
-          <meta property="og:image" content={urlFor(data.featuredImage)} />
-        )}
-        <meta property="og:type" content="article" />
-        {/* You might want to add your domain here */}
-        <meta property="og:url" content={currentUrl.toString()} />
-
-        {/* Twitter Card meta tags (optional but recommended) */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={data.title} />
-        <meta
-          name="twitter:description"
-          content={data.metaDescription}
-        />
-        {data.featuredImage && (
-          <meta name="twitter:image" content={urlFor(data.featuredImage)} />
-        )}
-      </Head>
+    <CustomHead 
+    title={data.title}
+    imageUrl={urlFor(data.featuredImage)}
+    metaDescription={data.metaDescription}
+    url={currentUrl.toString()}
+    ogType="article"
+    />
+    
       <HeroSection2
         title={data.title}
         description={data.shortDescription}

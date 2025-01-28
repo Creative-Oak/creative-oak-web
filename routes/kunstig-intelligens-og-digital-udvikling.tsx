@@ -8,6 +8,8 @@ import CTASection from "../components/sections/UtiliySections/CTASection.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import { Content4CardType } from "../types/Content4Cards.ts";
 import { CodeIcon, CourseIcon, RobotIcon } from "../components/icons/Icons.tsx";
+import CustomHead from "../components/other/CustomHead.tsx";
+import { PageProps } from "$fresh/server.ts";
 
 const content4Cards: Content4CardType[] = [
   {
@@ -37,7 +39,7 @@ const content4Cards: Content4CardType[] = [
     ),
     icon: <RobotIcon />,
     title: "AI Chatbots",
-    buttonLink: "/chatbots",
+    buttonLink: "/ai-chatbots",
     buttonText: "Læs om vores vores AI Chatbots",
   },
   {
@@ -56,9 +58,17 @@ const content4Cards: Content4CardType[] = [
   },
 ];
 
-const AiDigitalPage = () => {
+const AiDigitalPage = ({url} : PageProps) => {
+
   return (
     <>
+    <CustomHead
+      title="AI Konsulent | Kunstig Intelligens Udvikling & Kurser | Creative Oak"
+      metaDescription="Få hjælp til integration af kunstig intelligens i din virksomhed. Vi tilbyder AI kurser, chatbot-udvikling og AI-rådgivning."
+      imageUrl={`${url.origin}/images/buywebsite.avif`}
+      url={url.href}
+    />
+
       <Head>
         <title>Kunstig intelligens og digital udvikling</title>
         <meta

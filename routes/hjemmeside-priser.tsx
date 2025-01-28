@@ -1,4 +1,5 @@
-import { Head } from "$fresh/runtime.ts";
+import { PageProps } from "$fresh/server.ts";
+import CustomHead from "../components/other/CustomHead.tsx";
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
@@ -47,12 +48,15 @@ const websitePricingData = [
   },
 ];
 
-const WebsitePrices = () => {
+const WebsitePrices = ({url}: PageProps) => {
   return (
     <>
-      <Head>
-        <title>Hjemmeside Priser</title>
-      </Head>
+      <CustomHead
+        title="Hjemmeside Priser 2025 | Fra 12.500 kr | Bæredygtig Webudvikling"
+        metaDescription="Se vores hjemmeside priser og pakker fra 12.500 kr. Få skræddersyet, bæredygtig webløsning med responsivt design. Vi har priser til alle behov."
+        imageUrl={`${url.origin}/images/buywebsite.avif`}
+        url={url.href}
+      />
       <div>
         <HeroSection2
           tagLine="Priser"

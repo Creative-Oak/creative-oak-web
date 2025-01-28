@@ -1,4 +1,6 @@
-import { Head } from "$fresh/runtime.ts";
+
+import { PageProps } from "$fresh/server.ts";
+import CustomHead from "../components/other/CustomHead.tsx";
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import ContentSection2 from "../components/sections/ContentSections/ContentSection2.tsx";
@@ -7,7 +9,7 @@ import CTASection from "../components/sections/UtiliySections/CTASection.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import PricingSection from "../components/sections/UtiliySections/PricingSection.tsx";
 
-const Chatbots = () => {
+const Chatbots = ({url}: PageProps) => {
   const pricingData = [
     {
       name: "Den billige",
@@ -55,9 +57,12 @@ const Chatbots = () => {
 
   return (
     <>
-      <Head>
-        <title>AI Chatbots</title>
-      </Head>
+      <CustomHead 
+        title="AI Chatbots | Intelligent Kundeservice fra 995 kr/md | Creative Oak"
+        metaDescription="Få en skræddersyet AI chatbot der arbejder 24/7 for din virksomhed. Flersproget support og intelligent kundeservice. Priser fra 995 kr/md."
+        imageUrl={`${url.origin}/images/robot.avif`}
+        url={url.href}
+      />
       <div>
         <HeroSection2
           title="AI Chatbots"
@@ -80,7 +85,7 @@ const Chatbots = () => {
             </p>
           }
           title="Udarbejdelse af en AI chatbot"
-          imageUrl="/images/oak-chatbot.webp"
+          imageUrl="/images/robot.avif"
           box1={
             <span class="text-left">
               <h3 class="font-bold">Research</h3>

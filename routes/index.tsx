@@ -1,6 +1,3 @@
-// routes/index.tsx
-import { Head } from "$fresh/runtime.ts";
-
 import HeroSection1 from "../components/sections/HeroSections/heroSection1.tsx";
 import Splitter from "../components/other/splitter.tsx";
 import MarqueeSection from "../components/sections/UtiliySections/MarqueeSection.tsx";
@@ -13,6 +10,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { ProjectCardData } from "../types/projectCardData.ts";
 import { client } from "../utils/sanity.ts";
 import { Logo } from "../types/Logo.ts";
+import CustomHead from "../components/other/CustomHead.tsx";
 
 // Define a combined data type interface
 interface HomePageData {
@@ -62,44 +60,13 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
 
   return (
     <>
-      <Head>
-        <title>Creative Oak | Kreativt strategisk digitalt studio</title>
-        <meta
-          name="description"
-          content="Vi skaber rammerne for, at organisationer kan forene menneskelig kreativitet og teknologisk innovation og sammen skabe en bæredygtig og positiv fremtid."
-        />
-        <meta
-          name="description"
-          content="Vi skaber rammerne for, at organisationer kan forene menneskelig kreativitet og teknologisk innovation og sammen skabe en bæredygtig og positiv fremtid."
-        />
-        {/* Open Graph meta tags */}
-        <meta
-          property="og:title"
-          content={"Creative Oak | Kreativt strategisk digitalt studio"}
-        />
-        <meta
-          property="og:description"
-          content={"/images/logo.svg"}
-        />
-        <meta property="og:image" content={"/images/logo.svg"} />
+      <CustomHead
+        title="Creative Oak | Kreativt strategisk digitalt studio"
+        metaDescription="Vi skaber rammerne for, at organisationer kan forene menneskelig kreativitet og teknologisk innovation og sammen skabe en bæredygtig og positiv fremtid."
+        url={currentUrl.toString()}
+        imageUrl={`${currentUrl}images/og/og-logo.jpg`}
+      />
 
-        <meta property="og:type" content="page" />
-        {/* You might want to add your domain here */}
-        <meta property="og:url" content={currentUrl.toString()} />
-
-        {/* Twitter Card meta tags (optional but recommended) */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={"Creative Oak | Kreativt strategisk digitalt studio"}
-        />
-        <meta
-          name="twitter:description"
-          content="Vi skaber rammerne for, at organisationer kan forene menneskelig kreativitet og teknologisk innovation og sammen skabe en bæredygtig og positiv fremtid."
-        />
-
-        <meta name="twitter:image" content={"/images/logo.svg"} />
-      </Head>
       <HeroSection1
         rightImage="./images/hero1.avif"
         header="Kreativt strategisk digitalt studio"

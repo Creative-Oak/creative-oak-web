@@ -1,5 +1,6 @@
-import { Head } from "$fresh/runtime.ts";
+
 import { Handlers, PageProps } from "$fresh/server.ts";
+import CustomHead from "../components/other/CustomHead.tsx";
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import PortfolioSection from "../components/sections/ContentSections/PortfolioSection.tsx";
@@ -37,16 +38,20 @@ export const handler: Handlers<
 };
 
 const videoFotoProduktion = (
-  { data }: PageProps<
+  { data, url }: PageProps<
     { projects: ProjectCardData[] }
   >,
 ) => {
   const { projects } = data;
   return (
     <>
-      <Head>
-        <title>Foto og videoproduktion</title>
-      </Head>
+      <CustomHead 
+        title="Videoproduktion Aarhus | Professionel Video & Foto | Creative Oak"
+        metaDescription="Professionel videoproduktion i Aarhus der fanger din virksomheds sjæl. Fra koncept til færdig film. Skræddersyede videoløsninger der performer."
+        imageUrl={`${url.origin}/images/foto-video.avif`}
+        url={url.href}
+        ogType="website"
+      />
 
       <HeroSection2
         title="Fang øjeblikket med foto- og videoproduktioner"
