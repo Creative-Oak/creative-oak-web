@@ -26,14 +26,14 @@ export const handler: Handlers<
 > = {
   async GET(_, ctx) {
     const projectQuery = `
-      *[_type == "project"] | order(isFeatured desc, releaseDate desc)[0...3] {
-        title,
-        "featuredImage": featuredImage,
-        projectShortDescription,
-        "slug": slug.current,
-        "categories": categories[]->title
-      }
-    `;
+    *[_type == "project" && "Webdesign og -udvikling" in categories[]->title] | order(isFeatured desc, releaseDate desc)[0...3] {
+      title,
+      "featuredImage": featuredImage,
+      projectShortDescription,
+      "slug": slug.current,
+      "categories": categories[]->title
+    }
+  `;
 
     const testimonialQuery = `
     *[_type == "testemonnial"] | order(name asc)[0...3] {

@@ -1,12 +1,50 @@
 import { Head } from "$fresh/runtime.ts";
+import { Handlers } from "$fresh/server.ts";
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import ContentSection2 from "../components/sections/ContentSections/ContentSection2.tsx";
 import TeamSection from "../components/sections/ContentSections/TeamSection.tsx";
 import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
+import { Employee } from "../types/Employee.ts";
+import { client } from "../utils/sanity.ts";
+interface PageData {
+  teamMembers: Employee[];
+}
 
-const About = () => {
+export const handler: Handlers<PageData> = {
+  async GET(_req, ctx) {
+    const teamQuery = `
+      *[_type == "employee"] {
+        name,
+        position,
+        profileImage,
+        bio,
+        "slug": slug.current,
+        email,
+        socialLinks {
+          linkedin,
+          twitter,
+          github
+        },
+        department,
+        pronouns,
+        isActive
+      }
+    `;
+
+    try {
+      const teamMembers = await client.fetch(teamQuery);
+      return ctx.render({ teamMembers });
+    } catch (error) {
+      console.error("Error fetching team members:", error);
+      return new Response("Error fetching team data", { status: 500 });
+    }
+  }
+};
+
+const About = ({ data }: { data: PageData }) => {
+
   const text = [
     {
       header: "Beslutninger tages demokratisk",
@@ -27,22 +65,6 @@ const About = () => {
 
         Så længe arbejdet er inspirerende, sjovt, og man konstant udvikler sig, tror vi på, at en femdages arbejdsuge sagtens kan fungere. Derfor sørger vi for, at alle vores ansatte får én dag til at udfordre sig selv ved at lære noget nyt eller gøre noget, der er inspirerende. Vi tror også, at det gavner virksomheden, at vores ansatte har stor mulighed for selvudvikling—hvis man lærer noget nyt, man kan tilbyde vores kunder, sidder vi ikke fast i gammel læring; vi fremmer ny læring.`,
     },
-  ];
-
-  const TempTeam = [
-    {
-      name: "Heine Volder Rødder",
-      role: "Partner, Udvikler, Designer",
-      pronouns: "he/him",
-      imageUrl: "/images/heine.jpg",
-    },
-    {
-      name: "Magnus Høholt Kaspersen",
-      role: "Partner, AI specialist, UX-Designer",
-      pronouns: "he/him",
-      imageUrl: "/images/magnus.jpg",
-    },
-    
   ];
 
   return (
@@ -72,7 +94,7 @@ const About = () => {
       />
       <Splitter />
       <TeamSection
-        teamMembers={TempTeam}
+        teamMembers={data.teamMembers}
         subtitle="Lær menneskerne bag Creative Oak at kende"
         title="Hvem er vi?"
       />

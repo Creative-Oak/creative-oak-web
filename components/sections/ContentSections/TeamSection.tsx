@@ -1,14 +1,16 @@
-interface TeamSectionProps {
+
+import { urlFor } from "../../../utils/imageBuild.ts";
+import { Employee } from "../../../types/Employee.ts";
+
+
+  
+  interface TeamSectionProps {
     title: string;
     subtitle: string;
-    teamMembers: {
-      name: string;
-      role: string;
-      pronouns: string;
-      imageUrl: string;
-    }[];
+    teamMembers: Employee[];
   }
   
+
   const TeamSection = (props: TeamSectionProps) => {
     return (
       <section>
@@ -20,18 +22,18 @@ interface TeamSectionProps {
             style={{ display: 'grid', justifyContent: 'center' }}
           >
             {props.teamMembers.map((member, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <img
+              <a href={`/employee/${member.slug}`} key={index} className="flex flex-col items-center">
+                                <img
                   className="object-cover w-40 h-40 border-brand-black border-4 shadow-sm rounded-full mb-4"
-                  src={member.imageUrl}
-                  alt={member.name}
+                  src={urlFor( member.profileImage)}
+                  alt={`Portrait of ${member.name}`}
                 />
+
+            
                 <h3 className="text-xl font-semibold">{member.name}</h3>
-                <p className="text-sm text-brand-black-500">{member.role}</p>
-                <p className="text-xs mt-1 italic text-brand-black-400">
-                  ({member.pronouns})
-                </p>
-              </div>
+                <p className="text-sm text-brand-black-500">{member.position}</p>
+               
+              </a>
             ))}
           </div>
         </div>

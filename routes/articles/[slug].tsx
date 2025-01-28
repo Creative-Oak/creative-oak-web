@@ -9,24 +9,8 @@ import renderMainContent from "../../utils/renderText.tsx";
 import { BlockContent } from "../../utils/renderText.tsx";
 import Footer from "../../components/sections/UtiliySections/FooterSection.tsx";
 import CTASection from "../../components/sections/UtiliySections/CTASection.tsx";
+import { Employee } from "../../types/Employee.ts";
 
-interface SocialLinks {
-  linkedin?: string;
-  twitter?: string;
-  github?: string;
-}
-
-interface Employee {
-  name: string;
-  position: string;
-  profileImage: Image;
-  bio: string;
-  slug: string;
-  email: string;
-  socialLinks: SocialLinks;
-  department: string;
-  isActive: boolean;
-}
 
 interface Article {
   title: string;
@@ -104,13 +88,38 @@ export const handler: Handlers<{ articles: Article }> = {
   },
 };
 
-const ProjectPage = ({ data }: PageProps<Article>) => {
+const ProjectPage = ({ data, url }: PageProps<Article>) => {
+
+  const currentUrl = typeof window !== 'undefined' ? globalThis.location.href : url;
 
   return (
     <>
       <Head>
         <title>{data.title}</title>
         <meta name="description" content={data.metaDescription} />
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content={data.title} />
+        <meta
+          property="og:description"
+          content={urlFor(data.featuredImage)}
+        />
+        {data.featuredImage && (
+          <meta property="og:image" content={urlFor(data.featuredImage)} />
+        )}
+        <meta property="og:type" content="article" />
+        {/* You might want to add your domain here */}
+        <meta property="og:url" content={currentUrl.toString()} />
+
+        {/* Twitter Card meta tags (optional but recommended) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={data.title} />
+        <meta
+          name="twitter:description"
+          content={data.metaDescription}
+        />
+        {data.featuredImage && (
+          <meta name="twitter:image" content={urlFor(data.featuredImage)} />
+        )}
       </Head>
       <HeroSection2
         title={data.title}

@@ -31,7 +31,7 @@ export const handler: Handlers = {
         "categories": categories[]->title
       }
     `;
-    
+
     const logoQuery = `*[_type == "partnerLogo"] | order(order asc) {
       _id,
       name,
@@ -39,13 +39,13 @@ export const handler: Handlers = {
       url,
       "image": image.asset->url
     }`;
-    
+
     try {
       const [projects, logos] = await Promise.all([
         client.fetch(projectQuery),
-        client.fetch(logoQuery)
+        client.fetch(logoQuery),
       ]);
-      
+
       return ctx.render({ projects, logos });
     } catch (error) {
       console.error("Error fetching data from Sanity:", error);
@@ -54,9 +54,12 @@ export const handler: Handlers = {
   },
 };
 
-
-export default function Home({ data }: PageProps<HomePageData>) {
+export default function Home({ data, url }: PageProps<HomePageData>) {
   const { projects, logos } = data;
+  const currentUrl = typeof window !== "undefined"
+    ? globalThis.location.href
+    : url;
+
   return (
     <>
       <Head>
@@ -65,6 +68,37 @@ export default function Home({ data }: PageProps<HomePageData>) {
           name="description"
           content="Vi skaber rammerne for, at organisationer kan forene menneskelig kreativitet og teknologisk innovation og sammen skabe en bæredygtig og positiv fremtid."
         />
+        <meta
+          name="description"
+          content="Vi skaber rammerne for, at organisationer kan forene menneskelig kreativitet og teknologisk innovation og sammen skabe en bæredygtig og positiv fremtid."
+        />
+        {/* Open Graph meta tags */}
+        <meta
+          property="og:title"
+          content={"Creative Oak | Kreativt strategisk digitalt studio"}
+        />
+        <meta
+          property="og:description"
+          content={"/images/logo.svg"}
+        />
+        <meta property="og:image" content={"/images/logo.svg"} />
+
+        <meta property="og:type" content="page" />
+        {/* You might want to add your domain here */}
+        <meta property="og:url" content={currentUrl.toString()} />
+
+        {/* Twitter Card meta tags (optional but recommended) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={"Creative Oak | Kreativt strategisk digitalt studio"}
+        />
+        <meta
+          name="twitter:description"
+          content="Vi skaber rammerne for, at organisationer kan forene menneskelig kreativitet og teknologisk innovation og sammen skabe en bæredygtig og positiv fremtid."
+        />
+
+        <meta name="twitter:image" content={"/images/logo.svg"} />
       </Head>
       <HeroSection1
         rightImage="./images/hero1.avif"
@@ -76,7 +110,7 @@ export default function Home({ data }: PageProps<HomePageData>) {
         subtitle="Din partner for bæredygtige digitale løsninger, der vokser med din forretning"
       />
       <Splitter />
-      <MarqueeSection data={{logos}} />
+      <MarqueeSection data={{ logos }} />
       <Splitter />
       <ServiceCardSection />
       <Splitter />

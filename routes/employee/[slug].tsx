@@ -105,7 +105,9 @@ export const handler: Handlers<{ employee: Employee }> = {
   },
 };
 
-const EmployeePage = ({ data }: PageProps<Employee>) => {
+const EmployeePage = ({ data, url  }: PageProps<Employee>) => {
+
+  const currentUrl = typeof window !== 'undefined' ? globalThis.location.href : url;
 
   return (
     <>
@@ -113,8 +115,31 @@ const EmployeePage = ({ data }: PageProps<Employee>) => {
         <title>{data.name} - {data.position}</title>
         <meta
           name="description"
-          content={`${data.name} is ${data.position} at our company. Contact them at ${data.email}.`}
+          content={`${data.name} er ${data.position} ved Creative Oak. Kontakt: ${data.email}.`}
         />
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content={data.name} />
+        <meta
+          property="og:description"
+          content={urlFor(data.profileImage)}
+        />
+        {data.profileImage && (
+          <meta property="og:image" content={urlFor(data.profileImage)} />
+        )}
+        <meta property="og:type" content="article" />
+        {/* You might want to add your domain here */}
+        <meta property="og:url" content={currentUrl.toString()} />
+
+        {/* Twitter Card meta tags (optional but recommended) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={data.name} />
+        <meta
+          name="twitter:description"
+          content={`${data.name} er ${data.position} ved Creative Oak. Kontakt dem på ${data.email}.`}
+        />
+        {data.profileImage && (
+          <meta name="twitter:image" content={urlFor(data.profileImage)} />
+        )}
       </Head>
 
       <HeroSection2
@@ -304,7 +329,7 @@ const EmployeePage = ({ data }: PageProps<Employee>) => {
         buttonLink={"mailto:" + data.email}
         buttonText={"Send en mail!"}
         description="Så tøv ikke med at skrive!"
-        title={"Vil du snakke med " + data.name}
+        title={"Vil du snakke med " + data.name + "?"}
       />
       <Footer />
     </>

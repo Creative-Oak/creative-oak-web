@@ -56,6 +56,7 @@ export default {
         name: 'isFeatured',
         type: 'boolean',
         title: 'Is Featured',
+        initialValue: false,
       },
       {
         name: 'primaryImageAltText',
