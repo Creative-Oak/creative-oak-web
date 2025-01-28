@@ -142,7 +142,7 @@ const ProjectPage = ({ data, url }: PageProps<Project>) => {
                   <p class="text-sm text-gray-600">
                     Publiceret den{" "}
                     <span class="font-medium">
-                      {new Date(data.releaseDate).toLocaleDateString("dk-DK", {
+                      {new Date(data.releaseDate).toLocaleDateString("da-DK", {
                         year: "numeric",
                         month: "long",
                         day: "numeric",

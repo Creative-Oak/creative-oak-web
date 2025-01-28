@@ -106,20 +106,21 @@ export const handler: Handlers<{ employee: Employee }> = {
   },
 };
 
-const EmployeePage = ({ data, url  }: PageProps<Employee>) => {
-
-  const currentUrl = typeof window !== 'undefined' ? globalThis.location.href : url;
+const EmployeePage = ({ data, url }: PageProps<Employee>) => {
+  const currentUrl = typeof window !== "undefined"
+    ? globalThis.location.href
+    : url;
 
   return (
     <>
-    <CustomHead 
-      title={`${data.name} - ${data.position}`}
-      imageUrl={urlFor(data.profileImage)}
-      metaDescription={`${data.name} er ${data.position} ved Creative Oak. Kontakt: ${data.email}.`}
-      url={currentUrl.toString()}
-      ogType="profile"
-    />
-     
+      <CustomHead
+        title={`${data.name} - ${data.position}`}
+        imageUrl={urlFor(data.profileImage)}
+        metaDescription={`${data.name} er ${data.position} ved Creative Oak. Kontakt: ${data.email}.`}
+        url={currentUrl.toString()}
+        ogType="profile"
+      />
+
       <HeroSection2
         title={data.name}
         description={data.position}
@@ -161,42 +162,39 @@ const EmployeePage = ({ data, url  }: PageProps<Employee>) => {
               </div>
             )}
 
-                {/* Add Projects Section if they exist */}
-      {data.projects && data.projects.length > 0 && (
-        <div class="mt-12">
-          <h2 class="text-2xl font-semibold mb-6">Projekter</h2>
-          <div class="grid gap-6 grid-cols-1 md:grid-cols-2">
-            {data.projects.map((project) => (
-              <a
-                href={`/projects/${project.slug}`}
-                class="block group bg-white hover:shadow-custom-black-400 border-2 border-brand-black transition-shadow"
-                key={project.slug}
-              >
-                {project.featuredImage && (
-                  <img
-                    src={urlFor(project.featuredImage)}
-                    alt={project.title}
-                    class="w-full h-48 object-cover"
-                  />
-                )}
-                <div class="p-6">
-                <h3 class="font-medium group-hover:text-brand-red transition-colors">
-                  {project.title}
-                </h3>
-                <p class="text-sm text-gray-600 mt-2 line-clamp-2 group-hover:text-brand-red transition-colors">
-                  {project.projectShortDescription}
-                </p>
+            {/* Add Projects Section if they exist */}
+            {data.projects && data.projects.length > 0 && (
+              <div class="mt-12">
+                <h2 class="text-2xl font-semibold mb-6">Projekter</h2>
+                <div class="grid gap-6 grid-cols-1 md:grid-cols-2">
+                  {data.projects.map((project) => (
+                    <a
+                      href={`/projects/${project.slug}`}
+                      class="block group bg-white hover:shadow-custom-black-400 border-2 border-brand-black transition-shadow"
+                      key={project.slug}
+                    >
+                      {project.featuredImage && (
+                        <img
+                          src={urlFor(project.featuredImage)}
+                          alt={project.title}
+                          class="w-full h-48 object-cover"
+                        />
+                      )}
+                      <div class="p-6">
+                        <h3 class="font-medium group-hover:text-brand-red transition-colors">
+                          {project.title}
+                        </h3>
+                        <p class="text-sm text-gray-600 mt-2 line-clamp-2 group-hover:text-brand-red transition-colors">
+                          {project.projectShortDescription}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
                 </div>
-              </a>
-              
-            ))}
-          </div>
-        </div>
-      )}
-
+              </div>
+            )}
           </div>
 
-          {/* Sidebar */}
           {/* Sidebar */}
           <div class="lg:w-1/3">
             <div class="sticky top-32">
@@ -214,13 +212,12 @@ const EmployeePage = ({ data, url  }: PageProps<Employee>) => {
                 <div class="space-y-4">
                   {data.pronouns && (
                     <div>
-                      <p class="text-sm text-gray-600">Pronouns</p>
                       <p class="font-medium">{data.pronouns}</p>
                     </div>
                   )}
 
                   <div>
-                    <p class="text-sm text-gray-600">Email</p>
+                    <p class="text-sm text-gray-600">Mail</p>
                     <a
                       href={`mailto:${data.email}`}
                       class="text-brand-red hover:underline"
@@ -231,7 +228,7 @@ const EmployeePage = ({ data, url  }: PageProps<Employee>) => {
 
                   {data.phoneNumber && (
                     <div>
-                      <p class="text-sm text-gray-600">Phone</p>
+                      <p class="text-sm text-gray-600">Telfon</p>
                       <a
                         href={`tel:${data.phoneNumber}`}
                         class="text-brand-red hover:underline"
@@ -300,7 +297,6 @@ const EmployeePage = ({ data, url  }: PageProps<Employee>) => {
           </div>
         </div>
       </div>
-  
 
       <Splitter />
       <CTASection

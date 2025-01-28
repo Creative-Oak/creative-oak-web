@@ -184,7 +184,7 @@ Selvfølgelig! Vi er ikke de eneste, der skal have nøglen til dit kongerige. Al
         buttonLink="/hjemmeside-priser"
         buttonText="Se priser"
         description="Vi er specialister i at udvikle moderne og miljøbevidste hjemmesider. Køb hjemmeside hos os, og få en løsning, der kombinerer topmoderne webteknologi med stærk performance, så din virksomhed kan vækste digitalt. <br/><br/> Vores priser starter fra <b>12.500,-</b>"
-        button2Link="blog/baeredygtig-hjemmeside"
+        button2Link="/articles/baeredygtig-hjemmeside"
         button2Text="Læs mere om bæredygtig webdesign"
       />
       <Splitter />

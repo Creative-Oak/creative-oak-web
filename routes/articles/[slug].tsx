@@ -224,7 +224,7 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
                         Publiceret den{" "}
                         <span class="font-medium">
                           {new Date(data.releaseDate).toLocaleDateString(
-                            "dk-DK",
+                            "da-DK",
                             {
                               year: "numeric",
                               month: "long",
