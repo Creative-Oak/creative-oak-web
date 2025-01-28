@@ -9,8 +9,8 @@ const TestemonialSection = (props: TestemonialSectionProps) => {
   
   return (
     <section>
-      <div class="container md:py-24">
-        <h2 class="text-5xl font-lexend font-bold">Kundeudtalelser</h2>
+      <div class="container py-12 md:py-24">
+        <h2 class="text-3xl md:text-5xl font-lexend font-bold">Kundeudtalelser</h2>
         <p class="text-lg mt-4">
           Vores kunders kærlighedsbreve - se hvad de skriver om os
         </p>

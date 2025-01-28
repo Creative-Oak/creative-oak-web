@@ -106,7 +106,7 @@ const WebsitePrices = () => {
               kan være spørgsmål som:
               <br />
               <br />
-              <ul class="list-disc">
+              <ul class="list-disc pl-6">
                 <li class="my-2">
                   Hvor mange unikke sider skal vi lave til dig?
                 </li>

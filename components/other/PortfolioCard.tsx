@@ -24,7 +24,7 @@ const PortfolioCard = (props: PortfolioCardProps) => {
           />
         )}
 
-        <div class="p-6">
+        <div class="p-4 md:p-6">
           <h3 className="text-xl font-lexend font-semibold ">{props.title}</h3>
           <p className="text-brand-black-600">{props.short_description}</p>
           <div class="mt-6">

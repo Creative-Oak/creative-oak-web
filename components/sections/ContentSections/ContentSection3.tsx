@@ -28,11 +28,11 @@ interface ContentSection3Props {
 
 const ContentElement = ({ element }: { element: ContentElementProps }) => {
   return (
-    <div class="p-6 flex flex-col items-center text-center">
-      <div class="mb-4 w-12 h-12">
+    <div class="md:p-6 flex flex-col  md:items-center md:text-center">
+      <div class="md:mb-4 mb-2 w-6 h-6 md:w-12 md:h-12">
         {element.icon}
       </div>
-      <h3 class="text-xl font-bold mb-4">
+      <h3 class="text-xl font-bold mb-2 md:mb-4">
         {element.title}
       </h3>
       {element.type === "list"
@@ -60,7 +60,6 @@ const ContentSection3 = ({
   description,
   elements,
   backgroundColor = "bg-brand-yellow",
-  containerMaxWidth = "max-w-5xl",
 }: ContentSection3Props) => {
   // Calculate grid columns based on number of elements
   const getGridCols = (elementsCount: number) => {
@@ -78,19 +77,19 @@ const ContentSection3 = ({
   return (
     <section class={`py-24 ${backgroundColor}`}>
       <div
-        class={`container ${containerMaxWidth} flex items-center justify-center`}
+        class={`container flex items-center justify-center`}
       >
         <div class="bg-brand-white border-2 border-brand-black shadow-custom-black p-8 w-full">
-          <div class="text-center my-8">
-            <h2 class="text-4xl max-w-5xl mx-auto font-bold font-lexend mb-4">
+          <div class="md:text-center my-8">
+            <h2 class="text-xl md:text-4xl mx-auto font-bold font-lexend mb-4">
               {title}
             </h2>
-            <p class="max-w-2xl text-pretty mx-auto mb-8">
+            <p class="md:max-w-2xl text-pretty mx-auto mb-8">
               {description}
             </p>
           </div>
           <div
-            class={`grid ${getGridCols(elements.length)} gap-8 ${
+            class={`grid ${getGridCols(elements.length)} gap-6 md:gap-8 ${
               getGridJustify(elements.length)
             }`}
           >

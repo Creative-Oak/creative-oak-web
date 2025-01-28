@@ -14,6 +14,9 @@ import ContentSection2 from "../components/sections/ContentSections/ContentSecti
 import TeamSection from "../components/sections/ContentSections/TeamSection.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import ContactSection from "../components/sections/UtiliySections/ContactSecton.tsx";
+import { Employee } from "../types/Employee.ts";
+import { Handlers } from "$fresh/server.ts";
+import { client } from "../utils/sanity.ts";
 
 const content4Cards: Content4CardType[] = [
   {
@@ -60,22 +63,43 @@ const content4Cards: Content4CardType[] = [
     ),
   },
 ];
-const TempTeam = [
-  {
-    name: "Heine Volder Rødder",
-    role: "Partner, Udvikler, Designer",
-    pronouns: "he/him",
-    imageUrl: "/images/heine.jpg",
-  },
-  {
-    name: "Magnus Høholt Kaspersen",
-    role: "Partner, AI specialist, UX-Designer",
-    pronouns: "he/him",
-    imageUrl: "/images/magnus.jpg",
-  },
-];
 
-const contactPage = () => {
+interface PageData {
+  teamMembers: Employee[];
+}
+
+export const handler: Handlers<PageData> = {
+  async GET(_req, ctx) {
+    const teamQuery = `
+      *[_type == "employee"] {
+        name,
+        position,
+        profileImage,
+        bio,
+        "slug": slug.current,
+        email,
+        socialLinks {
+          linkedin,
+          twitter,
+          github
+        },
+        department,
+        pronouns,
+        isActive
+      }
+    `;
+
+    try {
+      const teamMembers = await client.fetch(teamQuery);
+      return ctx.render({ teamMembers });
+    } catch (error) {
+      console.error("Error fetching team members:", error);
+      return new Response("Error fetching team data", { status: 500 });
+    }
+  }
+};
+
+const contactPage = ({ data }: { data: PageData }) => {
   return (
     <>
       <Head>
@@ -104,7 +128,7 @@ const contactPage = () => {
       />
       <Splitter />
       <TeamSection
-        teamMembers={TempTeam}
+        teamMembers={data.teamMembers}
         title="Hvem er vi?"
         subtitle="Lær menneskerne bag Creative Oak at kende"
       />

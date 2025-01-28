@@ -11,7 +11,7 @@ interface PortfolioSectionProps {
 const PortfolioSection = (props: PortfolioSectionProps) => {
   return (
     <section class="portfolio-section bg-brand-yellow">
-      <div class="container py-24 px-4">
+      <div class="container py-12 md:py-24">
         <div class="pb-2">
           <p>{props.teaser}</p>
         </div>
@@ -19,7 +19,7 @@ const PortfolioSection = (props: PortfolioSectionProps) => {
           <h2>{props.title}</h2>
         </div>
 
-        <div class=" py-24 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div class=" py-12 md:py-24 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {props.projects.map((project) => {
             return (
               <PortfolioCard

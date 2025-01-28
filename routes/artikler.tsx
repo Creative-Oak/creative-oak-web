@@ -87,7 +87,7 @@ const ArticlePage = ({ data }: PageProps<{
                     initialLimit={12} // match the default SSR limit
                   />
             <CTASection
-                buttonLink="/contact"
+                buttonLink="/kontakt"
                 buttonText="Kontakt os!"
                 title="Få dine idéer med på listen!"
                 description="Skriv hvis der er noget der har inspireret dig!"

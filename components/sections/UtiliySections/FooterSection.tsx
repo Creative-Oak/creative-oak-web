@@ -8,8 +8,8 @@ import {
 const Footer = () => {
   return (
     <footer className="[&_a]:underline [&_a]:decoration-transparent [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:decoration-inherit">
-      <div class="container py-8 px-2 ">
-        <div class="flex flex-col lg:flex-row  p-12 border-2 gap-12  border-brand-black shadow-custom-black">
+      <div class="container py-8">
+        <div class="flex flex-col lg:flex-row  p-4 md:p-12 border-2 gap-12  border-brand-black shadow-custom-black">
           <div class="flex flex-col flex-grow">
             <a href="/">
               <img class="w-20" width={150} src="/images/logo.svg" />

@@ -387,6 +387,7 @@
         "type": "datetime"
       },
       {
+        "initialValue": false,
         "name": "isFeatured",
         "type": "boolean"
       },
@@ -849,6 +850,109 @@
     "name": "article",
     "type": "document",
     "title": "Articles"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Name of the partner company",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The partner company logo",
+        "name": "image",
+        "type": "image",
+        "title": "Logo Image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Alternative text for accessibility",
+        "name": "alt",
+        "type": "string",
+        "title": "Alt Text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link to partner website",
+        "name": "url",
+        "type": "url",
+        "title": "Website URL"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Order in which the logo appears (optional)",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "partnerLogo",
+    "type": "document"
   },
   {
     "fields": [

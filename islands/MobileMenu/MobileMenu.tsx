@@ -34,7 +34,7 @@ export default function MobileMenu({ navigation }: MobileMenuProps) {
           isMenuOpen ? "transform translate-y-0" : "transform -translate-y-full opacity-0 invisible"
         }`}
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-start">
           {navigation.map((item) => (
             <div key={item.text} className="flex flex-col gap-2">
               {item.childLinks && item.childLinks.length > 0 ? (

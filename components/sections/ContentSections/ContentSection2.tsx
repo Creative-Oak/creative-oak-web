@@ -20,7 +20,7 @@ const ContentSection2 = (props: ContentSection2Props) => {
     };
 
     return (
-        <div className="container max-w-4xl py-16 px-2">
+        <div className="container max-w-4xl py-8 md:py-16 ">
             <h2 class="text-3xl font-bold font-lexend">{props.title}</h2>
             {props.description && <p class="mt-4">{props.description}</p>}
            

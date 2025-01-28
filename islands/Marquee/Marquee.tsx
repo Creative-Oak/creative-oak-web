@@ -5,6 +5,7 @@ import { Logo } from "../../types/Logo.ts";
 interface MarqueeProps {
   logos: Logo[];
   duration?: number;
+  pauseOnHover?: boolean
 }
 
 export default function Marquee({ logos, duration = 30 }: MarqueeProps): JSX.Element {
@@ -28,7 +29,8 @@ export default function Marquee({ logos, duration = 30 }: MarqueeProps): JSX.Ele
   const renderLogo = (logo: Logo, isDuplicate = false) => (
     <div
       key={isDuplicate ? `${logo._id}-duplicate` : logo._id}
-      class="flex-shrink-0 mx-4 md:mx-20 w-auto h-10 md:h-24 flex items-center justify-center transition-transform hover:scale-110"    >
+      class="flex-shrink-0 mx-2 md:mx-8 w-16 md:w-auto h-8 md:h-24 flex items-center justify-center transition-transform hover:scale-110"
+>
       {logo.url ? (
         <a
           href={logo.url}
@@ -83,6 +85,13 @@ export default function Marquee({ logos, duration = 30 }: MarqueeProps): JSX.Ele
 
           .group:hover .scroller__inner {
             animation-play-state: paused;
+          }
+
+          /* Adjusted animation speed for mobile */
+          @media (max-width: 768px) {
+            .scroller__inner {
+              animation-duration: calc(var(--animation-duration) * 0.7) !important;
+            }
           }
         `}
       </style>

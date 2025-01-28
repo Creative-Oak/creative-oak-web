@@ -34,7 +34,14 @@ export default {
       },
       container: {
         center: true,
-        padding: "1rem",
+        padding: {
+          DEFAULT: '1.5rem',  // This will be the padding for mobile/small devices
+          sm: '1rem',        // From 640px up, padding will be 1rem
+          md: '1rem',
+          lg: '1rem',
+          xl: '1rem',
+          '2xl': '1rem',
+        },
         screens: {
           sm: "40rem",
           md: "48rem",

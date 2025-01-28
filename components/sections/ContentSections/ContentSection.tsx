@@ -19,7 +19,7 @@ const ContentSection = (props: ContentSectionProps) => {
 
   return (
     <section class={props.extraStyles}>
-      <div className="container mx-auto px-4 md:px-8 py-24">
+      <div className="container mx-auto py-24">
         <div className={`grid grid-cols-1 ${hasImage ? 'md:grid-cols-2' : ''} gap-12 items-center`}>
           {hasImage && (
             <div class="order-2">
@@ -39,7 +39,7 @@ const ContentSection = (props: ContentSectionProps) => {
             <h1 className="text-4xl mt-4 md:text-5xl font-bold mb-4 font-lexend">
               {props.title}
             </h1>
-            <div className="text-lg font-poppins mb-6 rich-text">
+            <div className="text-lg font-poppins mb-6 ">
               {props.description}
             </div>
             {hasBoxes && (

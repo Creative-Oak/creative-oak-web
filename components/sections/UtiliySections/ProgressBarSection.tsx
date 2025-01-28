@@ -36,33 +36,39 @@ export default function ProgressSection() {
   ];
 
   return (
-    <section class="container py-24 ">
-      <div class="grid grid-cols-2 gap-12">
-        <div class="flex flex-col max-w-lg items-start gap-6 justify-start">
-          <h2 class="font-lexend text-4xl font-bold ">
+    <section className="container py-12 md:py-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="flex flex-col items-start gap-4 md:gap-6 justify-start">
+          <h2 className="font-lexend text-3xl md:text-4xl font-bold">
             Processen ved køb af hjemmeside hos os
           </h2>
-          <p class="whitespace-pre-wrap">
-            En ny hjemmeside en vigtig investering for enhver virksomhed, der
-            ønsker at etablere eller opretholde en stærk online tilstedeværelse
-            i et omskifteligt medielandskab.
-          </p>
-          <p>
-            Dette, uanset om i ønsker en webshop eller anden side!
-          </p>
-          <p>
-            En professionelt udviklet hjemmeside kan give jeres virksomhed en
-            konkurrencemæssig fordel og bidrage til at opbygge et positivt
-            omdømme blandt jeres kunder.
-          </p>
-          <p>
-            Vores samarbejdsproces indebærer typisk flere samtaler med dig, så
-            vi sikrer et resultat, der både fungerer optimalt og lever op til
-            vores fælles æstetiske standarder.
-          </p>
-          <PrimaryButton href="#" text="Læs mere" />
+          <div className="space-y-4 md:space-y-6">
+            <p className="whitespace-pre-wrap">
+              En ny hjemmeside en vigtig investering for enhver virksomhed, der
+              ønsker at etablere eller opretholde en stærk online tilstedeværelse
+              i et omskifteligt medielandskab.
+            </p>
+            <p>
+              Dette, uanset om i ønsker en webshop eller anden side!
+            </p>
+            <p>
+              En professionelt udviklet hjemmeside kan give jeres virksomhed en
+              konkurrencemæssig fordel og bidrage til at opbygge et positivt
+              omdømme blandt jeres kunder.
+            </p>
+            <p>
+              Vores samarbejdsproces indebærer typisk flere samtaler med dig, så
+              vi sikrer et resultat, der både fungerer optimalt og lever op til
+              vores fælles æstetiske standarder.
+            </p>
+          </div>
+          <div className="mt-4 md:mt-6">
+            <PrimaryButton href="/kontakt" text="Læs mere" />
+          </div>
         </div>
-        <Timeline sections={sections} />
+        <div className="mt-8 md:mt-0">
+          <Timeline sections={sections} />
+        </div>
       </div>
     </section>
   );

@@ -54,7 +54,7 @@ const tag3: Tags[] = [
 const ServiceCardSection = () => {
   return (
     <section class=" bg-brand-blue">
-      <div class="container mx-auto px-4 py-36 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="container mx-auto py-12 md:py-36 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <ServiceCard tags={tag1} href="/koeb-hjemmeside" title="Hjemmeside udvikling" />
         <ServiceCard tags={tag2} href="/kunstig-intelligens-og-digital-udvikling" title="AI og digital udvikling" />
         <ServiceCard tags={tag3} href="#" title="Digitalt indhold" />

@@ -16,9 +16,9 @@ interface Hero2Props {
 const HeroSection2 = (props: Hero2Props) => {
   return (
     <section className="relative pt-[95px] overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 py-20 relative z-10">
+      <div className="container mx-auto md:px-8 py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="md:order-2 ">
+          <div className="md:order-2">
             {props.imageUrl
               ? (
                 <img
@@ -31,7 +31,6 @@ const HeroSection2 = (props: Hero2Props) => {
               : (
                 <div className="absolute inset-0 -z-10">
                   <div className="absolute h-full w-[200%] right-[-20%]">
-                    {/* Changed from right-0 to right-[20%] */}
                     <div className="absolute h-24 bg-brand-blue w-full -rotate-45 transform origin-right -translate-y-96">
                     </div>
                     <div className="absolute h-24 bg-brand-purple w-full -rotate-45 transform origin-right -translate-y-56">
@@ -42,28 +41,30 @@ const HeroSection2 = (props: Hero2Props) => {
           </div>
           <div className="md:order-1">
             {props.tagLine && (
-              <p className="text-lg  text-brand-black mb-2">
+              <p className="text-lg text-brand-black mb-2">
                 {props.tagLine}
               </p>
             )}
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-black mb-4 font-lexend">
+            <h1 className="text-4xl md:text-5xl items-start font-bold text-brand-black mb-4 font-lexend">
               {props.title}
             </h1>
             <p
               className="text-lg md:text-xl font-poppins mb-6"
               dangerouslySetInnerHTML={{ __html: props.description }}
             />
-            <div className="flex flex-row gap-4 flex-wrap">
-              {props.buttonLink && props.buttonText && (
+            <div className="flex flex-wrap gap-8 items-center sm:gap-8">
+              {props.buttonText && props.buttonLink && (
+                // Remove the extra div wrapper entirely, or if needed, don't make it full width
                 <PrimaryButton
                   text={props.buttonText}
                   href={props.buttonLink}
                 />
               )}
-              {props.button2Link && props.button2Text && (
+              {props.button2Text && props.button2Link && (
+                // Remove the extra div wrapper entirely, or if needed, don't make it full width
                 <SecondaryButton
-                  href={props.button2Link}
                   text={props.button2Text}
+                  href={props.button2Link}
                 />
               )}
             </div>
