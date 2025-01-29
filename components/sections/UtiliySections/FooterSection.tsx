@@ -31,7 +31,7 @@ const Footer = () => {
 
             <div class="flex h-6 mt-4 fill-brand-black space-x-4">
               <a
-                href="#"
+                href="https://www.instagram.com/creativeoakco"
                 class="h-full"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -39,23 +39,16 @@ const Footer = () => {
                 <InstagramIcon />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/98248943"
                 class="h-full"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <LinkedInIcon />
               </a>
+            
               <a
-                href="#"
-                class="h-full fill-brand-black"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FacebookIcon />
-              </a>
-              <a
-                href="#"
+                href="https://www.youtube.com/@CreativeOak"
                 class="h-full"
                 target="_blank"
                 rel="noopener noreferrer"
