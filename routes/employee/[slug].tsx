@@ -43,9 +43,8 @@ export const handler: Handlers<{ employee: Employee }> = {
   async GET(_req, ctx) {
     const { slug } = ctx.params;
     if (!slug) {
-      return new Response("Slug not provided", { status: 400 });
+      return ctx.renderNotFound();
     }
-
     const employeeQuery = `
     *[_type == "employee" && slug.current == $slug][0] {
       name,
@@ -95,7 +94,7 @@ export const handler: Handlers<{ employee: Employee }> = {
       const employee = await client.fetch(employeeQuery, { slug });
 
       if (!employee) {
-        return new Response("Employee not found", { status: 404 });
+        return ctx.renderNotFound();
       }
 
       return ctx.render(employee);

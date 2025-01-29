@@ -35,7 +35,7 @@ export const handler: Handlers<{ articles: Article }> = {
   async GET(_req, ctx) {
     const { slug } = ctx.params;
     if (!slug) {
-      return new Response("Slug not provided", { status: 400 });
+      return ctx.renderNotFound();
     }
     const projectQuery = `
     *[_type == "article" && slug.current == $slug][0] {
@@ -75,10 +75,12 @@ export const handler: Handlers<{ articles: Article }> = {
     }
   `;
 
+  
+
     try {
       const project = await client.fetch(projectQuery, { slug });
       if (!project) {
-        return new Response("Project not found", { status: 404 });
+        return ctx.renderNotFound();
       }
 
       return ctx.render(project);

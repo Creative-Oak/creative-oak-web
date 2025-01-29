@@ -67,7 +67,7 @@ const WebsitePrices = ({url}: PageProps) => {
           buttonText="Få et tilbud!"
           buttonLink="/kontakt"
           button2Text="Læs mere om bæredygtige hjemmesider"
-          button2Link="/blog/baeredygtige-hjemmesider"
+          button2Link="/articles/baeredygtig-hjemmeside"
         />
         <Splitter />
         <PricingSection
