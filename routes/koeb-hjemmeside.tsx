@@ -244,7 +244,7 @@ Selvfølgelig! Vi er ikke de eneste, der skal have nøglen til dit kongerige. Al
             grønnere digital fremtid. <br />
             <br />
             Læs mere om emnet{" "}
-            <a href="/articles/baeredygtig-hjemmeside">her</a>, ellers så lad os tage en snak!
+            <a class={"text-brand-red underline"} href="/articles/baeredygtig-hjemmeside">her</a>, ellers så lad os tage en snak!
             <br />
             <br />
             Så finder vi en grøn løsning til jer.

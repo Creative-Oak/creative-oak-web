@@ -4,7 +4,7 @@ import { CheckmarkIcon } from "../../icons/Icons.tsx";
 interface PriceColumn {
   name: string;
   price: string;
-  features: string[];
+  features: (string | JSX.Element)[];
 }
 
 export interface PricingSectionProps {
@@ -21,35 +21,38 @@ const PricingSection = (props: PricingSectionProps) => {
         <h2 className="text-2xl md:text-3xl font-bold font-lexend text-center md:text-left">
           {props.title}
         </h2>
-        
+
         {props.description && (
           <div className="mt-4 text-center md:text-left">
             {props.description}
           </div>
         )}
-
-        <div className="flex flex-col md:flex-row gap-4 mt-8 space-y-4 md:space-y-0">
-          {props.priceColumns.map((el, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {props.priceColumns.map((column, i) => (
             <div
               key={i}
-              className="p-6 border-2 w-full md:w-auto md:flex-1 bg-brand-white border-brand-black 
-                         transition-shadow hover:shadow-custom-black text-center 
-                         flex flex-col justify-between"
+              className="relative p-6 border-2 bg-white border-brand-black
+                     transition-all duration-200 hover:shadow-custom-black
+                     flex flex-col justify-between"
             >
-              <div>
-                <h3 className="font-bold text-xl">{el.name}</h3>
-                <span className="text-2xl md:text-3xl mt-2 block font-bold">{el.price}</span>
-                <ul className="mt-4 space-y-3">
-                  {el.features.map((feature, featureIndex) => (
-                    <div 
-                      key={featureIndex} 
-                      className="flex items-center justify-center md:justify-start"
-                    >
+              <div className="space-y-4">
+                <div className="text-center lg:text-left">
+                  <h3 className="font-bold text-xl mb-2">{column.name}</h3>
+                  <span className="text-3xl font-bold block">
+                    {column.price}
+                  </span>
+                </div>
+
+                <ul className="space-y-4">
+                  {column.features.map((feature, index) => (
+                    <li key={index} className="flex items-center gap-3">
                       <div className="w-4 h-4 flex-shrink-0 mr-2">
                         <CheckmarkIcon />
                       </div>
-                      <li className="text-sm md:text-base">{feature}</li>
-                    </div>
+                      <span className="text-sm lg:text-base">
+                        {feature}
+                      </span>
+                    </li>
                   ))}
                 </ul>
               </div>

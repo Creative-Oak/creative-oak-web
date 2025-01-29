@@ -58,16 +58,15 @@ const content4Cards: Content4CardType[] = [
   },
 ];
 
-const AiDigitalPage = ({url} : PageProps) => {
-
+const AiDigitalPage = ({ url }: PageProps) => {
   return (
     <>
-    <CustomHead
-      title="AI Konsulent | Kunstig Intelligens Udvikling & Kurser | Creative Oak"
-      metaDescription="Få hjælp til integration af kunstig intelligens i din virksomhed. Vi tilbyder AI kurser, chatbot-udvikling og AI-rådgivning."
-      imageUrl={`${url.origin}/images/buywebsite.avif`}
-      url={url.href}
-    />
+      <CustomHead
+        title="AI Konsulent | Kunstig Intelligens Udvikling & Kurser | Creative Oak"
+        metaDescription="Få hjælp til integration af kunstig intelligens i din virksomhed. Vi tilbyder AI kurser, chatbot-udvikling og AI-rådgivning."
+        imageUrl={`${url.origin}/images/buywebsite.avif`}
+        url={url.href}
+      />
 
       <Head>
         <title>Kunstig intelligens og digital udvikling</title>

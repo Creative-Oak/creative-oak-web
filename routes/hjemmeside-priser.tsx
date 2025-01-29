@@ -15,7 +15,8 @@ const websitePricingData = [
       "3-4 undersider",
       "Teknisk SEO optimeret (så du kan findes på Google)",
       "Responsivt design (Så den hjemmeside også ser godt ud på din telefon, tablet eller TV)",
-      "Bæredygtigt design (Læs mere her)",
+   
+      <>Bæredygtigt design (Læs evt mere <a class={"text-brand-red underline"} href='/articles/baeredygtig-hjemmeside'>her</a>)</>,
       "Brugervenligt CMS system (Så du selv kan ændre i dit indhold)",
     ],
   },
@@ -42,7 +43,7 @@ const websitePricingData = [
       "Integration med nuværende systemer",
       "Så mange undersider I kan forestille jer",
       "Kursus i SEO",
-      "Tilkoblet AI-Chatbot assistent (Læs evt mere her)",
+      <>Tilkoblet AI-Chatbot assistent (Læs evt mere <a class={"text-brand-red underline"} href='/ai-chatbots'>her</a>)</>,
       "Markedsføringsplanlægning",
     ],
   },
@@ -70,7 +71,7 @@ const WebsitePrices = ({url}: PageProps) => {
         />
         <Splitter />
         <PricingSection
-          title="Hjemmeside priser"
+          title="Hvad koster det at få bygget din hjemmeside priser i dag?"
           priceColumns={websitePricingData}
           footnote={
             <>
@@ -80,7 +81,7 @@ const WebsitePrices = ({url}: PageProps) => {
             </>
           }
           description={
-            <div class="max-w-xl">
+            <div class="max-w-3xl">
               "Hvad koster en hjemmeside?" spørger du nervøst, mens du holder
               fast i din tegnebog.
               <br />

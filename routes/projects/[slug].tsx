@@ -171,7 +171,7 @@ const ProjectPage = ({ data, url }: PageProps<Project>) => {
                             </p>
                             <div class="flex flex-wrap gap-2 mt-2">
                               {project.categories.map((category) => (
-                                <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">
+                                <span class="text-xs px-1 py-1 border-2 rounded group-hover:rounded-none group-hover:shadow-custom-black-sm transition-all  border-brand-black-400">
                                   {category}
                                 </span>
                               ))}

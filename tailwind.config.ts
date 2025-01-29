@@ -54,6 +54,7 @@ export default {
         "custom-black-400": "4px 4px 0 0 #4a4e58", // Lighter shadow
         "custom-black-500": "4px 4px 0 0 #3c4049", // Slightly darker shadow
         "custom-black": "4px 4px 0 0 #333740", // Original
+        "custom-black-sm": "2px 2px 0 0 #5c5f66", // Shorter
       },
       fontFamily: {
         lexend: ["Lexend Deca", "sans-serif"],

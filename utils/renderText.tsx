@@ -86,7 +86,7 @@ const renderMainContent = (mainContent: BlockContent[]): JSX.Element[] => {
         switch (block.style) {
           case "h2":
             result.push(
-              <h2 key={block._key || index} className="text-3xl font-bold mt-8 mb-4 text-brand-black">
+              <h2 key={block._key || index} className="text-4xl font-bold mt-8 mb-4 text-brand-black">
                 {block.children?.map((child, idx) => renderTextContent(child, idx, block.markDefs))}
               </h2>
             );
@@ -94,11 +94,19 @@ const renderMainContent = (mainContent: BlockContent[]): JSX.Element[] => {
 
           case "h3":
             result.push(
-              <h3 key={block._key || index} className="text-2xl font-semibold mt-6 mb-3 text-brand-black">
+              <h3 key={block._key || index} className="text-3xl font-semibold mt-6 mb-4 text-brand-black">
                 {block.children?.map((child, idx) => renderTextContent(child, idx, block.markDefs))}
               </h3>
             );
             break;
+
+            case "h4":
+              result.push(
+                <h3 key={block._key || index} className="text-2xl font-semibold mt-6 mb-2 text-brand-black">
+                  {block.children?.map((child, idx) => renderTextContent(child, idx, block.markDefs))}
+                </h3>
+              );
+              break;
 
           default:
             result.push(
