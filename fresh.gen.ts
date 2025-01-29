@@ -13,6 +13,7 @@ import * as $api_mail from "./routes/api/mail.ts";
 import * as $api_portfolio from "./routes/api/portfolio.tsx";
 import * as $articles_slug_ from "./routes/articles/[slug].tsx";
 import * as $artikler from "./routes/artikler.tsx";
+import * as $content_produktion from "./routes/content-produktion.tsx";
 import * as $employee_slug_ from "./routes/employee/[slug].tsx";
 import * as $foto_video from "./routes/foto-video.tsx";
 import * as $grafisk_design from "./routes/grafisk-design.tsx";
@@ -52,6 +53,7 @@ const manifest = {
     "./routes/api/portfolio.tsx": $api_portfolio,
     "./routes/articles/[slug].tsx": $articles_slug_,
     "./routes/artikler.tsx": $artikler,
+    "./routes/content-produktion.tsx": $content_produktion,
     "./routes/employee/[slug].tsx": $employee_slug_,
     "./routes/foto-video.tsx": $foto_video,
     "./routes/grafisk-design.tsx": $grafisk_design,
