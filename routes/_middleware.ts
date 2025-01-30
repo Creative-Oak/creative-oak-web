@@ -3,10 +3,32 @@ import { FreshContext } from "$fresh/server.ts";
 import { fetchNavigation } from "../utils/fetchNavigation.ts";
 import { State } from "../types/navbarItems.ts";
 
+
+// Definér dine redirects her
+const redirectMap = new Map([
+  ["/en", "/"],
+
+]);
+
 export async function handler(
   req: Request,
   ctx: FreshContext<State>,
 ): Promise<Response> {
+
+  const baseUrl = Deno.env.get("BASE_URL") || "https://creativeoak.dk";
+  const url = new URL(req.url);
+
+  const redirect = redirectMap.get(url.pathname);
+  
+  if (redirect) {
+    return new Response("", {
+      status: 301, // eller 301 for permanent redirect
+      headers: {
+        "Location": redirect
+      },
+    });
+  }
+
   // Get the navigation response
   const resp = await fetchNavigation(req, ctx);
 
@@ -15,8 +37,7 @@ export async function handler(
     return resp;
   }
 
-  const baseUrl = Deno.env.get("BASE_URL") || "https://creativeoak.deno.dev";
-  const url = new URL(req.url);
+
   const canonicalUrl = `${baseUrl}${url.pathname}`;
 
   // Get the HTML content
