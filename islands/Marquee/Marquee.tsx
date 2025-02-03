@@ -8,7 +8,7 @@ interface MarqueeProps {
   pauseOnHover?: boolean
 }
 
-export default function Marquee({ logos, duration = 30 }: MarqueeProps): JSX.Element {
+export default function Marquee({ logos, duration = 40 }: MarqueeProps): JSX.Element {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const primaryRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +29,7 @@ export default function Marquee({ logos, duration = 30 }: MarqueeProps): JSX.Ele
   const renderLogo = (logo: Logo, isDuplicate = false) => (
     <div
       key={isDuplicate ? `${logo._id}-duplicate` : logo._id}
-      class="flex-shrink-0 mx-2 md:mx-8 w-16 md:w-auto h-8 md:h-24 flex items-center justify-center transition-transform hover:scale-110"
+      class="flex-shrink-0 mx-2 md:mx-8 w-24 md:w-auto h-12 md:h-24 flex items-center justify-center transition-transform hover:scale-110"
 >
       {logo.url ? (
         <a
