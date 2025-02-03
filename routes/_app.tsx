@@ -20,41 +20,21 @@ export default function App({ Component, state }: AppProps<unknown, State>) {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="/styles.css" />
-
-  
-        {/* Basic favicon */}
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-        {/* PNG versions */}
         <link
           rel="icon"
           type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
         />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
         />
-
-        {/* Apple Touch Icon */}
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-        {/* Android Chrome */}
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/android-chrome-192x192.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/android-chrome-512x512.png"
-        />
+        <meta name="apple-mobile-web-app-title" content="CreativeOak" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <body class="text-brand-black">
         <Navbar navigation={state.navigation} />
