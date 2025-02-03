@@ -20,6 +20,17 @@ export default {
             "validation": (Rule: Rule) => Rule.required(),
         },
         {
+            name: 'isFeatured',
+            type: 'boolean',
+            title: 'Skal vises på forsiden?',
+        },
+        {
+            name: 'order',
+            type: 'number',
+            title: 'Rækkefølge',
+            description: 'Lavere tal vises først',
+        },
+        {
             "name": "content",
             "type": "text",
             "title": "Content",

@@ -11,11 +11,14 @@ import { ProjectCardData } from "../types/projectCardData.ts";
 import { client } from "../utils/sanity.ts";
 import { Logo } from "../types/Logo.ts";
 import CustomHead from "../components/other/CustomHead.tsx";
+import TestemonialSection from "../components/sections/UtiliySections/TestemonialSection.tsx";
+import Testemonial from "../types/Testemonials.ts";
 
 // Define a combined data type interface
 interface HomePageData {
   projects: ProjectCardData[];
   logos: Logo[];
+  testemonials: Testemonial[];
 }
 
 export const handler: Handlers = {
@@ -38,13 +41,26 @@ export const handler: Handlers = {
       "image": image.asset->url
     }`;
 
+    const testimonialQuery = `
+      *[_type == "testemonnial" && isFeatured == true] | order(order asc)[0...3] {
+          name,
+          title,
+          content,
+          image,
+          image_alt,
+          isFeatured,
+          order
+      }
+    `;
+
     try {
-      const [projects, logos] = await Promise.all([
+      const [projects, logos, testemonials] = await Promise.all([
         client.fetch(projectQuery),
         client.fetch(logoQuery),
+        client.fetch(testimonialQuery),
       ]);
 
-      return ctx.render({ projects, logos });
+      return ctx.render({ projects, logos, testemonials });
     } catch (error) {
       console.error("Error fetching data from Sanity:", error);
       return new Response("Internal Server Error", { status: 500 });
@@ -88,6 +104,8 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
         teaser="Fra skærm til skønhed"
         title="Se vores udvalgte projekter"
       />
+      <Splitter />
+      <TestemonialSection testemonial={data.testemonials} />
       <Splitter />
       <CTASection
         title="Mangler du hjælp til noget?"

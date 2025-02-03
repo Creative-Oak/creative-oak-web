@@ -627,6 +627,17 @@
         "title": "title"
       },
       {
+        "name": "isFeatured",
+        "type": "boolean",
+        "title": "Skal vises på forsiden?"
+      },
+      {
+        "description": "Lavere tal vises først",
+        "name": "order",
+        "type": "number",
+        "title": "Rækkefølge"
+      },
+      {
         "validation": [
           {
             "rules": [

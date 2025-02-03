@@ -33,7 +33,7 @@ const PortfolioCard = (props: PortfolioCardProps) => {
                 {props.tags.map((tag) => (
                   <li
                     key={tag}
-                    className="bg-brand-yellow text-sm border-2 border-brand-black shadow-custom-black py-1 px-2 "
+                    className="bg-brand-yellow text-sm border-2 border-brand-black shadow-custom-black-sm py-1 px-2 transition-shadow hover:shadow-sm"
                   >
                     {tag}
                   </li>

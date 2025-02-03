@@ -21,6 +21,7 @@ import * as $hjemmeside_priser from "./routes/hjemmeside-priser.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
 import * as $kontakt from "./routes/kontakt.tsx";
+import * as $kundeudtalelser from "./routes/kundeudtalelser.tsx";
 import * as $kunstig_intelligens_og_digital_udvikling from "./routes/kunstig-intelligens-og-digital-udvikling.tsx";
 import * as $om_os from "./routes/om-os.tsx";
 import * as $portfolio from "./routes/portfolio.tsx";
@@ -61,6 +62,7 @@ const manifest = {
     "./routes/index.tsx": $index,
     "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
     "./routes/kontakt.tsx": $kontakt,
+    "./routes/kundeudtalelser.tsx": $kundeudtalelser,
     "./routes/kunstig-intelligens-og-digital-udvikling.tsx":
       $kunstig_intelligens_og_digital_udvikling,
     "./routes/om-os.tsx": $om_os,
