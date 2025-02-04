@@ -17,6 +17,7 @@ export async function handler(
 
   const baseUrl = Deno.env.get("BASE_URL") || "https://creativeoak.dk";
   const url = new URL(req.url);
+  
 
   const redirect = redirectMap.get(url.pathname);
   
@@ -25,6 +26,17 @@ export async function handler(
       status: 301, // eller 301 for permanent redirect
       headers: {
         "Location": redirect
+      },
+    });
+  }
+
+  if (url.hostname.startsWith('www.')) {
+    const newUrl = new URL(req.url);
+    newUrl.hostname = url.hostname.replace('www.', '');
+    return new Response(null, {
+      status: 301,
+      headers: {
+        'Location': newUrl.toString(),
       },
     });
   }
