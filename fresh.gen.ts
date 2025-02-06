@@ -29,10 +29,12 @@ import * as $projects_slug_ from "./routes/projects/[slug].tsx";
 import * as $robots_txt from "./routes/robots.txt.ts";
 import * as $sitemap_xml from "./routes/sitemap.xml.tsx";
 import * as $tak from "./routes/tak.tsx";
+import * as $tilmeld from "./routes/tilmeld.tsx";
 import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx";
 import * as $visuel_identitet from "./routes/visuel-identitet.tsx";
 import * as $ArticlesIsland from "./islands/ArticlesIsland.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
+import * as $MailerLite from "./islands/MailerLite.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
 import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
 import * as $PortfolioIsland from "./islands/PortfolioIsland.tsx";
@@ -71,12 +73,14 @@ const manifest = {
     "./routes/robots.txt.ts": $robots_txt,
     "./routes/sitemap.xml.tsx": $sitemap_xml,
     "./routes/tak.tsx": $tak,
+    "./routes/tilmeld.tsx": $tilmeld,
     "./routes/video-og-fotoproduktion.tsx": $video_og_fotoproduktion,
     "./routes/visuel-identitet.tsx": $visuel_identitet,
   },
   islands: {
     "./islands/ArticlesIsland.tsx": $ArticlesIsland,
     "./islands/CategoryFilter.tsx": $CategoryFilter,
+    "./islands/MailerLite.tsx": $MailerLite,
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,
     "./islands/MobileMenu/MobileMenu.tsx": $MobileMenu_MobileMenu,
     "./islands/PortfolioIsland.tsx": $PortfolioIsland,
