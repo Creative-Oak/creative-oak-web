@@ -35,7 +35,7 @@ const content4Cards: Content4CardType[] = [
     ),
   },
   {
-    title: "Teleon",
+    title: "Telefon",
     icon: <PhoneIcon />,
     description: (
       <>
@@ -97,18 +97,18 @@ export const handler: Handlers<PageData> = {
       console.error("Error fetching team members:", error);
       return new Response("Error fetching team data", { status: 500 });
     }
-  }
+  },
 };
 
-const contactPage = ({ data,url }: PageProps) => {
+const contactPage = ({ data, url }: PageProps) => {
   return (
     <>
-    <CustomHead 
-      title="Kontakt Creative Oak | AI, Web & Foto/Video | Aarhus"
-      imageUrl={`${url.origin}/images/og/og-logo.jpg`}
-      url={url.href}
-      metaDescription="Kontakt Creative Oak for bæredygtige hjemmesider, AI-løsninger og visuel produktion. Ring på +45 53 53 42 90 eller skriv til hej@creativeoak.dk. Find os i hjertet af Aarhus."
-    />
+      <CustomHead
+        title="Kontakt Creative Oak | AI, Web & Foto/Video | Aarhus"
+        imageUrl={`${url.origin}/images/og/og-logo.jpg`}
+        url={url.href}
+        metaDescription="Kontakt Creative Oak for bæredygtige hjemmesider, AI-løsninger og visuel produktion. Ring på +45 53 53 42 90 eller skriv til hej@creativeoak.dk. Find os i hjertet af Aarhus."
+      />
       <Head>
         <title>Kontakt os</title>
       </Head>
@@ -123,8 +123,8 @@ const contactPage = ({ data,url }: PageProps) => {
         cards={content4Cards}
       />
 
-<ContactSection />
-<Splitter />
+      <ContactSection />
+      <Splitter />
       <ContentSection2
         title="Stillinger"
         text={[{
@@ -140,7 +140,7 @@ const contactPage = ({ data,url }: PageProps) => {
         subtitle="Lær menneskerne bag Creative Oak at kende"
       />
       <Splitter />
-  
+
       <Footer />
     </>
   );

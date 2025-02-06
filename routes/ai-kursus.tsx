@@ -1,4 +1,3 @@
-
 import Splitter from "../components/other/splitter.tsx";
 import ContentSection from "../components/sections/ContentSections/ContentSection.tsx";
 import ContentSection4 from "../components/sections/ContentSections/ContentSection4.tsx";
@@ -15,6 +14,7 @@ import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import FAQSection from "../components/sections/ContentSections/FAQSection.tsx";
 import CustomHead from "../components/other/CustomHead.tsx";
 import { PageProps } from "$fresh/server.ts";
+import { PricingSection } from "../components/sections/ContentSections/CoursePricingSection.tsx";
 
 const content4Cards: Content4CardType[] = [
   {
@@ -50,10 +50,10 @@ const content4Cards: Content4CardType[] = [
   },
 ];
 
-const aiCourse = ({url}: PageProps) => {
+const aiCourse = ({ url }: PageProps) => {
   return (
     <>
-      <CustomHead 
+      <CustomHead
         title="AI Kurser | Skræddersyet AI Undervisning til Virksomheder | Creative Oak"
         metaDescription="Få praktisk hands-on erfaring med AI gennem skræddersyede kurser til din virksomhed. Vi gør kunstig intelligens forståeligt. Book dit kursus i dag!"
         url={url.href}
@@ -88,6 +88,8 @@ const aiCourse = ({url}: PageProps) => {
           imageUrl="/images/oak-hand.avif"
           rightAlignedText={true}
         />
+        <Splitter />
+        <PricingSection />
         <Splitter />
         <ContentSection4 cards={content4Cards} />
         <Splitter />
@@ -156,30 +158,65 @@ const aiCourse = ({url}: PageProps) => {
           FAQData={[
             {
               question: "Hvad er fokus i jeres AI-kurser?",
-              answer:
-              <>"Vores AI-kurser er designet til at tage din virksomhed til nye højder. Vi fokuserer på praktisk anvendelse af AI i virksomhedsmiljøet, med øvelser og virkelige eksempler. Vi guider dig gennem processen med at udnytte AI i din virksomhed til at træffe klogere beslutninger, automatisere repetitive opgaver, og skabe innovative AI-produkter.",
-            </>},
+              answer: (
+                <>
+                  "Vores AI-kurser er designet til at tage din virksomhed til
+                  nye højder. Vi fokuserer på praktisk anvendelse af AI i
+                  virksomhedsmiljøet, med øvelser og virkelige eksempler. Vi
+                  guider dig gennem processen med at udnytte AI i din virksomhed
+                  til at træffe klogere beslutninger, automatisere repetitive
+                  opgaver, og skabe innovative AI-produkter.",
+                </>
+              ),
+            },
             {
               question: "Hvem er AI-kurserne hos Creative Oak for?",
-              answer:
-              <>"Kurserne er for virksomheder, der ønsker at forbedre deres digitale strategi og kompetencer. Uanset om du er nybegynder eller har erfaring med AI, vil vores kurser hjælpe dig med at udnytte AI's potentiale fuldt ud.",
-            </>},
+              answer: (
+                <>
+                  "Kurserne er for virksomheder, der ønsker at forbedre deres
+                  digitale strategi og kompetencer. Uanset om du er nybegynder
+                  eller har erfaring med AI, vil vores kurser hjælpe dig med at
+                  udnytte AI's potentiale fuldt ud.",
+                </>
+              ),
+            },
             {
               question:
                 "Handler AI kun om programmering og komplekse algoritmer?",
-              answer:
-                <>"Nej, AI er meget mere end det. Selvom AI har rødder, der går over 60 år tilbage, og ofte involverer avanceret teknologi, fokuserer vi på at gøre AI tilgængelig og anvendelig for alle typer virksomheder. Vi viser dig, hvordan AI kan bruges til at forudsige kundeadfærd, effektivisere dataanalyse, og meget mere.",
-            </>},
+              answer: (
+                <>
+                  "Nej, AI er meget mere end det. Selvom AI har rødder, der går
+                  over 60 år tilbage, og ofte involverer avanceret teknologi,
+                  fokuserer vi på at gøre AI tilgængelig og anvendelig for alle
+                  typer virksomheder. Vi viser dig, hvordan AI kan bruges til at
+                  forudsige kundeadfærd, effektivisere dataanalyse, og meget
+                  mere.",
+                </>
+              ),
+            },
             {
               question: "Hvordan adskiller jeres AI-kurser sig fra andre?",
-              answer:
-              <>"Udover at være praktisk orienteret, integrerer vi AI med vores ekspertise inden for webdesign, fotografi, videoproduktion og visuel identitet. Dette giver en unik mulighed for at kombinere AI med kreative felter for at skabe holistiske og innovative løsninger.",
-           </> },
+              answer: (
+                <>
+                  "Udover at være praktisk orienteret, integrerer vi AI med
+                  vores ekspertise inden for webdesign, fotografi,
+                  videoproduktion og visuel identitet. Dette giver en unik
+                  mulighed for at kombinere AI med kreative felter for at skabe
+                  holistiske og innovative løsninger.",
+                </>
+              ),
+            },
             {
               question: "Hvordan kan jeg booke et AI-kursus hos Creative Oak?",
-              answer:
-              <>"Du kan kontakte os direkte via vores website eller sociale mediekanaler. Vi vil gerne diskutere dine behov og tilpasse kurset, så det passer til din virksomheds unikke krav og mål.",
-            </>},
+              answer: (
+                <>
+                  "Du kan kontakte os direkte via vores website eller sociale
+                  mediekanaler. Vi vil gerne diskutere dine behov og tilpasse
+                  kurset, så det passer til din virksomheds unikke krav og
+                  mål.",
+                </>
+              ),
+            },
           ]}
         />
         <Splitter />
