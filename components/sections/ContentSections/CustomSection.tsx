@@ -38,7 +38,7 @@ export default function CustomSection({
           )}
         </div>
 
-        <div class="mx-auto">
+        <div class="<mx-auto>">
           {children}
         </div>
       </div>

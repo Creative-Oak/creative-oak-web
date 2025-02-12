@@ -46,7 +46,7 @@ const Footer = () => {
               >
                 <LinkedInIcon />
               </a>
-            
+
               <a
                 href="https://www.youtube.com/@CreativeOak"
                 class="h-full"
@@ -128,6 +128,9 @@ const Footer = () => {
                 >
                   Nyhedsbrev
                 </a>
+              </li>
+              <li>
+                <a href="/privatliv">Privatlivspolitik</a>
               </li>
             </ul>
           </div>

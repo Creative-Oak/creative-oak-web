@@ -25,6 +25,7 @@ import * as $kundeudtalelser from "./routes/kundeudtalelser.tsx";
 import * as $kunstig_intelligens_og_digital_udvikling from "./routes/kunstig-intelligens-og-digital-udvikling.tsx";
 import * as $om_os from "./routes/om-os.tsx";
 import * as $portfolio from "./routes/portfolio.tsx";
+import * as $privatliv from "./routes/privatliv.tsx";
 import * as $projects_slug_ from "./routes/projects/[slug].tsx";
 import * as $robots_txt from "./routes/robots.txt.ts";
 import * as $sitemap_xml from "./routes/sitemap.xml.tsx";
@@ -69,6 +70,7 @@ const manifest = {
       $kunstig_intelligens_og_digital_udvikling,
     "./routes/om-os.tsx": $om_os,
     "./routes/portfolio.tsx": $portfolio,
+    "./routes/privatliv.tsx": $privatliv,
     "./routes/projects/[slug].tsx": $projects_slug_,
     "./routes/robots.txt.ts": $robots_txt,
     "./routes/sitemap.xml.tsx": $sitemap_xml,
