@@ -122,12 +122,7 @@ const Footer = () => {
                 <a href="/artikler">Artikler</a>
               </li>
               <li>
-                <a
-                  href="https://www.newsletter.creativeoak.dk/subscribe"
-                  target="_blank"
-                >
-                  Nyhedsbrev
-                </a>
+              <a class="ml-onclick-form" href="javascript:void(0)" onClick="ml('show', 'PthkKc', true)">Nyhedsbrev</a>
               </li>
               <li>
                 <a href="/privatliv">Privatlivspolitik</a>

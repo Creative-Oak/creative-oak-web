@@ -35,6 +35,7 @@ export default function App({ Component, state }: AppProps<unknown, State>) {
         />
         <meta name="apple-mobile-web-app-title" content="CreativeOak" />
         <link rel="manifest" href="/site.webmanifest" />
+        <script src="/mailerLite-global.js" defer></script>
       </Head>
       <body class="text-brand-black">
         <Navbar navigation={state.navigation} />
