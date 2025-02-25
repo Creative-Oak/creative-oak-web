@@ -10,6 +10,7 @@ interface PortfolioCardProps {
 }
 
 const PortfolioCard = (props: PortfolioCardProps) => {
+
   return (
     <a
       href={`/projects/${props.slug}`}
@@ -18,7 +19,7 @@ const PortfolioCard = (props: PortfolioCardProps) => {
       <div className="">
         {props.image && (
           <img
-            src={urlFor(props.image)}
+            src={urlFor(props.image, 700, 412)}
             alt={props.title}
             className="w-full h-64 object-cover"
           />
