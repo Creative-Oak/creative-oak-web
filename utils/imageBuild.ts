@@ -1,6 +1,6 @@
+// utils/imageBuild.ts
 import imageUrlBuilder from "@sanity/image-url";
-
-import { client } from "./sanity.ts"; // Import your configured Sanity client.
+import { client } from "./sanity.ts"; 
 import { Image } from "@sanity/types";
 
 interface VideoAsset {
@@ -8,13 +8,37 @@ interface VideoAsset {
   _type: string;
 }
 
-
+// Create a builder instance
 const builder = imageUrlBuilder(client);
 
-export const urlFor = (source: Image) => {
-  return builder.image(source).url();
+// Enhanced urlFor function with image optimizations
+export const urlFor = (source: Image, width?: number, height?: number) => {
+  // Start with the base image builder
+  let imageBuilder = builder.image(source);
+  
+  // Apply width if provided (default to 800px for portfolio cards)
+  if (width || width === 0) {
+    imageBuilder = imageBuilder.width(width);
+  } else {
+    imageBuilder = imageBuilder.width(800); // Default width
+  }
+  
+  // Apply height if provided
+  if (height || height === 0) {
+    imageBuilder = imageBuilder.height(height);
+  }
+  
+  // Apply automatic format conversion (will use WebP when supported)
+  imageBuilder = imageBuilder.auto('format');
+  
+  // Set quality to 80% for a good balance of quality and file size
+  imageBuilder = imageBuilder.quality(80);
+  
+  // Return the final URL
+  return imageBuilder.url();
 };
 
+// Keep your existing urlForFile function
 export const urlForFile = (ref: VideoAsset) => {
   if (!ref?._ref) return '';
 
