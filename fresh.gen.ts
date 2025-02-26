@@ -35,6 +35,7 @@ import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx"
 import * as $visuel_identitet from "./routes/visuel-identitet.tsx";
 import * as $ArticlesIsland from "./islands/ArticlesIsland.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
+import * as $LottieAnimation from "./islands/LottieAnimation.tsx";
 import * as $MailerLite from "./islands/MailerLite.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
 import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
@@ -82,6 +83,7 @@ const manifest = {
   islands: {
     "./islands/ArticlesIsland.tsx": $ArticlesIsland,
     "./islands/CategoryFilter.tsx": $CategoryFilter,
+    "./islands/LottieAnimation.tsx": $LottieAnimation,
     "./islands/MailerLite.tsx": $MailerLite,
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,
     "./islands/MobileMenu/MobileMenu.tsx": $MobileMenu_MobileMenu,

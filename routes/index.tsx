@@ -84,7 +84,7 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
       />
 
       <HeroSection1
-        rightImage="./images/hero1.avif"
+        lottieAnimation="./animations/hero-animation.json" // Path to your Lottie animation file
         header="Kreativt strategisk digitalt studio"
         buttonText1="Læs mere om os"
         buttonLink1="/om-os"
