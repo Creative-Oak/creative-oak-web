@@ -8,6 +8,7 @@ import * as $_middleware from "./routes/_middleware.ts";
 import * as $ai_chatbots from "./routes/ai-chatbots.tsx";
 import * as $ai_kursus from "./routes/ai-kursus.tsx";
 import * as $api_article from "./routes/api/article.tsx";
+import * as $api_group_submit from "./routes/api/group-submit.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_mail from "./routes/api/mail.ts";
 import * as $api_portfolio from "./routes/api/portfolio.tsx";
@@ -17,6 +18,7 @@ import * as $content_produktion from "./routes/content-produktion.tsx";
 import * as $employee_slug_ from "./routes/employee/[slug].tsx";
 import * as $foto_video from "./routes/foto-video.tsx";
 import * as $grafisk_design from "./routes/grafisk-design.tsx";
+import * as $group_online from "./routes/group-online.tsx";
 import * as $hjemmeside_priser from "./routes/hjemmeside-priser.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
@@ -35,6 +37,7 @@ import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx"
 import * as $visuel_identitet from "./routes/visuel-identitet.tsx";
 import * as $ArticlesIsland from "./islands/ArticlesIsland.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
+import * as $Forms_GroupOnlineForm from "./islands/Forms/GroupOnlineForm.tsx";
 import * as $LottieAnimation from "./islands/LottieAnimation.tsx";
 import * as $MailerLite from "./islands/MailerLite.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
@@ -53,6 +56,7 @@ const manifest = {
     "./routes/ai-chatbots.tsx": $ai_chatbots,
     "./routes/ai-kursus.tsx": $ai_kursus,
     "./routes/api/article.tsx": $api_article,
+    "./routes/api/group-submit.ts": $api_group_submit,
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/mail.ts": $api_mail,
     "./routes/api/portfolio.tsx": $api_portfolio,
@@ -62,6 +66,7 @@ const manifest = {
     "./routes/employee/[slug].tsx": $employee_slug_,
     "./routes/foto-video.tsx": $foto_video,
     "./routes/grafisk-design.tsx": $grafisk_design,
+    "./routes/group-online.tsx": $group_online,
     "./routes/hjemmeside-priser.tsx": $hjemmeside_priser,
     "./routes/index.tsx": $index,
     "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
@@ -83,6 +88,7 @@ const manifest = {
   islands: {
     "./islands/ArticlesIsland.tsx": $ArticlesIsland,
     "./islands/CategoryFilter.tsx": $CategoryFilter,
+    "./islands/Forms/GroupOnlineForm.tsx": $Forms_GroupOnlineForm,
     "./islands/LottieAnimation.tsx": $LottieAnimation,
     "./islands/MailerLite.tsx": $MailerLite,
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,

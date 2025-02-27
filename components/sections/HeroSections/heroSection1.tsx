@@ -53,7 +53,7 @@ export default function HeroSection1(props: HeroSection1Props) {
           ? (
             <LottieAnimation
               animationPath={props.lottieAnimation}
-              className="w-full p-8 h-auto"
+              className="w-full md:p-8 h-auto"
             />
           )
           : props.rightImage
