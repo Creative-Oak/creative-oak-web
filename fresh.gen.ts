@@ -46,6 +46,7 @@ import * as $PortfolioIsland from "./islands/PortfolioIsland.tsx";
 import * as $ProgressBar_ProgressBar from "./islands/ProgressBar/ProgressBar.tsx";
 import * as $ScrollText_ScrollText from "./islands/ScrollText/ScrollText.tsx";
 import * as $ServiceCard_ServiceCard from "./islands/ServiceCard/ServiceCard.tsx";
+import * as $ServiceSection_ServicesSection from "./islands/ServiceSection/ServicesSection.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -97,6 +98,8 @@ const manifest = {
     "./islands/ProgressBar/ProgressBar.tsx": $ProgressBar_ProgressBar,
     "./islands/ScrollText/ScrollText.tsx": $ScrollText_ScrollText,
     "./islands/ServiceCard/ServiceCard.tsx": $ServiceCard_ServiceCard,
+    "./islands/ServiceSection/ServicesSection.tsx":
+      $ServiceSection_ServicesSection,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

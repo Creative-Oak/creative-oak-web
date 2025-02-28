@@ -27,16 +27,16 @@ const PortfolioCard = (props: PortfolioCardProps) => {
 
         <div class="p-4 md:p-6">
           <h3 className="text-xl font-lexend font-semibold ">{props.title}</h3>
-          <p className="text-brand-black-600">{props.short_description}</p>
+   
           <div class="mt-6">
             {props.tags && (
               <ul className="flex flex-wrap gap-2 mt-2">
                 {props.tags.map((tag) => (
                   <li
                     key={tag}
-                    className="bg-brand-yellow text-sm border-2 border-brand-black shadow-custom-black-sm py-1 px-2 transition-shadow hover:shadow-sm"
+                    className=" text-sm "
                   >
-                    {tag}
+                    {tag} ↗
                   </li>
                 ))}
               </ul>

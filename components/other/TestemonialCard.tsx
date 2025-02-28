@@ -9,7 +9,7 @@ const TestemonialCard = ({ compact = false, ...props }: TestimonialCardProps) =>
   return (
     <div className="border-2 border-brand-black shadow-custom-black flex flex-col">
       <div className={`${compact ? 'p-4' : 'p-6'}`}>
-        <p className="italic">
+        <p className="italic text-sm md:text-base">
           {props.content}
         </p>
       </div>

@@ -1,8 +1,7 @@
 import HeroSection1 from "../components/sections/HeroSections/heroSection1.tsx";
 import Splitter from "../components/other/splitter.tsx";
 import MarqueeSection from "../components/sections/UtiliySections/MarqueeSection.tsx";
-import ServiceCardSection from "../components/sections/ContentSections/ServiceCardSection.tsx";
-import InvisibleTextSection from "../components/sections/ContentSections/InvisibleTextSection.tsx";
+
 import PortfolioSection from "../components/sections/ContentSections/PortfolioSection.tsx";
 import CTASection from "../components/sections/UtiliySections/CTASection.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
@@ -13,6 +12,8 @@ import { Logo } from "../types/Logo.ts";
 import CustomHead from "../components/other/CustomHead.tsx";
 import TestemonialSection from "../components/sections/UtiliySections/TestemonialSection.tsx";
 import Testemonial from "../types/Testemonials.ts";
+import ServiceSection from "../islands/ServiceSection/ServicesSection.tsx";
+import CTASection2 from "../components/sections/UtiliySections/CTASection2.tsx";
 
 // Define a combined data type interface
 interface HomePageData {
@@ -24,7 +25,7 @@ interface HomePageData {
 export const handler: Handlers = {
   async GET(_, ctx) {
     const projectQuery = `
-      *[_type == "project"] | order(isFeatured desc, releaseDate desc)[0...6] {
+      *[_type == "project"] | order(isFeatured desc, releaseDate desc)[0...3] {
         title,
         "featuredImage": featuredImage,
         projectShortDescription,
@@ -95,14 +96,29 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
       <Splitter />
       <MarqueeSection data={{ logos }} />
       <Splitter />
-      <ServiceCardSection />
+      <CTASection2
+        text={
+          <p>
+            Vi er både konsulenter og digitale håndværkere. <br /><br />
+            Med en skarp blanding af branding, brugeroplevelse og programatisk
+            erfaring, skaber vi løsninger der virkelig rykker for vores kunder -
+            og holder i længden.
+          </p>
+        }
+        buttonText="Kontakt"
+        buttonLink="/contact"
+        secondButtonLink="/om-os"
+        secondButtonText="Læs mere om vores kultur"
+      />
+
       <Splitter />
-      <InvisibleTextSection />
+      <ServiceSection />
       <Splitter />
+
       <PortfolioSection
         projects={projects}
-        teaser="Fra skærm til skønhed"
-        title="Se vores udvalgte projekter"
+        teaser=""
+        title="Referencer"
       />
       <Splitter />
       <TestemonialSection testemonial={data.testemonials} />

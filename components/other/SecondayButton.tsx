@@ -6,11 +6,12 @@ interface ButtonProps {
 const SecondaryButton = (props: ButtonProps) => {
   return (
     <a
-      href={props.href}
-      className="inline-block w-auto text-brand-black bg-brand-purple px-4 md:px-6 py-1.5 font-poppins rounded-md hover:rounded-none border-brand-black border-2 hover:bg-brand-black hover:text-brand-white transition-all duration-500 shadow-custom-black"
-    >
-      {props.text}
-    </a>
+    href={props.href}
+    style="border: 1px solid rgb(51 55 64 / var(--tw-border-opacity))"
+    class="inline-block w-auto text-center text-brand-white text-sm bg-brand-blue px-4 md:px-6 py-2.5 font-poppins hover:rounded-none border-brand-black shadow-sm transition-all duration-500 hover:shadow-custom-black"
+  >
+    {props.text}
+  </a>
   );
 };
 
