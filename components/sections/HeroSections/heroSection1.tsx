@@ -16,8 +16,8 @@ export default function HeroSection1(props: HeroSection1Props) {
   return (
     <section className="relative pt-[calc(95px+16px)] flex min-h-[80svh] md:pt-[95px] flex-col md:flex-row items-center justify-between gap-12 container">
       <div className="w-full md:w-2/3 z-10 h-full">
-        <h1 className="text-4xl text-brand-black font-bold mb-4 leading-4 font-lexend" style="font-size: 5rem; line-height: 4.5rem;">
-          {props.header}
+      <h1 className="text-4xl md:text-7xl text-brand-black font-bold mb-4 leading- md:leading-tight font-lexend">
+      {props.header}
         </h1>
         {props.subtitle && (
           <p className="text-lg md:text-xl font-poppins mb-6">
