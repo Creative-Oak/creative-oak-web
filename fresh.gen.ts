@@ -18,8 +18,8 @@ import * as $content_produktion from "./routes/content-produktion.tsx";
 import * as $employee_slug_ from "./routes/employee/[slug].tsx";
 import * as $foto_video from "./routes/foto-video.tsx";
 import * as $grafisk_design from "./routes/grafisk-design.tsx";
-import * as $group_online from "./routes/group-online.tsx";
 import * as $hjemmeside_priser from "./routes/hjemmeside-priser.tsx";
+import * as $hjemmeside_promo from "./routes/hjemmeside-promo.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $koeb_hjemmeside from "./routes/koeb-hjemmeside.tsx";
 import * as $kontakt from "./routes/kontakt.tsx";
@@ -37,7 +37,7 @@ import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx"
 import * as $visuel_identitet from "./routes/visuel-identitet.tsx";
 import * as $ArticlesIsland from "./islands/ArticlesIsland.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
-import * as $Forms_GroupOnlineForm from "./islands/Forms/GroupOnlineForm.tsx";
+import * as $Forms_PromoForm from "./islands/Forms/PromoForm.tsx";
 import * as $LottieAnimation from "./islands/LottieAnimation.tsx";
 import * as $MailerLite from "./islands/MailerLite.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
@@ -67,8 +67,8 @@ const manifest = {
     "./routes/employee/[slug].tsx": $employee_slug_,
     "./routes/foto-video.tsx": $foto_video,
     "./routes/grafisk-design.tsx": $grafisk_design,
-    "./routes/group-online.tsx": $group_online,
     "./routes/hjemmeside-priser.tsx": $hjemmeside_priser,
+    "./routes/hjemmeside-promo.tsx": $hjemmeside_promo,
     "./routes/index.tsx": $index,
     "./routes/koeb-hjemmeside.tsx": $koeb_hjemmeside,
     "./routes/kontakt.tsx": $kontakt,
@@ -89,7 +89,7 @@ const manifest = {
   islands: {
     "./islands/ArticlesIsland.tsx": $ArticlesIsland,
     "./islands/CategoryFilter.tsx": $CategoryFilter,
-    "./islands/Forms/GroupOnlineForm.tsx": $Forms_GroupOnlineForm,
+    "./islands/Forms/PromoForm.tsx": $Forms_PromoForm,
     "./islands/LottieAnimation.tsx": $LottieAnimation,
     "./islands/MailerLite.tsx": $MailerLite,
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,
