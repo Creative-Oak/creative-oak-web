@@ -86,20 +86,29 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
 
       <HeroSection1
         lottieAnimation="./animations/hero-animation.json" // Path to your Lottie animation file
-        header="Kreativt strategisk digitalt studio"
-        buttonText1="Læs mere om os"
-        buttonLink1="/om-os"
-        buttonText2="Fortæl os om din vision"
-        buttonLink2="/kontakt"
-        subtitle="Din partner for bæredygtige digitale løsninger, der vokser med din forretning"
+        header="Digitale løsninger, der løfter din forretning"
+        buttonText1="Book et uforpligtende møde"
+        buttonLink1="/kontakt"
+        buttonText2="Læs mere om os"
+        buttonLink2="/om-os"
+        subtitle="Vi kombinerer webudvikling, AI og branding for at skabe enestående oplevelser og resultater – skræddersyet til netop din virksomhed."
       />
       <Splitter />
-      <MarqueeSection data={{ logos }} />
+      <ServiceSection />
+      <Splitter />
+      <MarqueeSection
+        data={{
+          logos,
+          duration: 50,
+          title: "Vores Samarbejdspartnere",
+        }}
+      />
       <Splitter />
       <CTASection2
         text={
           <p>
-            Vi er både konsulenter og digitale håndværkere. <br /><br />
+            Vi er både konsulenter og digitale håndværkere. <br />
+            <br />
             Med en skarp blanding af branding, brugeroplevelse og programatisk
             erfaring, skaber vi løsninger der virkelig rykker for vores kunder -
             og holder i længden.
@@ -112,8 +121,6 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
       />
 
       <Splitter />
-      <ServiceSection />
-      <Splitter />
 
       <PortfolioSection
         projects={projects}
@@ -121,7 +128,9 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
         title="Referencer"
       />
       <Splitter />
-      <TestemonialSection testemonial={data.testemonials} />
+      <TestemonialSection
+        testemonial={data.testemonials}
+      />
       <Splitter />
       <CTASection
         title="Mangler du hjælp til noget?"

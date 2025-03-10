@@ -20,7 +20,11 @@ const ContentSection = (props: ContentSectionProps) => {
   return (
     <section class={props.extraStyles}>
       <div className="container mx-auto py-24">
-        <div className={`grid grid-cols-1 ${hasImage ? 'md:grid-cols-2' : ''} gap-12 items-center`}>
+        <div
+          className={`grid grid-cols-1 ${
+            hasImage ? "md:grid-cols-2" : ""
+          } gap-12 items-center`}
+        >
           {hasImage && (
             <div class="order-2">
               <img
@@ -31,7 +35,11 @@ const ContentSection = (props: ContentSectionProps) => {
               />
             </div>
           )}
-          <div class={`${hasImage && props.rightAlignedText ? 'order-3' : 'order-1'} ${!hasImage ? 'md:col-span-full' : ''}`}>
+          <div
+            class={`${
+              hasImage && props.rightAlignedText ? "order-3" : "order-1"
+            } ${!hasImage ? "md:col-span-full" : ""}`}
+          >
             {props.teaser && (
               <p class="font-medium font-lexend">{props.teaser}</p>
             )}

@@ -5,10 +5,13 @@ import { Logo } from "../../types/Logo.ts";
 interface MarqueeProps {
   logos: Logo[];
   duration?: number;
-  pauseOnHover?: boolean
+  pauseOnHover?: boolean;
+  title?: string; // New title prop
 }
 
-export default function Marquee({ logos, duration = 40 }: MarqueeProps): JSX.Element {
+export default function Marquee(
+  { logos, duration = 40, title }: MarqueeProps,
+): JSX.Element {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const primaryRef = useRef<HTMLDivElement>(null);
 
@@ -22,7 +25,7 @@ export default function Marquee({ logos, duration = 40 }: MarqueeProps): JSX.Ele
     // Set the animation duration based on content width
     const speed = duration;
     const root = document.documentElement;
-    root.style.setProperty('--animation-duration', `${speed}s`);
+    root.style.setProperty("--animation-duration", `${speed}s`);
   }, [duration]);
 
   // Render logo with optional link
@@ -30,79 +33,90 @@ export default function Marquee({ logos, duration = 40 }: MarqueeProps): JSX.Ele
     <div
       key={isDuplicate ? `${logo._id}-duplicate` : logo._id}
       class="flex-shrink-0 mx-2 md:mx-8 w-24 md:w-auto h-12 md:h-24 flex items-center justify-center transition-transform hover:scale-110"
->
-      {logo.url ? (
-        <a
-          href={logo.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="block w-full h-full"
-        >
+    >
+      {logo.url
+        ? (
+          <a
+            href={logo.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full h-full"
+          >
+            <img
+              src={logo.image}
+              alt={logo.alt || logo.name}
+              class="w-full h-full object-contain"
+            />
+          </a>
+        )
+        : (
           <img
             src={logo.image}
             alt={logo.alt || logo.name}
             class="w-full h-full object-contain"
           />
-        </a>
-      ) : (
-        <img
-          src={logo.image}
-          alt={logo.alt || logo.name}
-          class="w-full h-full object-contain"
-        />
-      )}
+        )}
     </div>
   );
 
   return (
-    <div class="relative group">
-      <style>
-        {`
-          @keyframes scroll {
-            from {
-              transform: translateX(0);
+    <div class="relative">
+      {/* Title section */}
+      {title && (
+        <div class="text-center mb-4">
+          <h3 class="text-xl md:text-2xl font-semibold">{title}</h3>
+        </div>
+      )}
+
+      <div class="relative group">
+        <style>
+          {`
+            @keyframes scroll {
+              from {
+                transform: translateX(0);
+              }
+              to {
+                transform: translateX(-50%);
+              }
             }
-            to {
-              transform: translateX(-50%);
+
+            .scroller {
+              mask: linear-gradient(
+                90deg,
+                transparent,
+                white 20%,
+                white 80%,
+                transparent
+              );
             }
-          }
 
-          .scroller {
-            mask: linear-gradient(
-              90deg,
-              transparent,
-              white 20%,
-              white 80%,
-              transparent
-            );
-          }
-
-          .scroller__inner {
-            width: max-content;
-            flex-wrap: nowrap;
-            animation: scroll var(--animation-duration) linear infinite;
-          }
-
-          .group:hover .scroller__inner {
-            animation-play-state: paused;
-          }
-
-          /* Adjusted animation speed for mobile */
-          @media (max-width: 768px) {
             .scroller__inner {
-              animation-duration: calc(var(--animation-duration) * 0.7) !important;
+              width: max-content;
+              flex-wrap: nowrap;
+              animation: scroll var(--animation-duration) linear infinite;
             }
-          }
-        `}
-      </style>
 
-      <div ref={scrollerRef} class="scroller w-full overflow-hidden">
-        <div ref={primaryRef} class="scroller__inner flex">
-          {/* Primary set of logos */}
-          {logos.map((logo) => renderLogo(logo))}
-          
-          {/* Duplicate set for seamless scrolling */}
-          {logos.map((logo) => renderLogo(logo, true))}
+            .group:hover .scroller__inner {
+              animation-play-state: paused;
+            }
+
+            /* Adjusted animation speed for mobile */
+            @media (max-width: 768px) {
+              .scroller__inner {
+                animation-duration: calc(var(--animation-duration) * 0.7) !important;
+              }
+            }
+          `}
+        </style>
+
+        <div ref={scrollerRef} class="scroller w-full overflow-hidden">
+          <div ref={primaryRef} class="scroller__inner flex">
+            {/* Primary set of logos */}
+            {logos.map((logo) => renderLogo(logo))}
+
+            {/* Duplicate set for seamless scrolling */}
+            {logos.map((logo) => renderLogo(logo, true))}
+          </div>
         </div>
       </div>
     </div>

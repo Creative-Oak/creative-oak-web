@@ -1,5 +1,5 @@
 import PrimaryButton from "../../other/PrimaryButton.tsx";
-import SecondaryButton from "../../other/SecondayButton.tsx";
+import SecondaryButton from "../../other/SecondaryButton.tsx";
 
 interface Hero2Props {
   title: string;
