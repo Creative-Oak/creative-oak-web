@@ -13,17 +13,17 @@ export default {
           yellow: "#ffe51b",
 
           black: {
-          100: "#d6d7d9",
-          200: "#adafb3",
-          300: "#85878c",
-          400: "#5c5f66",
-          500: "#333740",
-          600: "#292c33",
-          700: "#1f2126",
-          800: "#14161a",
-          900: "#0a0b0d",
-          DEFAULT: "#333740", // Original black
-},
+            100: "#d6d7d9",
+            200: "#adafb3",
+            300: "#85878c",
+            400: "#5c5f66",
+            500: "#333740",
+            600: "#292c33",
+            700: "#1f2126",
+            800: "#14161a",
+            900: "#0a0b0d",
+            DEFAULT: "#333740", // Original black
+          },
           blue: "#62929e",
           purple: "#bd9cf7",
           red: "#ef767a",
@@ -35,12 +35,12 @@ export default {
       container: {
         center: true,
         padding: {
-          DEFAULT: '1.5rem',  // This will be the padding for mobile/small devices
-          sm: '1rem',        // From 640px up, padding will be 1rem
-          md: '1rem',
-          lg: '1rem',
-          xl: '1rem',
-          '2xl': '1rem',
+          DEFAULT: "1.5rem", // This will be the padding for mobile/small devices
+          sm: "1rem", // From 640px up, padding will be 1rem
+          md: "1rem",
+          lg: "1rem",
+          xl: "1rem",
+          "2xl": "1rem",
         },
         screens: {
           sm: "40rem",

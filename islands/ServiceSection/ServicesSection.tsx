@@ -79,10 +79,10 @@ export default function ServiceSection() {
   }, [activeService]);
 
   return (
-    <section className="bg-white py-10 md:py-20">
+    <section className="bg-white py-6 md:py-12">
       <div className="container mx-auto px-4">
         <p className="text-brand-black text-center text-sm uppercase tracking-wider mb-8">
-          Services vi tilbyder
+          Vores services
         </p>
         <div className="max-w-7xl mx-auto relative">
           {/* Tabs navigation */}
@@ -99,7 +99,7 @@ export default function ServiceSection() {
                   ${
                   activeService === service.id
                     ? "bg-white font-medium"
-                    : "bg-gray-100 hover:bg-gray-100"
+                    : "bg-brand-blue hover:bg-brand-blue"
                 }
                 `}
                 style={{
@@ -120,7 +120,11 @@ export default function ServiceSection() {
                     }),
                 }}
               >
-                <h3 className="text-sm md:text-base truncate">
+                <h3
+                  className={`text-sm md:text-base truncate ${
+                    activeService !== service.id ? "text-brand-white" : ""
+                  }`}
+                >
                   {service.title}
                 </h3>
               </div>

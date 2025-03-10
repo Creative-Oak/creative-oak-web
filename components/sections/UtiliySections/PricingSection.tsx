@@ -1,10 +1,13 @@
 import { JSX } from "preact/jsx-runtime";
 import { CheckmarkIcon } from "../../icons/Icons.tsx";
+import PrimaryButton from "../../other/PrimaryButton.tsx";
 
 interface PriceColumn {
   name: string;
   price: string;
   features: (string | JSX.Element)[];
+  buttonText?: string;
+  buttonLink?: string;
 }
 
 export interface PricingSectionProps {
@@ -12,11 +15,14 @@ export interface PricingSectionProps {
   description?: JSX.Element;
   priceColumns: PriceColumn[];
   footnote: JSX.Element;
+  backgroundColor?: string;
 }
 
 const PricingSection = (props: PricingSectionProps) => {
   return (
-    <section className="bg-brand-purple py-12 md:py-24">
+    <section
+      className={`${props.backgroundColor || "bg-brand-purple"} py-12 md:py-24`}
+    >
       <div className="container px-4 md:px-8">
         <h2 className="text-2xl md:text-3xl font-bold font-lexend text-center md:text-left">
           {props.title}
@@ -56,6 +62,14 @@ const PricingSection = (props: PricingSectionProps) => {
                   ))}
                 </ul>
               </div>
+              {column.buttonText && column.buttonLink && (
+                <div className="mt-6">
+                  <PrimaryButton
+                    href={column.buttonLink}
+                    text={column.buttonText}
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>

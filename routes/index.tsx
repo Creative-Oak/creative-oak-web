@@ -14,6 +14,8 @@ import TestemonialSection from "../components/sections/UtiliySections/Testemonia
 import Testemonial from "../types/Testemonials.ts";
 import ServiceSection from "../islands/ServiceSection/ServicesSection.tsx";
 import CTASection2 from "../components/sections/UtiliySections/CTASection2.tsx";
+import IndexPricingSection from "../components/sections/ContentSections/IndexPricingSection.tsx";
+import ShortTestemonialsSection from "../components/sections/ContentSections/ShortTestemonialsSection.tsx";
 
 // Define a combined data type interface
 interface HomePageData {
@@ -47,10 +49,11 @@ export const handler: Handlers = {
           name,
           title,
           content,
-          image,
+          "image": image.asset->url,
           image_alt,
           isFeatured,
-          order
+          order,
+          shortQuote
       }
     `;
 
@@ -104,6 +107,20 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
         }}
       />
       <Splitter />
+      <IndexPricingSection />
+      <Splitter />
+      <PortfolioSection
+        projects={projects}
+        teaser=""
+        title="Referencer"
+      />
+      <Splitter />
+      <ShortTestemonialsSection testimonials={data.testemonials} />
+      <Splitter />
+      <TestemonialSection
+        testemonial={data.testemonials}
+      />
+      <Splitter />
       <CTASection2
         text={
           <p>
@@ -118,18 +135,6 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
         buttonLink="/contact"
         secondButtonLink="/om-os"
         secondButtonText="Læs mere om vores kultur"
-      />
-
-      <Splitter />
-
-      <PortfolioSection
-        projects={projects}
-        teaser=""
-        title="Referencer"
-      />
-      <Splitter />
-      <TestemonialSection
-        testemonial={data.testemonials}
       />
       <Splitter />
       <CTASection

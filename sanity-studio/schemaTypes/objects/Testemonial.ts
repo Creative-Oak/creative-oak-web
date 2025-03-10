@@ -1,5 +1,5 @@
 import { Rule } from "sanity";
-import {UsersIcon} from '@sanity/icons'
+import { UsersIcon } from "@sanity/icons";
 
 export default {
     "name": "testemonnial",
@@ -20,15 +20,23 @@ export default {
             "validation": (Rule: Rule) => Rule.required(),
         },
         {
-            name: 'isFeatured',
-            type: 'boolean',
-            title: 'Skal vises på forsiden?',
+            name: "isFeatured",
+            type: "boolean",
+            title: "Skal vises på forsiden?",
         },
         {
-            name: 'order',
-            type: 'number',
-            title: 'Rækkefølge',
-            description: 'Lavere tal vises først',
+            name: "shortQuote",
+            type: "text",
+            title: "Kort citat",
+            description:
+                "Et kort, kraftfuldt citat til brug i highlight sektioner",
+            validation: (Rule: Rule) => Rule.max(120),
+        },
+        {
+            name: "order",
+            type: "number",
+            title: "Rækkefølge",
+            description: "Lavere tal vises først",
         },
         {
             "name": "content",
