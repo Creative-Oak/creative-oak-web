@@ -105,12 +105,14 @@ export default function ServiceSection() {
                 style={{
                   minWidth: "120px",
                   flex: "1 1 0",
-                  border: "1px solid #000",
+                  borderTop: "2px solid #000",
+                  borderLeft: "2px solid #000",
+                  borderRight: "2px solid #000",
                   ...(activeService === service.id
                     ? {
                       position: "relative",
                       zIndex: 1,
-                      marginBottom: "-1px",
+                      marginBottom: "-2px",
                       boxShadow: "4px 4px 0 0 #333740",
                     }
                     : {
@@ -130,7 +132,7 @@ export default function ServiceSection() {
             ref={containerRef}
             className="content-container shadow-custom-black"
             style={{
-              border: "1px solid #000",
+              border: "2px solid #000",
               position: "relative",
               zIndex: 2,
             }}
@@ -193,7 +195,7 @@ export default function ServiceSection() {
                 min-width: 80px;
                 max-width: 40%;
                 padding: 0.5rem;
-                border: 1px solid #000;
+                border: 1px solid #000 !important;
                 box-shadow: none;
                 margin: 0;
               }
