@@ -7,14 +7,17 @@ interface MarqueeSectionProps {
     duration?: number;
     pauseOnHover?: boolean;
     title?: string;
+    backgroundColor?: string;
   };
 }
 
 export default function MarqueeSection({ data }: MarqueeSectionProps) {
-  const { logos, duration, pauseOnHover = true, title } = data;
+  const { logos, duration, pauseOnHover = true, title, backgroundColor } = data;
+
+  const backgroundColorClass = backgroundColor ? `bg-${backgroundColor}` : "";
 
   return (
-    <section class="py-4 md:py-12">
+    <section class={`py-4 md:py-12 ${backgroundColorClass}`}>
       <Marquee
         logos={logos}
         duration={duration}

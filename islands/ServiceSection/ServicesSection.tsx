@@ -81,7 +81,7 @@ export default function ServiceSection() {
   return (
     <section className="bg-white py-6 md:py-12">
       <div className="container mx-auto px-4">
-        <p className="text-brand-black text-center text-sm uppercase tracking-wider mb-8">
+        <p className="text-brand-black text-center mb-8">
           Vores services
         </p>
         <div className="max-w-7xl mx-auto relative">

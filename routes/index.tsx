@@ -104,6 +104,7 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
           logos,
           duration: 50,
           title: "Vores Samarbejdspartnere",
+          backgroundColor: "brand-yellow",
         }}
       />
       <Splitter />
