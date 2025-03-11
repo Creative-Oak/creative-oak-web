@@ -27,6 +27,7 @@ import * as $kundeudtalelser from "./routes/kundeudtalelser.tsx";
 import * as $kunstig_intelligens_og_digital_udvikling from "./routes/kunstig-intelligens-og-digital-udvikling.tsx";
 import * as $om_os from "./routes/om-os.tsx";
 import * as $portfolio from "./routes/portfolio.tsx";
+import * as $portfolio_comundo from "./routes/portfolio/comundo.tsx";
 import * as $privatliv from "./routes/privatliv.tsx";
 import * as $projects_slug_ from "./routes/projects/[slug].tsx";
 import * as $robots_txt from "./routes/robots.txt.ts";
@@ -45,6 +46,7 @@ import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
 import * as $PortfolioIsland from "./islands/PortfolioIsland.tsx";
 import * as $ProgressBar_ProgressBar from "./islands/ProgressBar/ProgressBar.tsx";
 import * as $ScrollText_ScrollText from "./islands/ScrollText/ScrollText.tsx";
+import * as $ScrollTriggerImage from "./islands/ScrollTriggerImage.tsx";
 import * as $ServiceCard_ServiceCard from "./islands/ServiceCard/ServiceCard.tsx";
 import * as $ServiceSection_ServicesSection from "./islands/ServiceSection/ServicesSection.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -77,6 +79,7 @@ const manifest = {
       $kunstig_intelligens_og_digital_udvikling,
     "./routes/om-os.tsx": $om_os,
     "./routes/portfolio.tsx": $portfolio,
+    "./routes/portfolio/comundo.tsx": $portfolio_comundo,
     "./routes/privatliv.tsx": $privatliv,
     "./routes/projects/[slug].tsx": $projects_slug_,
     "./routes/robots.txt.ts": $robots_txt,
@@ -97,6 +100,7 @@ const manifest = {
     "./islands/PortfolioIsland.tsx": $PortfolioIsland,
     "./islands/ProgressBar/ProgressBar.tsx": $ProgressBar_ProgressBar,
     "./islands/ScrollText/ScrollText.tsx": $ScrollText_ScrollText,
+    "./islands/ScrollTriggerImage.tsx": $ScrollTriggerImage,
     "./islands/ServiceCard/ServiceCard.tsx": $ServiceCard_ServiceCard,
     "./islands/ServiceSection/ServicesSection.tsx":
       $ServiceSection_ServicesSection,
