@@ -7,10 +7,11 @@ interface CategoryFilterProps {
 }
 
 export default function CategoryFilter(
-  { categories, activeCategories, onToggleCategory, onClearAll }: CategoryFilterProps,
+  { categories, activeCategories, onToggleCategory, onClearAll }:
+    CategoryFilterProps,
 ) {
   return (
-    <div class="flex flex-wrap gap-3 md:gap-2 mb-8 md:flex-row flex-col">
+    <div class="flex flex-wrap gap-3 md:gap-2 mb-8 md:flex-row flex-col justify-center">
       <button
         onClick={onClearAll}
         class={`px-4 py-1 border-2 border-brand-black transition-colors text-xs md:py-2  md:text-base ${
