@@ -15,30 +15,33 @@ export default function ScrollTriggerImage(
   const [scrollProgress, setScrollProgress] = useState(60);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    let lastScrollY = globalThis.scrollY;
 
     const handleScroll = () => {
       if (!containerRef.current) return;
 
-      const currentScrollY = window.scrollY;
+      const currentScrollY = globalThis.scrollY;
       const scrollDiff = currentScrollY - lastScrollY;
 
       // Update progress based on scroll difference
-      // Smaller divisor = more movement per scroll
-      const scrollSensitivity = 10; // Adjust this value to change scroll sensitivity
-      const newProgress = Math.max(
-        25,
-        Math.min(60, scrollProgress - (scrollDiff / scrollSensitivity)),
-      );
+      // Only update if scrolling down
+      if (scrollDiff > 0) {
+        const scrollSensitivity = 20; // Adjust this value to change scroll sensitivity
+        const newProgress = Math.max(
+          50, // Limit upward movement
+          Math.min(60, scrollProgress - (scrollDiff / scrollSensitivity)),
+        );
 
-      setScrollProgress(newProgress);
+        setScrollProgress(newProgress);
+      }
+
       lastScrollY = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    globalThis.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      globalThis.removeEventListener("scroll", handleScroll);
     };
   }, [scrollProgress]);
 
@@ -52,9 +55,10 @@ export default function ScrollTriggerImage(
           {/* Smartphone image - positioned absolutely to overlap */}
           <div
             ref={mobileImageRef}
-            class="absolute top-[30rem] left-1/2 transition-transform duration-100 z-10"
+            class="absolute transition-transform duration-100 z-10"
             style={{
-              transform: `translate(60rem, ${scrollProgress}%) rotate(15deg)`,
+              transform:
+                `translate(60rem, calc(${scrollProgress}% - 5rem)) rotate(15deg)`,
             }}
           >
             <img

@@ -8,7 +8,8 @@
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "generate-sitemap": "deno run -A utils/sitemap.ts"
+    "generate-sitemap": "deno run -A utils/sitemap.ts",
+    "build:css": "postcss styles.css -o output.css"
   },
   "lint": {
     "rules": {
