@@ -11,6 +11,7 @@ import testemonial from "./objects/Testemonial.ts";
 import article from "./pages/articles.ts";
 import employee from "./pages/employee.ts";
 import partnerLogo from "./pages/partnerLogo.ts";
+import gallery from "./objects/gallery.js";
 export const schemaTypes = [
   seo,
   globalSettings,
@@ -23,5 +24,7 @@ export const schemaTypes = [
   article,
   partnerLogo,
   about,
-  employee
+  employee,
+  gallery,
+  
 ];
