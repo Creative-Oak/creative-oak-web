@@ -218,14 +218,13 @@ const ProjectPage = ({ data, url }: PageProps<Project>) => {
             {data.fullPageSmartphoneImage && (
               <>
                 <section
-                  className="w-full flex min-h-[80svh] bg-cover bg-center bg-no-repeat"
+                  className="w-full flex min-h-[80svh] bg-cover bg-center bg-no-repeat bg-fixed"
                   style={{
-                    backgroundImage: `url('${
-                      urlFor(data.fullPageSmartphoneImage)
-                    }')`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
+                    backgroundImage: `url(${
+                      urlFor(data.fullPageSmartphoneImage, 2400)
+                        
+                  
+                    })`,
                   }}
                 >
                 </section>

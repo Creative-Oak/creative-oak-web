@@ -27,6 +27,10 @@ export interface SanityImageSource {
 const builder = imageUrlBuilder(client);
 
 // Function to build image URLs with transformations
-export function urlFor(source: SanityImageSource ) {
-  return builder.image(source);
+export function urlFor(source: SanityImageSource, width?: number) {
+  const imageBuilder = builder.image(source);
+  if (width) {
+    return imageBuilder.width(width);
+  }
+  return imageBuilder;
 }
