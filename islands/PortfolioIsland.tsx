@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import CategoryFilter from "./CategoryFilter.tsx";
 import { ProjectCardData } from "../types/projectCardData.ts";
+import Splitter from "../components/other/splitter.tsx";
 
 interface PortfolioIslandProps {
   initialProjects: ProjectCardData[];
@@ -40,6 +41,8 @@ export default function PortfolioIsland(
   const [isMobile, setIsMobile] = useState(false);
   // State to track if a card is visible (above the title bar)
   const [visibleCards, setVisibleCards] = useState<Record<string, boolean>>({});
+  // NEW: State to track if device supports touch
+  const [isTouch, setIsTouch] = useState(false);
 
   // Refs for scrolling titles
   const titleScrollRef = useRef<HTMLDivElement>(null);
@@ -56,8 +59,11 @@ export default function PortfolioIsland(
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Initial check
+    // Initial check for mobile
     checkMobile();
+
+    // Check for touch support
+    setIsTouch("ontouchstart" in window);
 
     // Add listener for window resize
     window.addEventListener("resize", checkMobile);
@@ -76,17 +82,19 @@ export default function PortfolioIsland(
     styleEl.textContent = `
       .title-bar-mobile {
         position: sticky;
-        top: 112px;
-        transition: margin 0.2s ease, padding 0.2s ease, width 0.2s ease;
+        top: 80px; /* Reduced from 112px to 80px (2rem higher) */
+        transition: margin 0.2s ease, padding 0.2s ease, width 0.2s ease, border 0.2s ease;
         /* Hide scrollbar for all browsers */
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE and Edge */
+        border-bottom: 0px solid transparent; /* Initially no border */
       }
       /* Hide scrollbar for Chrome, Safari and Opera */
       .title-bar-mobile::-webkit-scrollbar {
         display: none;
       }
       
+      /* Background element behind title bar */
       .title-bar-mobile::before {
         content: '';
         position: absolute;
@@ -98,16 +106,33 @@ export default function PortfolioIsland(
         transition: height 0.25s ease-out;
         z-index: -1;
       }
+
+      /* Full-width bottom border element */
+      .title-bar-mobile .border-line {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 2px;
+        background-color: #000;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        z-index: 10;
+      }
+      
       .title-bar-mobile.is-sticky {
-        width: 100vw !important;
-        left: 0;
-        right: 0;
-        margin-left: calc(-50vw + 50%);
+        /* Keep original width instead of expanding to full width */
         padding-left: 1rem;
         padding-right: 1rem;
       }
+      
+      .title-bar-mobile.is-sticky .border-line {
+        opacity: 1;
+      }
+      
       .title-bar-mobile.is-sticky::before {
-        height: 112px; /* Height between top of viewport and title bar */
+        height: 80px; /* Reduced from 112px to 80px */
       }
       
       /* Masking element to cover content that would scroll behind the title bar */
@@ -168,7 +193,7 @@ export default function PortfolioIsland(
 
     // Calculate title bar height once
     const titleBarHeight = titleScrollRef.current?.offsetHeight || 0;
-    const titleBarBottom = 112 + titleBarHeight;
+    const titleBarBottom = 80 + titleBarHeight;
 
     // Create a CSS variable for title bar height for use in styling
     document.documentElement.style.setProperty(
@@ -189,7 +214,7 @@ export default function PortfolioIsland(
 
         // It's truly sticky when we've scrolled past its original position + a small buffer
         // The 5px buffer helps ensure it only happens when it's fully sticky
-        const isSticky = window.scrollY >= (titleBarPos - 112 - 5);
+        const isSticky = window.scrollY >= (titleBarPos - 80 - 5);
 
         titleScrollRef.current.classList.toggle("is-sticky", isSticky);
       }
@@ -528,15 +553,15 @@ export default function PortfolioIsland(
       // Then adjust the scroll position for mobile to create space beneath title bar
       if (window.innerWidth < 768) { // Only on mobile (md breakpoint is 768px)
         setTimeout(() => {
-          // Get title bar height including padding (positioned at 112px from top)
+          // Get title bar height including padding (positioned at 80px from top)
           const titleBarHeight = titleScrollRef.current?.offsetHeight || 0;
           const scrollPosition = projectElement.getBoundingClientRect().top +
             window.pageYOffset;
 
           // Position the element 1svh below the bottom of the title bar
-          // 112px is the top position, titleBarHeight is the height of the bar, 1svh is the desired gap
+          // 80px is the top position, titleBarHeight is the height of the bar, 1svh is the desired gap
           const targetPosition = scrollPosition -
-            (112 + titleBarHeight + (window.innerHeight * 0.01));
+            (80 + titleBarHeight + (window.innerHeight * 0.01));
 
           window.scrollTo({
             top: targetPosition,
@@ -616,99 +641,118 @@ export default function PortfolioIsland(
   }
 
   return (
-    <section class="px-4 py-8 md:py-24 relative">
-      <CategoryFilter
-        categories={allCategories}
-        activeCategories={activeCategories}
-        onToggleCategory={handleToggleCategory}
-        onClearAll={handleClearAll}
-      />
+    <>
+      {/* Section 1: Category Filter */}
+      <section class="px-4 py-8 md:py-24">
+        <CategoryFilter
+          categories={allCategories}
+          activeCategories={activeCategories}
+          onToggleCategory={handleToggleCategory}
+          onClearAll={handleClearAll}
+        />
+      </section>
 
-      {/* Mobile Title Scrollbar - only visible on mobile */}
-      <div
-        ref={titleScrollRef}
-        class="md:hidden overflow-x-auto whitespace-nowrap py-4 sticky top-[112px] z-20 bg-white px-4 mb-4 title-bar-mobile"
-        style={{ boxSizing: "border-box" }} // Ensure padding is included in the element's width calculation
-      >
-        {projects.map((project) => (
-          <button
-            key={`title-${project.slug}`}
-            ref={(el) => {
-              titleRefs.current[project.slug] = el;
-            }}
-            onClick={() => scrollToProject(project.slug)}
-            class={`py-2 px-0 mr-8 last:mr-0 transition-colors title-button ${
-              currentProjectInView === project.slug
-                ? "text-brand-black"
-                : "text-gray-400"
-            }`}
-          >
-            <span>{project.title}</span>
-          </button>
-        ))}
+      {/* Section 2: Mobile Title Bar and Splitter */}
+      <div class="md:hidden sticky top-[80px] z-20 bg-white">
+        {/* Title bar with padding */}
+        <div
+          ref={titleScrollRef}
+          class="overflow-x-auto whitespace-nowrap py-4 px-4 title-bar-mobile"
+          style={{ boxSizing: "border-box" }}
+        >
+          {projects.map((project) => (
+            <button
+              key={`title-${project.slug}`}
+              ref={(el) => {
+                titleRefs.current[project.slug] = el;
+              }}
+              onClick={() => scrollToProject(project.slug)}
+              class={`py-2 px-0 mr-8 last:mr-0 transition-colors title-button ${
+                currentProjectInView === project.slug
+                  ? "text-brand-black"
+                  : "text-gray-400"
+              }`}
+            >
+              <span>{project.title}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Full-width Splitter (no padding) */}
+        <Splitter />
       </div>
 
-      {/* Project Grid */}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Custom cursor - only shown on desktop */}
-        {!isMobile && (
-          <div
-            class="custom-cursor fixed pointer-events-none z-50 bg-brand-white text-brand-black px-6 py-4 text-base font-bold font-lexend whitespace-nowrap border-2 border-brand-black shadow-custom-black"
-            style={{
-              display: hoveredProject ? "block" : "none",
-              left: `${titlePosition.x}px`,
-              top: `${titlePosition.y}px`,
-            }}
-          >
-            {hoveredProject?.title}
-          </div>
-        )}
-        {projects.map((project) => (
-          <a
-            class="border-2 border-brand-black hover:shadow-custom-black transition-shadow relative group"
-            href={"/projects/" + project.slug}
-            key={project.slug}
-            onMouseEnter={() => setHoveredProject(project)}
-            onMouseLeave={() => setHoveredProject(null)}
-            style={{
-              // Only hide completely on mobile if not in view
-              opacity: isMobile ? (visibleCards[project.slug] ? 1 : 0) : 1,
-              transition: "opacity 0.3s ease",
-            }}
-          >
-            <div class="md:h-auto h-[70svh] relative">
-              <img
-                src={project.featuredImageUrl}
-                alt={project.title}
-                class="w-full h-full md:aspect-[5/4] md:h-auto object-cover"
-              />
-              <div class="absolute inset-0 flex flex-col justify-between p-6">
-                <div class="flex items-start">
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  {project.categories.map((cat) => (
-                    <span class="text-xs px-2 py-1 border-brand-black border-2 shadow-custom-black bg-white">
-                      {cat}
-                    </span>
-                  ))}
+      {/* Section 3: Project Grid */}
+      <section class="px-4 pb-8 mt-4 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Custom cursor - only shown on desktop with mouse */}
+          {!isMobile && !isTouch && (
+            <div
+              class="custom-cursor fixed pointer-events-none z-50 bg-brand-white text-brand-black px-6 py-4 text-2xl font-bold font-lexend border-2 border-brand-black shadow-custom-black"
+              style={{
+                display: hoveredProject ? "block" : "none",
+                left: `${titlePosition.x}px`,
+                top: `${titlePosition.y}px`,
+                maxWidth: "40vw",
+                wordWrap: "break-word",
+              }}
+            >
+              {hoveredProject?.title}
+            </div>
+          )}
+          {projects.map((project) => (
+            <a
+              class="border-2 border-brand-black hover:shadow-custom-black transition-shadow relative group"
+              href={"/projects/" + project.slug}
+              key={project.slug}
+              onMouseEnter={() => setHoveredProject(project)}
+              onMouseLeave={() => setHoveredProject(null)}
+              style={{
+                // Only hide completely on mobile if not in view
+                opacity: isMobile ? (visibleCards[project.slug] ? 1 : 0) : 1,
+                transition: "opacity 0.3s ease",
+              }}
+            >
+              <div class="md:h-auto h-[70svh] relative">
+                <img
+                  src={project.featuredImageUrl}
+                  alt={project.title}
+                  class="w-full h-full md:aspect-[5/4] md:h-auto object-cover"
+                />
+                <div class="absolute inset-0 flex flex-col justify-between p-6">
+                  <div class="flex items-start">
+                    {/* Title for tablets (touch devices that aren't mobile) */}
+                    {isTouch && !isMobile && (
+                      <h3 class="text-xl font-bold font-lexend bg-brand-white text-brand-black px-3 py-1 border-2 border-brand-black shadow-custom-black">
+                        {project.title}
+                      </h3>
+                    )}
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    {project.categories.map((cat) => (
+                      <span class="text-xs px-2 py-1 border-brand-black border-2 shadow-custom-black bg-white">
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      {/* "Load More" button */}
-      {start < totalCount && (
-        <div class="flex justify-center mt-6">
-          <button
-            onClick={handleLoadMore}
-            class="px-4 py-2 border-2  border-brand-black hover:shadow-custom-black transition-shadow"
-          >
-            Se flere
-          </button>
+            </a>
+          ))}
         </div>
-      )}
-    </section>
+
+        {/* "Load More" button */}
+        {start < totalCount && (
+          <div class="flex justify-center mt-6">
+            <button
+              onClick={handleLoadMore}
+              class="px-4 py-2 border-2  border-brand-black hover:shadow-custom-black transition-shadow"
+            >
+              Se flere
+            </button>
+          </div>
+        )}
+      </section>
+    </>
   );
 }
