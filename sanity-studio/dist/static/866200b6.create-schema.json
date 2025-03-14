@@ -1176,5 +1176,98 @@
     "name": "employee",
     "type": "document",
     "title": "Employees"
+  },
+  {
+    "fields": [
+      {
+        "description": "Name of the photoshoot or client",
+        "name": "title",
+        "type": "string",
+        "title": "Gallery Title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "description": "Simple password to share with clients",
+        "name": "accessCode",
+        "type": "string"
+      },
+      {
+        "name": "bulkUpload",
+        "type": "string",
+        "title": "Bulk Image Upload"
+      },
+      {
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "options": {
+                  "isHighlighted": true
+                },
+                "name": "caption",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "isHighlighted": true
+                },
+                "name": "filename",
+                "type": "string",
+                "title": "Original Filename"
+              },
+              {
+                "initialValue": false,
+                "name": "selected",
+                "type": "boolean",
+                "title": "Selected by Client"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "images",
+        "type": "array"
+      },
+      {
+        "name": "clientEmail",
+        "type": "string"
+      },
+      {
+        "name": "clientName",
+        "type": "string"
+      },
+      {
+        "name": "shootDate",
+        "type": "date"
+      },
+      {
+        "description": "When should this gallery expire?",
+        "name": "expiryDate",
+        "type": "date",
+        "title": "Gallery Expiry Date"
+      }
+    ],
+    "name": "gallery",
+    "type": "document"
   }
 ]

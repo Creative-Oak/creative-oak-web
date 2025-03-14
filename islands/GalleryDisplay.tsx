@@ -49,7 +49,7 @@ export default function GalleryDisplay({ galleryData, accessCode }: GalleryDispl
       });
 
       if (response.ok) {
-        setMessage("Your selections have been saved!");
+        setMessage("Dine valgte billeder er gemt!");
       } else {
         setMessage("An error occurred. Please try again.");
       }
@@ -63,12 +63,12 @@ export default function GalleryDisplay({ galleryData, accessCode }: GalleryDispl
       <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold">{galleryData.title}</h1>
         <div class="text-right">
-          <p class="mb-2">Selected: {selectedImages.length} of {galleryData.images.length}</p>
+          <p class="mb-2">Valgt: {selectedImages.length} ud af {galleryData.images.length} fotos</p>
           <button
             onClick={saveSelections}
-            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            class="border-brand-black border-2 font-bold py-2 px-4 rounded"
           >
-            Save Selections
+            Gem valgte billeder
           </button>
         </div>
       </div>
@@ -83,8 +83,8 @@ export default function GalleryDisplay({ galleryData, accessCode }: GalleryDispl
         {galleryData.images.map((image) => (
           <div 
             key={image._key} 
-            class={`relative rounded overflow-hidden shadow-lg break-inside-avoid mb-6 ${
-              selectedImages.includes(image._key) ? "ring-4 ring-blue-500" : ""
+            class={`relative  overflow-hidden shadow-lg break-inside-avoid mb-6 ${
+              selectedImages.includes(image._key) ? "ring-4 ring-brand-blue" : ""
             }`}
           >
             <img

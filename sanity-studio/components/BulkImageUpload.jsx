@@ -1,12 +1,13 @@
 // components/BulkImageUpload.jsx
 import React, { useCallback, useState } from 'react'
-import { Button, Card, Flex, Stack, Text } from '@sanity/ui'
+import { Button, Card, Flex, Stack, Text, Spinner } from '@sanity/ui'
 import { useClient } from 'sanity'
 import { useFormValue } from 'sanity'
 
 // Define the component
 export default function BulkImageUpload() {
   const [isUploading, setIsUploading] = useState(false)
+  const [isSaving, setIsSaving] = useState(false)
   const [progress, setProgress] = useState(0)
   const [totalFiles, setTotalFiles] = useState(0)
   const [error, setError] = useState(null)
@@ -54,6 +55,7 @@ export default function BulkImageUpload() {
         setProgress(i + 1)
       }
       
+      setIsSaving(true)
       // Update the images field
       await client
         .patch(sanityDocument._id)
@@ -63,11 +65,13 @@ export default function BulkImageUpload() {
       
       console.log('Successfully uploaded images')
       setIsUploading(false)
+      setIsSaving(false)
       setProgress(0)
     } catch (err) {
       console.error('Upload failed:', err)
       setError(err.message || 'Failed to upload images')
       setIsUploading(false)
+      setIsSaving(false)
       setProgress(0)
     }
   }, [client, sanityDocument])
@@ -109,8 +113,14 @@ export default function BulkImageUpload() {
         )}
         
         {isUploading ? (
-          <Flex direction="column" align="center" justify="center">
+          <Flex direction="column" align="center" justify="center" gap={3}>
             <Text>Uploading {progress} of {totalFiles} images...</Text>
+            <Spinner />
+          </Flex>
+        ) : isSaving ? (
+          <Flex direction="column" align="center" justify="center" gap={3}>
+            <Text>Saving images...</Text>
+            <Spinner />
           </Flex>
         ) : (
           <Flex direction="column" gap={3}>

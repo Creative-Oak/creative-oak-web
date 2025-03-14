@@ -37,11 +37,11 @@ export default function GalleryAccess({ slug }: GalleryAccessProps) {
 
   return (
     <div class="p-6 max-w-md  mx-auto bg-white rounded-lg shadow-md">
-      <h2 class="text-2xl font-bold mb-4">Enter Gallery Access Code</h2>
+      <h2 class="text-2xl font-bold mb-4">Skriv din adgangskode</h2>
       <form onSubmit={handleSubmit}>
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" htmlFor="accessCode">
-            Access Code
+            Adgangskode
           </label>
           <input
             id="accessCode"
@@ -55,9 +55,9 @@ export default function GalleryAccess({ slug }: GalleryAccessProps) {
         {error && <p class="text-red-500 text-sm mb-4">{error}</p>}
         <button
           type="submit"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          class=" text-brand-black border-brand-black-100 border-2 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          View Gallery
+          Se dine billeder
         </button>
       </form>
     </div>
