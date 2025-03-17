@@ -66,10 +66,10 @@ export default function PortfolioIsland(
     setIsTouch("ontouchstart" in window);
 
     // Add listener for window resize
-    window.addEventListener("resize", checkMobile);
+    globalThis.addEventListener("resize", checkMobile);
 
     return () => {
-      window.removeEventListener("resize", checkMobile);
+      globalThis.removeEventListener("resize", checkMobile);
     };
   }, []);
 
@@ -210,11 +210,11 @@ export default function PortfolioIsland(
       if (titleScrollRef.current) {
         // Get the original position of the title bar relative to the document
         const titleBarPos = titleScrollRef.current.getBoundingClientRect().top +
-          window.scrollY;
+          globalThis.scrollY;
 
         // It's truly sticky when we've scrolled past its original position + a small buffer
         // The 5px buffer helps ensure it only happens when it's fully sticky
-        const isSticky = window.scrollY >= (titleBarPos - 80 - 5);
+        const isSticky = globalThis.scrollY >= (titleBarPos - 80 - 5);
 
         titleScrollRef.current.classList.toggle("is-sticky", isSticky);
       }
@@ -250,10 +250,10 @@ export default function PortfolioIsland(
     updateCardVisibility();
 
     // Add scroll listener
-    window.addEventListener("scroll", updateCardVisibility);
+    globalThis.addEventListener("scroll", updateCardVisibility);
 
     return () => {
-      window.removeEventListener("scroll", updateCardVisibility);
+      globalThis.removeEventListener("scroll", updateCardVisibility);
       // Remove the style element when component unmounts
       document.head.removeChild(styleEl);
     };
@@ -319,14 +319,14 @@ export default function PortfolioIsland(
     const timer = setTimeout(checkTitleWidths, 500);
 
     // Also check when window resizes or current project changes
-    window.addEventListener("resize", checkTitleWidths);
+    globalThis.addEventListener("resize", checkTitleWidths);
 
     // Re-run when current project changes
     checkTitleWidths();
 
     return () => {
       clearTimeout(timer);
-      window.removeEventListener("resize", checkTitleWidths);
+      globalThis.removeEventListener("resize", checkTitleWidths);
     };
   }, [isMobile, projects, currentProjectInView]);
 
@@ -334,7 +334,7 @@ export default function PortfolioIsland(
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
 
-    const isMobile = window.innerWidth < 768;
+    const isMobile = globalThis.innerWidth < 768;
 
     const options = {
       root: null,
@@ -505,12 +505,12 @@ export default function PortfolioIsland(
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
+    globalThis.addEventListener("mousemove", handleMouseMove);
+    globalThis.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
+      globalThis.removeEventListener("mousemove", handleMouseMove);
+      globalThis.removeEventListener("scroll", handleScroll);
     };
   }, [projects, cursorPosition]); // Remove hoveredProject from dependencies
 
@@ -551,19 +551,19 @@ export default function PortfolioIsland(
       projectElement.scrollIntoView({ behavior: "smooth" });
 
       // Then adjust the scroll position for mobile to create space beneath title bar
-      if (window.innerWidth < 768) { // Only on mobile (md breakpoint is 768px)
+      if (globalThis.innerWidth < 768) { // Only on mobile (md breakpoint is 768px)
         setTimeout(() => {
           // Get title bar height including padding (positioned at 80px from top)
           const titleBarHeight = titleScrollRef.current?.offsetHeight || 0;
           const scrollPosition = projectElement.getBoundingClientRect().top +
-            window.pageYOffset;
+          globalThis.pageYOffset;
 
           // Position the element 1svh below the bottom of the title bar
           // 80px is the top position, titleBarHeight is the height of the bar, 1svh is the desired gap
           const targetPosition = scrollPosition -
-            (80 + titleBarHeight + (window.innerHeight * 0.01));
+            (80 + titleBarHeight + (globalThis.innerHeight * 0.01));
 
-          window.scrollTo({
+            globalThis.scrollTo({
             top: targetPosition,
             behavior: "smooth",
           });
@@ -700,6 +700,7 @@ export default function PortfolioIsland(
               {hoveredProject?.title}
             </div>
           )}
+        
           {projects.map((project) => (
             <a
               class="border-2 border-brand-black hover:shadow-custom-black transition-shadow relative group"
