@@ -15,16 +15,16 @@ export const handler: Handlers = {
 
     // convert to numbers (with fallback defaults: start=0, limit=6 for example)
     const start = startParam ? parseInt(startParam, 10) : 0;
-    const limit = limitParam ? parseInt(limitParam, 10) : 12; 
+    const limit = limitParam ? parseInt(limitParam, 10) : 12;
 
     // We can limit the query from [start..(start+limit-1)]
     // e.g. [0..5] when start=0, limit=6
     const projectQuery = `
       *[_type == "project"]${
-        categories.length > 0
-          ? `[references(*[_type == "projectCategories" && title in $categories]._id)]`
-          : ""
-      } 
+      categories.length > 0
+        ? `[references(*[_type == "projectCategories" && title in $categories]._id)]`
+        : ""
+    } 
       | order(isFeatured desc, releaseDate desc)
       [${start}..${start + limit - 1}] {
         title,
@@ -40,14 +40,15 @@ export const handler: Handlers = {
     const countQuery = `
       count(
         *[_type == "project"]${
-          categories.length > 0
-            ? `[references(*[_type == "projectCategories" && title in $categories]._id)]`
-            : ""
-        }
+      categories.length > 0
+        ? `[references(*[_type == "projectCategories" && title in $categories]._id)]`
+        : ""
+    }
       )
     `;
 
-    const categoriesQuery = `*[_type == "projectCategories"] | order(title asc) {
+    const categoriesQuery =
+      `*[_type == "projectCategories"] | order(title asc) {
       title
     }`;
 
