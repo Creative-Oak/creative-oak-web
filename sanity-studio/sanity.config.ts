@@ -27,6 +27,11 @@ export default defineConfig({
     templates: (templates) =>
       templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
   },
+  form: {
+    components: {
+      // Remove custom input registration
+    }
+  },
   document: {
     // Restrict actions for singleton types
     actions: (input, context) =>

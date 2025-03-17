@@ -18,14 +18,14 @@ const ServiceCard = (props: CardProps) => {
   const handleTagClick = (e: JSX.TargetedMouseEvent<HTMLSpanElement>, tag: Tags) => {
     e.stopPropagation();
 
-    console.log(tag + " clicked!");
+
     globalThis.location.href = tag.href;
     // Your tag navigation logic here
   };
 
   const handleCardClick = () => {
     // Handle main card navigation
-    console.log(props.href)
+
     globalThis.location.href = props.href;
   };
 

@@ -8,6 +8,7 @@ interface SanityConfig {
   projectId: string;
   dataset: string;
   apiVersion: string;
+  token: string;
   useCdn: boolean;
 }
 
@@ -15,6 +16,7 @@ const config: SanityConfig = {
   projectId: "gt4m5sbb",
   dataset: "production",
   apiVersion: "2024-01-01",
+  token: Deno.env.get("SANITY_TOKEN") || "",
   useCdn: true,
 };
 
