@@ -1,0 +1,32 @@
+[1mdiff --cc fresh.gen.ts[m
+[1mindex 51dd72e,f6b78b8..0000000[m
+[1m--- a/fresh.gen.ts[m
+[1m+++ b/fresh.gen.ts[m
+[36m@@@ -36,11 -39,11 +40,12 @@@[m [mimport * as $tak from "./routes/tak.tsx[m
+  import * as $tilmeld from "./routes/tilmeld.tsx";[m
+  import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx";[m
+  import * as $visuel_identitet from "./routes/visuel-identitet.tsx";[m
+[32m +import * as $ArrowAnimation from "./islands/ArrowAnimation.tsx";[m
+  import * as $ArticlesIsland from "./islands/ArticlesIsland.tsx";[m
+  import * as $CategoryFilter from "./islands/CategoryFilter.tsx";[m
+[31m -import * as $Forms_GalleryAccess from "./islands/Forms/GalleryAccess.tsx";[m
+[32m +import * as $CollageParallax from "./islands/CollageParallax.tsx";[m
+  import * as $Forms_PromoForm from "./islands/Forms/PromoForm.tsx";[m
+[32m+ import * as $GalleryDisplay from "./islands/GalleryDisplay.tsx";[m
+  import * as $LottieAnimation from "./islands/LottieAnimation.tsx";[m
+  import * as $MailerLite from "./islands/MailerLite.tsx";[m
+  import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";[m
+[36m@@@ -93,11 -97,11 +102,12 @@@[m [mconst manifest = [m
+      "./routes/visuel-identitet.tsx": $visuel_identitet,[m
+    },[m
+    islands: {[m
+[32m +    "./islands/ArrowAnimation.tsx": $ArrowAnimation,[m
+      "./islands/ArticlesIsland.tsx": $ArticlesIsland,[m
+      "./islands/CategoryFilter.tsx": $CategoryFilter,[m
+[31m -    "./islands/Forms/GalleryAccess.tsx": $Forms_GalleryAccess,[m
+[32m +    "./islands/CollageParallax.tsx": $CollageParallax,[m
+      "./islands/Forms/PromoForm.tsx": $Forms_PromoForm,[m
+[32m+     "./islands/GalleryDisplay.tsx": $GalleryDisplay,[m
+      "./islands/LottieAnimation.tsx": $LottieAnimation,[m
+      "./islands/MailerLite.tsx": $MailerLite,[m
+      "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,[m
