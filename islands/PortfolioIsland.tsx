@@ -556,14 +556,14 @@ export default function PortfolioIsland(
           // Get title bar height including padding (positioned at 80px from top)
           const titleBarHeight = titleScrollRef.current?.offsetHeight || 0;
           const scrollPosition = projectElement.getBoundingClientRect().top +
-          globalThis.pageYOffset;
+            globalThis.pageYOffset;
 
           // Position the element 1svh below the bottom of the title bar
           // 80px is the top position, titleBarHeight is the height of the bar, 1svh is the desired gap
           const targetPosition = scrollPosition -
             (80 + titleBarHeight + (globalThis.innerHeight * 0.01));
 
-            globalThis.scrollTo({
+          globalThis.scrollTo({
             top: targetPosition,
             behavior: "smooth",
           });
@@ -700,46 +700,65 @@ export default function PortfolioIsland(
               {hoveredProject?.title}
             </div>
           )}
-        
-          {projects.map((project) => (
-            <a
-              class="border-2 border-brand-black hover:shadow-custom-black transition-shadow relative group"
-              href={"/projects/" + project.slug}
-              key={project.slug}
-              onMouseEnter={() => setHoveredProject(project)}
-              onMouseLeave={() => setHoveredProject(null)}
-              style={{
-                // Only hide completely on mobile if not in view
-                opacity: isMobile ? (visibleCards[project.slug] ? 1 : 0) : 1,
-                transition: "opacity 0.3s ease",
-              }}
-            >
-              <div class="md:h-auto h-[70svh] relative">
-                <img
-                  src={project.featuredImageUrl}
-                  alt={project.title}
-                  class="w-full h-full md:aspect-[5/4] md:h-auto object-cover"
-                />
-                <div class="absolute inset-0 flex flex-col justify-between p-6">
-                  <div class="flex items-start">
-                    {/* Title for tablets (touch devices that aren't mobile) */}
-                    {isTouch && !isMobile && (
-                      <h3 class="text-xl font-bold font-lexend bg-brand-white text-brand-black px-3 py-1 border-2 border-brand-black shadow-custom-black">
-                        {project.title}
-                      </h3>
-                    )}
-                  </div>
-                  <div class="flex flex-wrap gap-2">
-                    {project.categories.map((cat) => (
-                      <span class="text-xs px-2 py-1 border-brand-black border-2 shadow-custom-black bg-white">
-                        {cat}
-                      </span>
-                    ))}
+
+          {projects.map((project) => {
+            // Debug logging to identify problematic projects
+            if (!project.categories || !Array.isArray(project.categories)) {
+              console.error(`Project with invalid categories:`, {
+                slug: project.slug,
+                title: project.title,
+                categoriesValue: project.categories,
+                isNull: project.categories === null,
+                isUndefined: project.categories === undefined,
+                type: typeof project.categories,
+              });
+            }
+
+            return (
+              <a
+                class="border-2 border-brand-black hover:shadow-custom-black transition-shadow relative group"
+                href={"/projects/" + project.slug}
+                key={project.slug}
+                onMouseEnter={() => setHoveredProject(project)}
+                onMouseLeave={() => setHoveredProject(null)}
+                style={{
+                  // Only hide completely on mobile if not in view
+                  opacity: isMobile ? (visibleCards[project.slug] ? 1 : 0) : 1,
+                  transition: "opacity 0.3s ease",
+                }}
+              >
+                <div class="md:h-auto h-[70svh] relative">
+                  <img
+                    src={project.featuredImageUrl}
+                    alt={project.title}
+                    class="w-full h-full md:aspect-[5/4] md:h-auto object-cover"
+                  />
+                  <div class="absolute inset-0 flex flex-col justify-between p-6">
+                    <div class="flex items-start">
+                      {/* Title for tablets (touch devices that aren't mobile) */}
+                      {isTouch && !isMobile && (
+                        <h3 class="text-xl font-bold font-lexend bg-brand-white text-brand-black px-3 py-1 border-2 border-brand-black shadow-custom-black">
+                          {project.title}
+                        </h3>
+                      )}
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                      {project.categories && Array.isArray(project.categories)
+                        ? project.categories.map((cat) => (
+                          <span
+                            key={cat}
+                            class="text-xs px-2 py-1 border-brand-black border-2 shadow-custom-black bg-white"
+                          >
+                            {cat}
+                          </span>
+                        ))
+                        : null}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            );
+          })}
         </div>
 
         {/* "Load More" button */}
