@@ -12,38 +12,44 @@ export default function ScrollTriggerImage(
 ) {
   const mobileImageRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(60);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  // Base position values (the original position)
+  const baseX = 60; // rem
+  const baseY = 60; // %
 
   useEffect(() => {
-    let lastScrollY = globalThis.scrollY;
-
-    const handleScroll = () => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
 
-      const currentScrollY = globalThis.scrollY;
-      const scrollDiff = currentScrollY - lastScrollY;
+      // Get container dimensions and position
+      const rect = containerRef.current.getBoundingClientRect();
 
-      // Update progress based on scroll difference
-      // Only update if scrolling down
-      if (scrollDiff > 0) {
-        const scrollSensitivity = 20; // Adjust this value to change scroll sensitivity
-        const newProgress = Math.max(
-          50, // Limit upward movement
-          Math.min(60, scrollProgress - (scrollDiff / scrollSensitivity)),
-        );
+      // Calculate mouse position relative to the center of the container
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
-        setScrollProgress(newProgress);
-      }
+      // Calculate normalized offset from center (-1 to 1)
+      const offsetX = (e.clientX - centerX) / (rect.width / 2);
+      const offsetY = (e.clientY - centerY) / (rect.height / 2);
 
-      lastScrollY = currentScrollY;
+      // Apply a smaller movement factor to make the effect subtle
+      // Negate the values to create a repelling effect
+      const movementFactor = 2; // Adjusted for repelling effect
+
+      setPosition({
+        x: -offsetX * movementFactor, // Inverted to create repelling effect
+        y: -offsetY * movementFactor, // Inverted to create repelling effect
+      });
     };
 
-    globalThis.addEventListener("scroll", handleScroll, { passive: true });
+    // Add mousemove event listener to the window
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     return () => {
-      globalThis.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [scrollProgress]);
+  }, []);
 
   return (
     <div
@@ -55,10 +61,10 @@ export default function ScrollTriggerImage(
           {/* Smartphone image - positioned absolutely to overlap */}
           <div
             ref={mobileImageRef}
-            class="absolute transition-transform duration-100 z-10"
+            class="absolute transition-all duration-500 ease-out z-10"
             style={{
               transform:
-                `translate(60rem, calc(${scrollProgress}% - 5rem)) rotate(15deg)`,
+                `translate(calc(${baseX}rem + ${position.x}rem), calc(${baseY}% - 5rem + ${position.y}rem)) rotate(15deg)`,
             }}
           >
             <img

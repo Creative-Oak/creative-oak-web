@@ -36,13 +36,16 @@ import * as $tak from "./routes/tak.tsx";
 import * as $tilmeld from "./routes/tilmeld.tsx";
 import * as $video_og_fotoproduktion from "./routes/video-og-fotoproduktion.tsx";
 import * as $visuel_identitet from "./routes/visuel-identitet.tsx";
+import * as $ArrowAnimation from "./islands/ArrowAnimation.tsx";
 import * as $ArticlesIsland from "./islands/ArticlesIsland.tsx";
 import * as $CategoryFilter from "./islands/CategoryFilter.tsx";
+import * as $CollageParallax from "./islands/CollageParallax.tsx";
 import * as $Forms_PromoForm from "./islands/Forms/PromoForm.tsx";
 import * as $LottieAnimation from "./islands/LottieAnimation.tsx";
 import * as $MailerLite from "./islands/MailerLite.tsx";
 import * as $Marquee_Marquee from "./islands/Marquee/Marquee.tsx";
 import * as $MobileMenu_MobileMenu from "./islands/MobileMenu/MobileMenu.tsx";
+import * as $ParallaxBackground from "./islands/ParallaxBackground.tsx";
 import * as $PortfolioIsland from "./islands/PortfolioIsland.tsx";
 import * as $ProgressBar_ProgressBar from "./islands/ProgressBar/ProgressBar.tsx";
 import * as $ScrollText_ScrollText from "./islands/ScrollText/ScrollText.tsx";
@@ -90,13 +93,16 @@ const manifest = {
     "./routes/visuel-identitet.tsx": $visuel_identitet,
   },
   islands: {
+    "./islands/ArrowAnimation.tsx": $ArrowAnimation,
     "./islands/ArticlesIsland.tsx": $ArticlesIsland,
     "./islands/CategoryFilter.tsx": $CategoryFilter,
+    "./islands/CollageParallax.tsx": $CollageParallax,
     "./islands/Forms/PromoForm.tsx": $Forms_PromoForm,
     "./islands/LottieAnimation.tsx": $LottieAnimation,
     "./islands/MailerLite.tsx": $MailerLite,
     "./islands/Marquee/Marquee.tsx": $Marquee_Marquee,
     "./islands/MobileMenu/MobileMenu.tsx": $MobileMenu_MobileMenu,
+    "./islands/ParallaxBackground.tsx": $ParallaxBackground,
     "./islands/PortfolioIsland.tsx": $PortfolioIsland,
     "./islands/ProgressBar/ProgressBar.tsx": $ProgressBar_ProgressBar,
     "./islands/ScrollText/ScrollText.tsx": $ScrollText_ScrollText,
