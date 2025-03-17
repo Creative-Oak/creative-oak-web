@@ -16,7 +16,7 @@ export default function ScrollTriggerImage(
 
   // Base position values (the original position)
   const baseX = 60; // rem
-  const baseY = 60; // %
+  const baseY = 30; // %
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -44,17 +44,17 @@ export default function ScrollTriggerImage(
     };
 
     // Add mousemove event listener to the window
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    globalThis.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      globalThis.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   return (
     <div
       ref={containerRef}
-      class="w-full relative min-h-[800px]"
+      class="w-full relative max-h-[80svh-8rem]"
     >
       <div class="max-w-7xl mx-auto relative">
         <div class="relative w-full">
@@ -70,14 +70,14 @@ export default function ScrollTriggerImage(
             <img
               src={mobileSrc}
               alt={mobileAlt}
-              class="max-w-[300px] w-full opacity-100"
+              class="max-w-[15vw] w-full opacity-100"
             />
           </div>
           {/* Desktop image */}
           <img
             src={desktopSrc}
             alt={desktopAlt}
-            class="max-w-5xl w-full mx-auto relative z-0"
+            class=" max-h-[60vh] w-auto mx-auto relative z-0"
           />
         </div>
       </div>

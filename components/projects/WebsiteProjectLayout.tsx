@@ -13,7 +13,7 @@ interface WebsiteProjectLayoutProps {
 const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
   return (
     <>
-      <section className="bg-brand-blue relative flex flex-col min-h-[80svh] md:min-h-[100svh] justify-center items-center pt-32 pb-12 md:pt-0 md:pb-0">
+      <section className="bg-brand-blue relative flex flex-col min-h-[80svh] md:h-svh justify-center items-center pt-32 pb-12">
         <div className="items-center text-center mb-8 md:mb-12">
           <div>
             <h1 className="text-5xl md:text-7xl font-bold text-brand-white mb-4 font-lexend">
