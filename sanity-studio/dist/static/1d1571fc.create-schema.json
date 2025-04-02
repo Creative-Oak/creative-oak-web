@@ -341,6 +341,24 @@
         "type": "slug"
       },
       {
+        "options": {
+          "list": [
+            {
+              "title": "Website Project",
+              "value": "website"
+            },
+            {
+              "title": "Other Project",
+              "value": "other"
+            }
+          ]
+        },
+        "initialValue": "website",
+        "description": "Determines the layout template to use for this project",
+        "name": "projectType",
+        "type": "string"
+      },
+      {
         "name": "mainContent",
         "type": "blockContent"
       },
@@ -422,6 +440,74 @@
         ],
         "name": "metaDescription",
         "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image showing the project on desktop devices",
+        "name": "desktopImage",
+        "type": "image"
+      },
+      {
+        "name": "desktopImageAltText",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image showing the project on mobile devices",
+        "name": "mobileImage",
+        "type": "image"
+      },
+      {
+        "name": "mobileImageAltText",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "A full page background image of the project on smartphone",
+        "name": "fullPageSmartphoneImage",
+        "type": "image"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "A full width collage/showcase of the project on desktop",
+        "name": "desktopCollageImage",
+        "type": "image"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image showing the workplace or environment related to the project",
+        "name": "workplaceImage",
+        "type": "image"
+      },
+      {
+        "description": "Introductory text about the project (appears after the hero section)",
+        "name": "introText",
+        "type": "text"
+      },
+      {
+        "description": "Text describing the challenge addressed by the project",
+        "name": "challengeText",
+        "type": "text"
+      },
+      {
+        "description": "Text describing the solution offered by the project",
+        "name": "solutionText",
+        "type": "text"
+      },
+      {
+        "description": "Text describing the results or outcomes of the project",
+        "name": "resultText",
+        "type": "text"
       }
     ],
     "name": "project",

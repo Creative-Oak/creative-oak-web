@@ -76,8 +76,6 @@ export const handler: Handlers<{
         featuredImageUrl: urlFor(proj.featuredImage as Image),
       }));
 
-      console.log(projectsWithUrls)
-
       // 7) Return data to the page
       return ctx.render({
         projects: projectsWithUrls,

@@ -73,6 +73,7 @@ const CustomHead = ({ ogType = "website", ...props }: CustomHeadProps) => {
                 name="twitter:image" 
                 content={props.imageUrl} 
             />
+            <script defer src="https://cloud.umami.is/script.js" data-website-id="87b0d737-d9e9-48d2-ba28-2caf294924d3"></script>
         </Head>
     );
 };
