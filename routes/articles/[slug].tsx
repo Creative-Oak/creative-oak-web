@@ -273,10 +273,10 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
 
       <Splitter />
       <CTASection
-        buttonLink="/kontakt"
-        buttonText="Kontakt os i dag"
-        description="Hvis du har en kommentar eller et forslag, skal du ikke tøve med at kontakte os!"
-        title="Har du spørgsmål til artiklen?"
+        buttonLink="/contact"
+        buttonText="Contact us today"
+        description="If you have a comment or suggestion, don't hesitate to contact us!"
+        title="Have you any questions about the article?"
       />
       <Footer />
     </>

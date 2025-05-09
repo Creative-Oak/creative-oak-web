@@ -115,7 +115,7 @@ const EmployeePage = ({ data, url }: PageProps<Employee>) => {
       <CustomHead
         title={`${data.name} - ${data.position}`}
         imageUrl={urlFor(data.profileImage)}
-        metaDescription={`${data.name} er ${data.position} ved Creative Oak. Kontakt: ${data.email}.`}
+        metaDescription={`${data.name} er ${data.position} ved Creative Oak. Contact: ${data.email}.`}
         url={currentUrl.toString()}
         ogType="profile"
       />

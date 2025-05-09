@@ -13,9 +13,9 @@ const TestemonialSection = (
   const displayedTestimonials = showAll ? testemonial : testemonial.slice(0, 3);
 
   return (
-    <section className="bg-white px-8">
+    <section className="bg-white md:px-8 px-0">
       {/* Title section - contained */}
-      <div className=" py-12 md:py-24">
+      <div className=" py-12 px-4 md:px-0 md:py-24">
         <h2 className="text-3xl md:text-5xl font-lexend font-bold">
           Testemonials
         </h2>

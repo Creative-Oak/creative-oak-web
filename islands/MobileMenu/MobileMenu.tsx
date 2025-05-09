@@ -66,7 +66,7 @@ export default function MobileMenu({ navigation }: MobileMenuProps) {
               )}
             </div>
           ))}
-          <PrimaryButton href="/kontakt" text="Kontakt" />
+          <PrimaryButton href="/contact" text="Contact" />
         </div>
       </div>
     </>

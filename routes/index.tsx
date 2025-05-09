@@ -89,7 +89,7 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
         buttonText1="Læs mere om os"
         buttonLink1="/about"
         buttonText2="Fortæl os om din vision"
-        buttonLink2="/kontakt"
+        buttonLink2="/contact"
         subtitle="Your partner for sustainable digital solutions that grow with your business"
       />     
 
@@ -113,7 +113,7 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
       <CTASection
         title="Do you need help with something?"
         description="Please write if there is something we can help with. If you are more into emails, we can also be reached at hello@creativeoak.io"
-        buttonLink="/kontakt"
+        buttonLink="/contact"
         buttonText="Contact us"
       />
       <Splitter />

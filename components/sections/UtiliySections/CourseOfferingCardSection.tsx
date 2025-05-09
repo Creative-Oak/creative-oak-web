@@ -90,7 +90,7 @@ export function CourseOfferingCard({
         </div>
 
         <div class="flex justify-center mt-auto">
-          <PrimaryButton href={"/kontakt"} text={"Book nu"} />
+          <PrimaryButton href={"/contact"} text={"Book nu"} />
         </div>
       </div>
     </div>

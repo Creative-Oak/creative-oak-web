@@ -58,7 +58,7 @@ const TestemonialPage = ({ data, url }: PageProps<
             <CTASection
                 title="Klar til at vokse med os?"
                 description="Vi planter digitale frø der vokser til bæredygtige succeser. Din virksomhed kunne være det næste grønne eventyr"
-                buttonLink="/kontakt"
+                buttonLink="/contact"
                 buttonText="Plant din idé"
 
             />

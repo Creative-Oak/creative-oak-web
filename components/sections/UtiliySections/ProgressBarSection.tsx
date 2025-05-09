@@ -63,7 +63,7 @@ export default function ProgressSection() {
             </p>
           </div>
           <div className="mt-4 md:mt-6">
-            <PrimaryButton href="/kontakt" text="Læs mere" />
+            <PrimaryButton href="/contact" text="Læs mere" />
           </div>
         </div>
         <div className="mt-8 md:mt-0">

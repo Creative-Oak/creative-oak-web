@@ -8,8 +8,8 @@ export default function Error404({ url }: PageProps) {
   return (
     <>
       <CustomHead
-        title="404 - Her Var Der Ikke Noget At Se | Creative Oak"
-        metaDescription="Ups! Denne side findes ikke. Men bare rolig, vi har en håndfuld kreative mennesker og en kaffemaskine klar til at hjælpe dig videre."
+        title="404 - Nothing to See Here | Creative Oak"
+        metaDescription="Oops! This page doesn't exist. But don't worry, we have a handful of creative people and a coffee machine ready to help you move forward."
         imageUrl={`${url.origin}/images/og/og-logo.jpg`}
         url={url.href}
       />
@@ -20,14 +20,14 @@ export default function Error404({ url }: PageProps) {
           <h1 className="text-6xl font-bold mb-4">
             404
             <span className="block text-2xl mt-2">
-              Ups! Den side har vi nok tegnet uden for linjerne...
+              Oops! Looks like we drew outside the lines on this one...
             </span>
           </h1>
 
           <p className="text-xl mb-12">
-            Den side du leder efter er lige så forsvundet som vores sidste kage
-            i køkkenet. Men frygt ikke - Vi har faktisk en
-            navigation der faktisk virker (håber vi)!
+            The page you're looking for has disappeared just like our last cake
+            in the kitchen. But fear not - We actually have a
+            navigation that actually works (we hope)!
           </p>
 
           {/* Options Grid */}
@@ -36,17 +36,17 @@ export default function Error404({ url }: PageProps) {
               href="/"
               className="block p-6 border-2 border-brand-black hover:shadow-custom-black transition-shadow  cursor-pointer"
             >
-              <h3 className="font-semibold mb-2">Gå til forsiden</h3>
-              <p className="text-sm">Det sikre valg</p>
+              <h3 className="font-semibold mb-2">Go to homepage</h3>
+              <p className="text-sm">The safe choice</p>
             </a>
 
             <a
-              href="/kontakt"
+              href="/contact"
               className="block p-6 border-2 border-brand-black hover:shadow-custom-black transition-shadow  cursor-pointer"
             >
-              <h3 className="font-semibold mb-2">Kontakt os</h3>
+              <h3 className="font-semibold mb-2">Contact us</h3>
               <p className="text-sm">
-                Vi svarer hurtigere end denne side loader
+                We respond faster than this page loads
               </p>
             </a>
 
@@ -56,8 +56,8 @@ export default function Error404({ url }: PageProps) {
               rel="noopener noreferrer"
               className="block p-6 border-2 border-brand-black hover:shadow-custom-black transition-shadow  cursor-pointer"
             >
-              <h3 className="font-semibold mb-2">Tag en kop kaffe</h3>
-              <p className="text-sm">Løser intet, men kaffe er altid godt</p>
+              <h3 className="font-semibold mb-2">Grab a coffee</h3>
+              <p className="text-sm">Solves nothing, but coffee is always good</p>
             </a>
           </div>
 
@@ -66,16 +66,16 @@ export default function Error404({ url }: PageProps) {
           <div className="block p-6 border-2 border-brand-black">
             <h3 className="font-bold mb-4">Fun fact:</h3>
             <p>
-              Vidste du at "404" oprindeligt var rummet hvor webserveren boede
-              på CERN? Nu er det bare internettets måde at sige "Computer says
-              no". Vi foretrækker at sige det med et smil.
+              Did you know that "404" was originally the room where the web server lived
+              at CERN? Now it's just the internet's way of saying "Computer says
+              no". We prefer to say it with a smile.
             </p>
           </div>
           <Splitter />
           <CTASection
-            title="Skal vi hjælpe dig videre?"
-            description="(Vi lover ikke at grine af din 404-oplevelse... så meget)"
-            buttonText="Kontakt os!"
+            title="Shall we help you move forward?"
+            description="(We promise not to laugh at your 404 experience... too much)"
+            buttonText="Contact us!"
             buttonLink="/contact"
           />
         </div>

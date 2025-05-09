@@ -80,7 +80,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="flex  items-center  justify-center">
+          <div class="flex  items-center  md:justify-center justify-start">
             <ul class="space-y-6">
               <li>
                 <a href="/services">Services</a>

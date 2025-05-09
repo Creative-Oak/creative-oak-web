@@ -124,7 +124,7 @@ export default function PrivacyPolicy({ url }: PageProps) {
       <CTASection
         title="Need help with something?"
         description="Write if there's anything we can help with. If you prefer emails, you can also reach us at hej@creativeoak.dk"
-        buttonLink="/kontakt"
+        buttonLink="/contact"
         buttonText="Contact us today!"
       />
       <Splitter />
