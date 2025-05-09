@@ -33,6 +33,7 @@ const ServiceSection = () => {
             split.revert();
         };
     }, []);
+    
 
     return (
         <section class="bg-white md:pb-96 flex flex-col items-end md:pt-24 py-10">
