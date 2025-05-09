@@ -25,7 +25,7 @@ const TestemonialSection = (
         {!showAll && (
           <div className="mt-4">
             <PrimaryButton
-              href="/kundeudtalelser"
+              href="/testemonials"
               text="See all testimonials"
             />
           </div>
