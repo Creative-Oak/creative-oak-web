@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import CategoryFilter from "./CategoryFilter.tsx";
 import { ProjectCardData } from "../types/projectCardData.ts";
 import Splitter from "../components/other/splitter.tsx";
+import { yellow } from "$std/fmt/colors.ts";
 
 interface PortfolioIslandProps {
   initialProjects: ProjectCardData[];
@@ -13,6 +14,7 @@ interface PortfolioIslandProps {
   // how many items are loaded per page
   showTitle?: boolean;
   initialLimit?: number;
+  onFrontPage?: boolean;
 }
 
 export default function PortfolioIsland(
@@ -22,6 +24,7 @@ export default function PortfolioIsland(
     initialActiveCategories,
     initialTotalCount = 0, // fallback
     initialLimit = 12,
+    onFrontPage,
     showTitle,
   }: PortfolioIslandProps,
 ) {
@@ -79,7 +82,10 @@ export default function PortfolioIsland(
   // Update visibility of cards based on scroll position and handle sticky state
   useEffect(() => {
     if (!isMobile) return;
-
+    let color = "white";
+    if (onFrontPage) {
+       color = "rgb(255 229 27)";
+    }
     // Define CSS to inject for the title bar's pseudo-element
     const styleEl = document.createElement("style");
     styleEl.textContent = `
@@ -105,7 +111,7 @@ export default function PortfolioIsland(
         right: 0;
         bottom: 100%;
         height: 0;
-        background-color: white;
+        background-color: ${color};
         transition: height 0.25s ease-out;
         z-index: -1;
       }
@@ -146,7 +152,7 @@ export default function PortfolioIsland(
         left: 0;
         right: 0;
         height: var(--title-bar-bottom, 160px);
-        background-color: white;
+        background-color: ${color};
         z-index: -1;
         opacity: 0;
         pointer-events: none;
@@ -285,7 +291,7 @@ export default function PortfolioIsland(
           buttonRef.classList.add("animate-title");
 
           // Get computed styles to account for padding
-          const computedStyle = window.getComputedStyle(buttonRef);
+          const computedStyle = globalThis.getComputedStyle(buttonRef);
           const paddingLeft = parseFloat(computedStyle.paddingLeft);
           const paddingRight = parseFloat(computedStyle.paddingRight);
 
@@ -666,7 +672,7 @@ export default function PortfolioIsland(
         </div>
       )}
       {/* Section 2: Mobile Title Bar and Splitter */}
-      <div class="md:hidden sticky top-[80px] z-20 bg-white">
+      <div class={`md:hidden sticky top-[80px] z-20 ${onFrontPage ? "bg-brand-yellow" : "bg-white"}`}>
         {/* Title bar with padding */}
         <div
           ref={titleScrollRef}

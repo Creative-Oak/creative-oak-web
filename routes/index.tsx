@@ -105,6 +105,7 @@ export default function Home({ data, url }: PageProps<HomePageData>) {
       <PortfolioIsland   
         initialProjects={projects}
         showTitle={false}
+        onFrontPage={true}
       />
       </div>
       <Splitter />
