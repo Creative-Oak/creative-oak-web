@@ -58,7 +58,7 @@ export default function Navbar({ navigation }: NavbarProps) {
                 )}
             </div>
           ))}
-          <PrimaryButton href="/kontakt" dataUmamiEvent="contact-clicked-navbar" text="Kontakt" />
+          <PrimaryButton href="/contact" dataUmamiEvent="contact-clicked-navbar" showArrow={true} text="Contact" />
         </div>
       </div>
     </nav>

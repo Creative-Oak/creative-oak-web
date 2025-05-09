@@ -2,7 +2,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 
 import { client } from "../utils/sanity.ts";
-import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
 import Splitter from "../components/other/splitter.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import { ProjectCardData } from "../types/projectCardData.ts";
@@ -10,6 +9,7 @@ import PortfolioIsland from "../islands/PortfolioIsland.tsx";
 import { urlFor } from "../utils/imageBuild.ts";
 import { Image } from "@sanity/types";
 import CustomHead from "../components/other/CustomHead.tsx";
+import CleanHeroSection from "../islands/CleanHeroSection.tsx";
 
 export const handler: Handlers<{
   projects: ProjectCardData[];
@@ -106,9 +106,9 @@ export default function PortfolioRoute(
           imageUrl={`${url.origin}/images/buywebsite.avif`}
           url={url.href}
         />
-      <HeroSection2
-        title="Portfolio | Digitale Løsninger & Bæredygtige Cases"
-        description="Vores portfolio viser hvordan vi omsætter kreative idéer til digitale succeser. Dyk ned i vores cases og se hvordan vi kan hjælpe din virksomhed"
+      <CleanHeroSection
+        title="Works"
+        description="Our portfolio showcases our work in digital marketing and design. Explore our projects and see how we can help your business grow."
         
       />
       <Splitter />

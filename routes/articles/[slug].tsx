@@ -223,7 +223,7 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
                   <div class="border-t pt-4">
                     <div class="space-y-2">
                       <p class="text-sm text-gray-600">
-                        Publiceret den{" "}
+                        Published on{" "}
                         <span class="font-medium">
                           {new Date(data.releaseDate).toLocaleDateString(
                             "da-DK",
@@ -241,7 +241,7 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
                   {/* Related Articles */}
                   {data.relatedArticles && data.relatedArticles.length > 0 && (
                     <div class="border-t pt-4 mt-4">
-                      <h4 class="text-lg font-semibold mb-4">Læs også</h4>
+                      <h4 class="text-lg font-semibold mb-4">Continue reading</h4>
                       <div class="space-y-12">
                         {data.relatedArticles.map((article) => (
                           <a

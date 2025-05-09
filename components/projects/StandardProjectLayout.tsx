@@ -66,7 +66,7 @@ const StandardProjectLayout = ({ data }: StandardProjectLayoutProps) => {
                 {/* Publication info */}
                 <div className="mb-6">
                   <p className="text-sm text-gray-600">
-                    Publiceret den{" "}
+                    Published on{" "}
                     <span className="font-medium">
                       {new Date(data.releaseDate).toLocaleDateString("da-DK", {
                         year: "numeric",

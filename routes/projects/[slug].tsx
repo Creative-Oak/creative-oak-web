@@ -97,11 +97,12 @@ const ProjectPage = ({ data, url }: PageProps<Project>) => {
         : <StandardProjectLayout data={data} />}
 
       {/* CTA Section - Common to both layouts */}
+      <Splitter />
       <CTASection
-        buttonLink="/kontakt"
-        buttonText="Book et uforpligtende møde"
-        description="Det er vi også - på dit projekt! Vi har kaffen klar (og en masse gode idéer i ærmet)."
-        title="Er du blevet nysgerrig?"
+        buttonLink="/contact"
+        buttonText="Book a free consultation"
+        description="We're ready to help you with your project! We've got coffee (and a lot of good ideas) ready for you."
+        title="Are you curious?"
         backgroundColor="brand-blue"
       />
 

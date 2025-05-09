@@ -15,14 +15,14 @@ const Footer = () => {
               <img class="w-20" width={150} src="/images/logo.svg" />
             </a>
             <div class="max-w-md pt-6">
-              <p class="font-bold">Addresse</p>
+              <p class="font-bold">Adress</p>
               <p>Langelandsgade 62 St</p>
               <p>8000 Aarhus C</p>
             </div>
 
             <div class="max-w-md pt-6">
-              <p class="font-bold">Kontakt</p>
-              <p>CVR: 44912791</p>
+              <p class="font-bold">Contact</p>
+              <p>VAT: DK44912791</p>
               <p>Creative Oak ApS</p>
               <p>+45 53 53 42 90</p>
 
@@ -80,54 +80,30 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="">
-            <ul class="space-y-4">
+          <div class="flex  items-center  justify-center">
+            <ul class="space-y-6">
               <li>
-                <a href="/koeb-hjemmeside">Køb Hjemmeside</a>
+                <a href="/services">Services</a>
               </li>
               <li>
-                <a href="/ai-kursus">AI Kursus</a>
+                <a href="/services">Works</a>
               </li>
               <li>
-                <a href="/ai-chatbots">Chatbots</a>
+                <a href="/services">About</a>
               </li>
               <li>
-                <a href="/kunstig-intelligens-og-digital-udvikling">
-                  AI & digitale services
-                </a>
+                <a href="/services">Articles</a>
               </li>
               <li>
-                <a href="/hjemmeside-priser">Hjemmesider Priser</a>
+                <a href="/services">Contact</a>
               </li>
               <li>
-                <a href="/foto-video">Video- og fotoproduktion</a>
+                <a href="/privacy-policy">Privacy Policy</a>
               </li>
               <li>
-                <a href="/visuel-identitet">Visuel identitet</a>
+                <a href="/testemonials">Testemonials</a>
               </li>
-            </ul>
-          </div>
-          <div class="">
-            <ul class="space-y-4">
-              <li>
-                <a href="/portfolio">Portfolio</a>
-              </li>
-              <li>
-                <a href="/kontakt">Kontakt</a>
-              </li>
-              <li>
-                <a href="/om-os">Om os</a>
-              </li>
-              <li>
-                <a href="/artikler">Artikler</a>
-              </li>
-              <li>
-              <a class="ml-onclick-form" href="javascript:void(0)" onClick="ml('show', 'PthkKc', true)">Nyhedsbrev</a>
-              </li>
-              <li>
-                <a href="/privatliv">Privatlivspolitik</a>
-              </li>
-            </ul>
+              </ul>
           </div>
         </div>
       </div>

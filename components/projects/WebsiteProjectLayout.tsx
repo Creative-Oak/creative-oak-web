@@ -76,7 +76,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
           </div>
           <div>
             <p className="text-sm text-gray-600">
-              Publiceret den{" "}
+              Published on{" "}
               <span className="font-medium">
                 {new Date(data.releaseDate).toLocaleDateString("da-DK", {
                   year: "numeric",

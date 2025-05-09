@@ -7,59 +7,42 @@ const ServiceSection = () => {
     const services = [
         {
             id: "koeb-hjemmeside",
-            title: "Webudvikling",
+            title: "Creative Communications",
             image: "/images/services/webdev.avif"
         },
         {
             id: "ai-kursus",
-            title: "Kurser i AI",
+            title: "Digital Experiences & Innovation",
             image: "/images/services/courseai.avif"
         },
         {
             id: "articles/baeredygtig-hjemmeside",
-            title: "Bæredygtigt Webdesign",
+            title: "AI Consulting & AI Transformation",
             image: "/images/services/susweb.avif"
         },
         {
             id: "visuel-identitet",
-            title: "Visuel Identitet",
+            title: "E-Commerce & Digital Marketing",
             image: "/images/services/graphic.webp"
-        },
-        {
-            id: "foto-video",
-            title: "Fotografi",
-            image: "/images/services/foto-video.avif"
-        },
-        {
-            id: "chatbots",
-            title: "Chatbots",
-            image: "/images/services/oak-chatbot.webp"
-        },
-        {
-            id: "grafisk-design",
-            title: "Grafisk Design",
-            image: "/images/services/graphic.webp"
-        },
-        {
-            id: "foto-video",
-            title: "Videoproduktion",
-            image: "/images/services/foto-video.avif"
         }
     ];
 
     return (
         <section class="bg-white py-10 md:py-20">
             <div class="container mx-auto px-4">
-                <p class="text-brand-black mb-6 md:mb-8">Services vi tilbyder</p>
+                <p class="text-brand-black mb-6 md:mb-8 max-w-xl"> 
+         We are both consultants and digital craftsmen. With a sharp blend of branding, user experience, and programmatic expertise, we create solutions that truly make a difference for our clients – and stand the test of time.
+                </p>
+                <a href="/om-os">Learn more about us</a>
                 
                 <div class="flex flex-col md:flex-row gap-10 justify-center items-center lg:gap-24">
                     {/* List of services - works on both mobile and desktop */}
                     <div class="flex flex-col gap-6 md:gap-12 w-full md:w-1/2">
                         {services.map((service) => (
-                            <a
+                            <p
                                 key={service.id}
-                                href={`/${service.id}`}
-                                class={`text-2xl md:text-4xl font-bold transition-all duration-300 ${
+                               
+                                class={`text-2xl md:text-4xl font-bold transition-all max-w-xl duration-300 ${
                                     activeService === service.id
                                         ? "text-brand-black"
                                         : "text-brand-black-400 hover:text-brand-black"
@@ -70,7 +53,7 @@ const ServiceSection = () => {
                                 /* Removed the onMouseLeave handler to keep the last hovered item active */
                             >
                                 {service.title}
-                            </a>
+                            </p>
                         ))}
                     </div>
                     

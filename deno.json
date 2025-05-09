@@ -29,7 +29,7 @@
     "@sanity/image-url": "npm:@sanity/image-url@^1.1.0",
     "@sanity/types": "npm:@sanity/types@^3.68.3",
     "dompurify": "npm:dompurify@^3.2.3",
-    "gsap": "npm:gsap@^3.12.5",
+    "gsap": "npm:gsap@^3.13.0",
     "preact": "https://esm.sh/preact@10.22.0",
     "preact/": "https://esm.sh/preact@10.22.0/",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",

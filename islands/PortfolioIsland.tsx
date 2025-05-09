@@ -6,11 +6,12 @@ import Splitter from "../components/other/splitter.tsx";
 
 interface PortfolioIslandProps {
   initialProjects: ProjectCardData[];
-  allCategories: string[];
-  initialActiveCategories: string[];
+  allCategories?: string[];
+  initialActiveCategories?: string[];
   // new: if you're passing the total from SSR
   initialTotalCount?: number;
   // how many items are loaded per page
+  showTitle?: boolean;
   initialLimit?: number;
 }
 
@@ -21,12 +22,13 @@ export default function PortfolioIsland(
     initialActiveCategories,
     initialTotalCount = 0, // fallback
     initialLimit = 12,
+    showTitle,
   }: PortfolioIslandProps,
 ) {
   // Local state
   const [projects, setProjects] = useState<ProjectCardData[]>(initialProjects);
   const [activeCategories, setActiveCategories] = useState<string[]>(
-    initialActiveCategories,
+    initialActiveCategories || []
   );
   const [hoveredProject, setHoveredProject] = useState<ProjectCardData | null>(
     null,
@@ -53,10 +55,11 @@ export default function PortfolioIsland(
   const [totalCount, setTotalCount] = useState(initialTotalCount);
   const [start, setStart] = useState(initialProjects.length); // next offset
 
+
   // Check if we're on mobile and update the state
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(globalThis.innerWidth < 768);
     };
 
     // Initial check for mobile
@@ -520,10 +523,14 @@ export default function PortfolioIsland(
 
     const animateTitle = () => {
       if (hoveredProject) {
+        // Smoother spring-like animation with a simple lerp
+        const springFactor = 0.07; // Adjust this value to change the smoothness (0-1)
+        
         setTitlePosition((prev) => ({
-          x: prev.x + ((cursorPosition.x + 16) - prev.x) * 0.2, // Add 1rem (16px) to x position
-          y: prev.y + ((cursorPosition.y + 16) - prev.y) * 0.2, // Add 1rem (16px) to y position
+          x: prev.x + (cursorPosition.x - prev.x + 16) * springFactor,
+          y: prev.y + (cursorPosition.y - prev.y + 16) * springFactor,
         }));
+        
         animationId = requestAnimationFrame(animateTitle);
       }
     };
@@ -643,21 +650,27 @@ export default function PortfolioIsland(
   return (
     <>
       {/* Section 1: Category Filter */}
-      <section class="px-4 py-8 md:py-24">
-        <CategoryFilter
-          categories={allCategories}
-          activeCategories={activeCategories}
-          onToggleCategory={handleToggleCategory}
-          onClearAll={handleClearAll}
-        />
-      </section>
-
+      {activeCategories && activeCategories.length > 0 && (
+        <section class="px-4 py-8 md:py-24">
+          <CategoryFilter
+            categories={allCategories || []}
+            activeCategories={activeCategories}
+            onToggleCategory={handleToggleCategory}
+            onClearAll={handleClearAll}
+          />
+        </section>
+      )}
+      {showTitle && (
+        <div class="px-4 pt-16">
+          <h2 class="text-6xl font-lexend font-bold">Works</h2>
+        </div>
+      )}
       {/* Section 2: Mobile Title Bar and Splitter */}
       <div class="md:hidden sticky top-[80px] z-20 bg-white">
         {/* Title bar with padding */}
         <div
           ref={titleScrollRef}
-          class="overflow-x-auto whitespace-nowrap py-4 px-4 title-bar-mobile"
+          class={`overflow-x-auto whitespace-nowrap  px-4 title-bar-mobile `}
           style={{ boxSizing: "border-box" }}
         >
           {projects.map((project) => (
@@ -683,18 +696,20 @@ export default function PortfolioIsland(
       </div>
 
       {/* Section 3: Project Grid */}
-      <section class="px-4 pb-8 mt-4 md:pb-24">
+      <section class={`px-4 pb-8 ${showTitle ? "mt-6" : "mt-4"}  md:pb-6`}>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Custom cursor - only shown on desktop with mouse */}
           {!isMobile && !isTouch && (
             <div
-              class="custom-cursor fixed pointer-events-none z-50 bg-brand-white text-brand-black px-6 py-4 text-2xl font-bold font-lexend border-2 border-brand-black shadow-custom-black"
+              class="custom-cursor fixed pointer-events-none z-50 bg-brand-white text-brand-black px-2 py-2 text-md font-lexend border border-brand-black shadow-custom-black-sm"
               style={{
-                display: hoveredProject ? "block" : "none",
+                display: "block",
+                opacity: hoveredProject ? 1 : 0,
                 left: `${titlePosition.x}px`,
                 top: `${titlePosition.y}px`,
                 maxWidth: "40vw",
                 wordWrap: "break-word",
+                transition: "opacity 0.3s ease-in-out",
               }}
             >
               {hoveredProject?.title}
@@ -716,7 +731,7 @@ export default function PortfolioIsland(
 
             return (
               <a
-                class="border-2 border-brand-black hover:shadow-custom-black transition-shadow relative group"
+                class="border-2 border-brand-black shadow-sm transition-all duration-500 hover:shadow-custom-black relative group"
                 href={"/projects/" + project.slug}
                 key={project.slug}
                 onMouseEnter={() => setHoveredProject(project)}
@@ -724,20 +739,20 @@ export default function PortfolioIsland(
                 style={{
                   // Only hide completely on mobile if not in view
                   opacity: isMobile ? (visibleCards[project.slug] ? 1 : 0) : 1,
-                  transition: "opacity 0.3s ease",
+                  transition: "opacity 0.3s ease-in-out, box-shadow 0.5s ease",
                 }}
               >
-                <div class="md:h-auto h-[70svh] relative">
+                <div class="md:h-auto h-[70svh] relative overflow-hidden">
                   <img
                     src={project.featuredImageUrl}
                     alt={project.title}
-                    class="w-full h-full md:aspect-[5/4] md:h-auto object-cover"
+                    class="w-full h-full md:aspect-[5/4] md:h-auto object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
                   />
                   <div class="absolute inset-0 flex flex-col justify-between p-6">
                     <div class="flex items-start">
                       {/* Title for tablets (touch devices that aren't mobile) */}
                       {isTouch && !isMobile && (
-                        <h3 class="text-xl font-bold font-lexend bg-brand-white text-brand-black px-3 py-1 border-2 border-brand-black shadow-custom-black">
+                        <h3 class="text-xl font-bold font-lexend bg-brand-white text-brand-black px-3 py-1 border-2 border-brand-black shadow-custom-black-sm">
                           {project.title}
                         </h3>
                       )}
@@ -747,7 +762,7 @@ export default function PortfolioIsland(
                         ? project.categories.map((cat) => (
                           <span
                             key={cat}
-                            class="text-xs px-2 py-1 border-brand-black border-2 shadow-custom-black bg-white"
+                            class="text-xs px-2 py-1 border-brand-black border shadow-custom-black-sm bg-white"
                           >
                             {cat}
                           </span>

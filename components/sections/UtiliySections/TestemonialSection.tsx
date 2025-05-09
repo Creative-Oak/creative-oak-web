@@ -13,27 +13,27 @@ const TestemonialSection = (
   const displayedTestimonials = showAll ? testemonial : testemonial.slice(0, 3);
 
   return (
-    <section className="bg-white">
+    <section className="bg-white px-8">
       {/* Title section - contained */}
-      <div className="container py-12 md:py-24">
+      <div className=" py-12 md:py-24">
         <h2 className="text-3xl md:text-5xl font-lexend font-bold">
-          Kundeudtalelser
+          Testemonials
         </h2>
         <p className="text-lg mt-4">
-          Vores kunders kærlighedsbreve - se hvad de skriver om os
+          Our customers' love letters - see what they say about us
         </p>
         {!showAll && (
           <div className="mt-4">
             <PrimaryButton
               href="/kundeudtalelser"
-              text="Se alle udtalelser"
+              text="See all testimonials"
             />
           </div>
         )}
       </div>
 
       {/* Testimonial cards section - full width scroll on mobile, columns on desktop */}
-      <div className="md:container pb-12 md:pb-24">
+      <div className="  pb-12 md:pb-24">
         {/* Mobile: Horizontal scroll layout */}
         <div className="md:hidden">
           <div className="overflow-x-auto scrollbar-hide pl-4">

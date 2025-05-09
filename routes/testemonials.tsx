@@ -5,6 +5,7 @@ import HeroSection2 from "../components/sections/HeroSections/HeroSection2.tsx";
 import CTASection from "../components/sections/UtiliySections/CTASection.tsx";
 import Footer from "../components/sections/UtiliySections/FooterSection.tsx";
 import TestemonialSection from "../components/sections/UtiliySections/TestemonialSection.tsx";
+import CleanHeroSection from "../islands/CleanHeroSection.tsx";
 import Testemonial from "../types/Testemonials.ts";
 
 import { client } from "../utils/sanity.ts";
@@ -46,9 +47,8 @@ const TestemonialPage = ({ data, url }: PageProps<
                 imageUrl={`${url.origin}/images/wireframe+code.avif`}
             />
   
-            <HeroSection2
-                title="Se hvad vores kunder siger (når vi ikke lytter)"
-                tagLine="Ærlige ord fra ægte mennesker om vores digitale løsninger"
+            <CleanHeroSection
+                title="Testimonials"
                 description="Vi kunne fortælle dig hvor fantastiske vi er til at lave miljøvenlige hjemmesider, men hvorfor ikke lade vores kunder gøre det i stedet? Her finder du ægte historier fra virksomheder, der har taget skridtet mod en grønnere digital fremtid - helt uden at vi har bestukket dem med økologisk kaffe undervejs."
 
             />

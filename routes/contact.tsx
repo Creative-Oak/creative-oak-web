@@ -18,6 +18,7 @@ import { Employee } from "../types/Employee.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { client } from "../utils/sanity.ts";
 import CustomHead from "../components/other/CustomHead.tsx";
+import CleanHeroSection from "../islands/CleanHeroSection.tsx";
 
 const content4Cards: Content4CardType[] = [
   {
@@ -25,8 +26,7 @@ const content4Cards: Content4CardType[] = [
     icon: <EmailIcon />,
     description: (
       <>
-        Du er velkommen til at kontakte os med eventuelle forespørgsler eller
-        spørgsmål, du måtte have.<br />
+        You are welcome to contact us with any inquiries or questions you may have.<br />
         <br />
         <a class="underline" href="mailto:hej@creativeoak.dk">
           hej@creativeoak.dk
@@ -35,11 +35,11 @@ const content4Cards: Content4CardType[] = [
     ),
   },
   {
-    title: "Telefon",
+    title: "Phone",
     icon: <PhoneIcon />,
     description: (
       <>
-        Du kan kontakte os via telefon<br />
+        You can contact us by phone<br />
         <br />
         <a class="underline" href="tel:+4553534290">
           +45 53 53 42 90
@@ -48,11 +48,11 @@ const content4Cards: Content4CardType[] = [
     ),
   },
   {
-    title: "Kontor",
+    title: "Office",
     icon: <LocationIcon />,
     description: (
       <>
-        Find os på vores adresse
+        Find us at our address
         <br />
         <br />
         Langelandsgade 62
@@ -104,17 +104,16 @@ const contactPage = ({ data, url }: PageProps) => {
   return (
     <>
       <CustomHead
-        title="Kontakt Creative Oak | AI, Web & Foto/Video | Aarhus"
+        title="Contact Creative Oak | AI, Web & Photo/Video | Aarhus"
         imageUrl={`${url.origin}/images/og/og-logo.jpg`}
         url={url.href}
-        metaDescription="Kontakt Creative Oak for bæredygtige hjemmesider, AI-løsninger og visuel produktion. Ring på +45 53 53 42 90 eller skriv til hej@creativeoak.dk. Find os i hjertet af Aarhus."
+        metaDescription="Contact Creative Oak for sustainable websites, AI solutions, and visual production. Call +45 53 53 42 90 or email hej@creativeoak.dk. Find us in the heart of Aarhus."
       />
-      <Head>
-        <title>Kontakt os</title>
-      </Head>
-      <HeroSection2
-        title="Kontakt"
-        description="Vi vil meget gerne høre fra dig. Kontakt os i dag for alle dine behov inden for bæredygtig hjemmeside udvikling, Kunstig intelligens (AI) eller foto/video-produktioner"
+ 
+      <CleanHeroSection
+        title="Contact"
+        accent="Let's talk"
+        description="We would love to hear from you. Contact us today for all your needs in sustainable website development, Artificial Intelligence (AI), or photo/video production"
       />
       <Splitter />
       <ContentSection4
@@ -126,18 +125,18 @@ const contactPage = ({ data, url }: PageProps) => {
       <ContactSection />
       <Splitter />
       <ContentSection2
-        title="Stillinger"
+        title="Careers"
         text={[{
           header: "",
           txt:
-            "Selvom der lige nu ikke står et ledigt skilt på vores dør, så er vi altid på udkig efter nye genier, der brænder for det, vi laver i Creative Oak. Vi er overbeviste om, at alle har noget specielt at byde på, og vi er mere end glade for at tage imod ansøgninger fra folk, der føler, de har det lille ekstra, som kan pifte vores team op. Har du nogle seje skills, erfaringer der får os til at tabe kæben, eller ideer, der kan blæse os bagover? Så smid os en ansøgning! Vi er allerede spændte på at finde ud af, hvordan du kan sætte dit præg på Creative Oak",
+            "Even though there isn't currently a vacancy sign on our door, we're always looking for new geniuses who are passionate about what we do at Creative Oak. We believe everyone has something special to offer, and we're more than happy to receive applications from people who feel they have that little extra something that can spice up our team. Do you have some cool skills, experience that makes our jaws drop, or ideas that can blow us away? Then send us an application! We're already excited to find out how you can make your mark on Creative Oak",
         }]}
       />
       <Splitter />
       <TeamSection
         teamMembers={data.teamMembers}
-        title="Hvem er vi?"
-        subtitle="Lær menneskerne bag Creative Oak at kende"
+        title="Who are we?"
+        subtitle="Get to know the people behind Creative Oak"
       />
       <Splitter />
 

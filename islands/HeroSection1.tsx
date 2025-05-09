@@ -1,4 +1,6 @@
-import LottieAnimation from "../../../islands/LottieAnimation.tsx";
+import LottieAnimation from "./LottieAnimation.tsx";
+import { gsap } from "https://esm.sh/gsap@3.12.5";
+import { useEffect, useRef } from "preact/hooks";
 
 interface HeroSection1Props {
   header: string;
@@ -12,9 +14,28 @@ interface HeroSection1Props {
 }
 
 export default function HeroSection1(props: HeroSection1Props) {
+  const contentRef = useRef(null);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+    
+    timeline
+      .from(contentRef.current, {
+        opacity: 0,
+        x: -50,
+        duration: 1,
+      })
+      .from(imageRef.current, {
+        opacity: 0,
+        x: 50,
+        duration: 1,
+      }, "-=0.5"); // Start slightly before the first animation ends
+  }, []);
+
   return (
     <section className="relative pt-[calc(95px+16px)] flex min-h-[80svh] md:pt-[95px] flex-col md:flex-row items-center justify-between gap-12 container">
-      <div className="w-full md:w-2/3 z-10 h-full">
+      <div ref={contentRef} className="w-full md:w-2/3 z-10 h-full">
         <h1 className="text-4xl md:text-7xl text-brand-black font-bold mb-4 leading- md:leading-tight font-lexend">
           {props.header}
         </h1>
@@ -25,7 +46,7 @@ export default function HeroSection1(props: HeroSection1Props) {
         )}
       </div>
 
-      <div className="w-full md:w-1/2">
+      <div ref={imageRef} className="w-full md:w-1/2">
         {props.lottieAnimation
           ? (
             <LottieAnimation
@@ -46,4 +67,4 @@ export default function HeroSection1(props: HeroSection1Props) {
       </div>
     </section>
   );
-}
+} 
