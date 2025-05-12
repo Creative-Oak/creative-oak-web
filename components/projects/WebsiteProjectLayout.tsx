@@ -95,7 +95,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
           <section className="bg-white pb-8 by-8 md:py-12">
             <div className="container mx-auto px-4 md:px-8">
               <h2 className="text-4xl font-bold text-brand-black mb-2 md:mb-6 font-lexend">
-                Om {data.title}
+                About {data.title}
               </h2>
               <p className="text-lg md:text-xl font-poppins text-brand-black">
                 {data.introText}
@@ -134,7 +134,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
                   {data.challengeText && (
                     <>
                       <h3 className="text-2xl font-bold text-brand-white mb-4">
-                        Udfordring
+                        The challenge
                       </h3>
                       <p className="text-lg font-poppins text-brand-white">
                         {data.challengeText}
@@ -145,7 +145,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
                   {data.solutionText && (
                     <>
                       <h3 className="text-2xl font-bold text-brand-white mb-4 mt-8">
-                        Løsning
+                        The solution
                       </h3>
                       <p className="text-lg font-poppins text-brand-white">
                         {data.solutionText}
@@ -179,7 +179,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
           <section className="bg-white py-8 md:py-16">
             <div className="container mx-auto px-4 md:px-8">
               <h2 className="text-4xl font-bold text-brand-black mb-6 font-lexend">
-                Resultat
+                The result
               </h2>
               <p className="text-lg md:text-xl font-poppins text-brand-black">
                 {data.resultText}
