@@ -11,6 +11,7 @@ import Footer from "../../components/sections/UtiliySections/FooterSection.tsx";
 import CTASection from "../../components/sections/UtiliySections/CTASection.tsx";
 import { Employee } from "../../types/Employee.ts";
 import CustomHead from "../../components/other/CustomHead.tsx";
+import CleanHeroSection from "../../islands/CleanHeroSection.tsx";
 
 
 interface Article {
@@ -105,7 +106,7 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
     ogType="article"
     />
     
-      <HeroSection2
+      <CleanHeroSection
         title={data.title}
         description={data.shortDescription}
       />
