@@ -108,6 +108,7 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
     
       <CleanHeroSection
         title={data.title}
+        
         description={data.shortDescription}
       />
       <Splitter />
