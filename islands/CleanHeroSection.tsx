@@ -115,7 +115,7 @@ export default function CleanHeroSection({
       {/* Decorative dots grid */}
       <div 
         ref={dotsRef}
-        className="absolute top-1/2 right-[10%] w-[200px] h-[72px]"
+        className="absolute top-[10%] md:top-1/2 right-[10%] w-[200px] h-[72px]"
         style={{ transform: "translateY(-50%)" }}
       />
 

@@ -42,7 +42,7 @@ export const handler: Handlers = {
     }`;
 
     const testimonialQuery = `
-      *[_type == "testemonnial" && isFeatured == true] | order(order asc)[0...3] {
+      *[_type == "testemonnial" && isFeatured == true] | order(order asc)[0...4] {
           name,
           title,
           content,

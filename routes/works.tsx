@@ -101,8 +101,8 @@ export default function PortfolioRoute(
   return (
     <>
       <CustomHead 
-          title="Portfolio | Digitale Løsninger & Bæredygtige Cases | Creative Oak"
-          metaDescription="Se udvalgte cases fra Creative Oak. Fra bæredygtige hjemmesider til AI-løsninger. Se hvordan vi har hjulpet virksomheder med at skabe digitalt impact."
+          title="Works | Creative Oak"
+          metaDescription="View selected cases from Creative Oak. From innovative websites to AI solutions. See how we've helped businesses create digital impact."
           imageUrl={`${url.origin}/images/buywebsite.avif`}
           url={url.href}
         />

@@ -41,26 +41,24 @@ const TestemonialPage = ({ data, url }: PageProps<
     return (
         <>
             <CustomHead
-                title="Se hvad vores kunder siger (når vi ikke lytter)"
-                metaDescription="Læs ægte kundeanmeldelser fra Creative Oak - eksperter i bæredygtig webudvikling. Se hvordan vi har hjulpet andre virksomheder med at skabe digitale løsninger."
+                title="See what our customers say"
+                metaDescription="Read genuine customer reviews from Creative Oak - experts in sustainable web development. See how we've helped other businesses create digital solutions."
                 url={url.href}
                 imageUrl={`${url.origin}/images/wireframe+code.avif`}
             />
   
             <CleanHeroSection
                 title="Testimonials"
-                description="Vi kunne fortælle dig hvor fantastiske vi er til at lave miljøvenlige hjemmesider, men hvorfor ikke lade vores kunder gøre det i stedet? Her finder du ægte historier fra virksomheder, der har taget skridtet mod en grønnere digital fremtid - helt uden at vi har bestukket dem med økologisk kaffe undervejs."
-
+                description="We could tell you how fantastic we are at creating environmentally friendly websites, but why not let our customers do it instead? Here you'll find genuine stories from companies that have taken the step towards a greener digital future - without us bribing them with organic coffee along the way."
             />
           <Splitter />
             <TestemonialSection showAll={true} testemonial={data.testimonials}/>
             <Splitter />
             <CTASection
-                title="Klar til at vokse med os?"
-                description="Vi planter digitale frø der vokser til bæredygtige succeser. Din virksomhed kunne være det næste grønne eventyr"
+                title="Ready to grow with us?"
+                description="We plant digital seeds that grow into sustainable successes. Your company could be the next green adventure"
                 buttonLink="/contact"
-                buttonText="Plant din idé"
-
+                buttonText="Plant your idea"
             />
             <Footer />
         </>

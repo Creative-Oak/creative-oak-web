@@ -10,7 +10,7 @@ interface TestemonialSectionProps {
 const TestemonialSection = (
   { testemonial, showAll = false }: TestemonialSectionProps,
 ) => {
-  const displayedTestimonials = showAll ? testemonial : testemonial.slice(0, 3);
+  const displayedTestimonials = showAll ? testemonial : testemonial.slice(0, 4);
 
   return (
     <section className="bg-white md:px-8 px-0">
@@ -58,9 +58,9 @@ const TestemonialSection = (
 
         {/* Desktop: Column layout */}
         <div className="hidden md:block">
-          <div className="columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="testimonial-grid">
             {displayedTestimonials.map((testimonial) => (
-              <div key={testimonial.name} className="break-inside-avoid">
+              <div key={testimonial.name} className="testimonial-item">
                 <TestemonialCard
                   {...testimonial}
                   compact={showAll}
@@ -79,6 +79,28 @@ const TestemonialSection = (
         }
         .scrollbar-hide::-webkit-scrollbar {
           display: none;             /* Chrome, Safari and Opera */
+        }
+
+        .testimonial-grid {
+          columns: 2;
+          column-gap: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+          .testimonial-grid {
+            columns: 3;
+          }
+        }
+
+        @media (min-width: 1450px) {
+          .testimonial-grid {
+            columns: 4;
+          }
+        }
+
+        .testimonial-item {
+          break-inside: avoid;
+          margin-bottom: 1.5rem;
         }
       `}</style>
     </section>
