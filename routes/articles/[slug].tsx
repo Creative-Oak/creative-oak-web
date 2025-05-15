@@ -108,7 +108,7 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
     
       <CleanHeroSection
         title={data.title}
-        
+
         description={data.shortDescription}
       />
       <Splitter />
@@ -140,7 +140,7 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
               {/* Author info */}
               {data.author && (
                 <div  class="bg-white p-6  shadow-custom-black-400 border-2 border-brand-black">
-                  <p class="font-smal">Skrevet af</p>
+                  <p class="font-smal">Written by</p>
                   <a href={"/employee/" + data.author.slug} class="flex items-center space-x-4 mb-4 mt-4 hover:text-brand-red transition-colors">
                     {data.author.profileImage && (
                       <img
@@ -228,7 +228,7 @@ const ProjectPage = ({ data, url }: PageProps<Article>) => {
                         Published on{" "}
                         <span class="font-medium">
                           {new Date(data.releaseDate).toLocaleDateString(
-                            "da-DK",
+                            "en-US",
                             {
                               year: "numeric",
                               month: "long",
