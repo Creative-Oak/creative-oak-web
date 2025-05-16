@@ -115,8 +115,8 @@ export default function CleanHeroSection({
       {/* Decorative dots grid */}
       <div 
         ref={dotsRef}
-        className="absolute top-[10%] md:top-1/2 right-[10%] w-[200px] h-[72px]"
-        style={{ transform: "translateY(-50%)" }}
+        className="absolute top-[21px] rotate-90 lg:rotate-0 md:top-1/2 -right-[50px] lg:right-[30px] w-[200px] h-[72px]"
+        style={{ transform: "translateY(-50%) rotate(90deg) lg:rotate(0deg)" }}
       />
 
       <div className="container mx-auto px-4 pt-24 pb-16">

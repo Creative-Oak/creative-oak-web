@@ -84,7 +84,7 @@ export default function PortfolioIsland(
     if (!isMobile) return;
     let color = "white";
     if (onFrontPage) {
-       color = "rgb(255 229 27)";
+       color = "white";
     }
     // Define CSS to inject for the title bar's pseudo-element
     const styleEl = document.createElement("style");
@@ -162,6 +162,10 @@ export default function PortfolioIsland(
         opacity: 1;
       }
       
+      .title-bar-mobile.is-sticky.scrolled-through::after {
+        opacity: 0;
+      }
+      
       /* Title button styles */
       .title-button {
         font-family: 'Lexend', sans-serif;
@@ -226,6 +230,14 @@ export default function PortfolioIsland(
         const isSticky = globalThis.scrollY >= (titleBarPos - 80 - 5);
 
         titleScrollRef.current.classList.toggle("is-sticky", isSticky);
+        
+        // Add scrolled-through class when we've scrolled past the title bar's height
+        if (isSticky) {
+          const hasScrolledThrough = globalThis.scrollY > (titleBarPos + 20); // 100px buffer
+          titleScrollRef.current.classList.toggle("scrolled-through", hasScrolledThrough);
+        } else {
+          titleScrollRef.current.classList.remove("scrolled-through");
+        }
       }
     };
 
@@ -672,7 +684,7 @@ export default function PortfolioIsland(
         </div>
       )}
       {/* Section 2: Mobile Title Bar and Splitter */}
-      <div class={`md:hidden sticky top-[80px] z-20 ${onFrontPage ? "bg-brand-yellow" : "bg-white"}`}>
+      <div class={`md:hidden sticky top-[80px] z-20 ${onFrontPage ? "bg-white" : "bg-white"}`}>
         {/* Title bar with padding */}
         <div
           ref={titleScrollRef}

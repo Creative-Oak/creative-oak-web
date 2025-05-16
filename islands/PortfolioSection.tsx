@@ -237,9 +237,9 @@ const PortfolioSection = (props: PortfolioSectionProps) => {
     if (element) {
       const headerOffset = 160;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition = elementPosition + globalThis.pageYOffset - headerOffset;
 
-      window.scrollTo({
+      globalThis.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       });

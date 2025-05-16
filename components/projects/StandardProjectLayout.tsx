@@ -13,7 +13,7 @@ const StandardProjectLayout = ({ data }: StandardProjectLayoutProps) => {
       <section className="bg-brand-blue py-32 md:py-40">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col items-center justify-center text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-brand-white mb-6 font-lexend">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-brand-white mb-6 font-lexend break-words">
               {data.title}
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto">
