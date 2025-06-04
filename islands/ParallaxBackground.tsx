@@ -22,7 +22,7 @@ export default function ParallaxBackground({
       }}
     >
       <div
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full sm:bg-fixed"
         style={{
           backgroundImage: `url(${imageUrl})`,
           backgroundSize: "cover",
