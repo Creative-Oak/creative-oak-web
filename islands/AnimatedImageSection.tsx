@@ -62,6 +62,7 @@ export default function AnimatedImageSection({ images }: AnimatedImageSectionPro
             src={image.src}
             alt={image.alt}
             width={2400}
+            
             className="w-full object-cover"
           />
         </div>
