@@ -490,6 +490,54 @@
         "type": "image"
       },
       {
+        "options": {
+          "hotspot": true
+        },
+        "description": "First image in the animated gallery section",
+        "name": "galleryImage1",
+        "type": "image"
+      },
+      {
+        "name": "galleryImage1AltText",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Second image in the animated gallery section",
+        "name": "galleryImage2",
+        "type": "image"
+      },
+      {
+        "name": "galleryImage2AltText",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Third image in the animated gallery section",
+        "name": "galleryImage3",
+        "type": "image"
+      },
+      {
+        "name": "galleryImage3AltText",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Fourth image in the animated gallery section",
+        "name": "galleryImage4",
+        "type": "image"
+      },
+      {
+        "name": "galleryImage4AltText",
+        "type": "string"
+      },
+      {
         "description": "Introductory text about the project (appears after the hero section)",
         "name": "introText",
         "type": "text"

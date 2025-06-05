@@ -56,7 +56,7 @@ export default function ScrollTriggerImage(
       ref={containerRef}
       class="w-full relative max-h-[80svh-8rem]"
     >
-      <div class="max-w-7xl mx-auto relative">
+      <div class=" relative">
         <div class="relative w-full">
           {/* Smartphone image - positioned absolutely to overlap */}
           <div
@@ -70,14 +70,14 @@ export default function ScrollTriggerImage(
             <img
               src={mobileSrc}
               alt={mobileAlt}
-              class="max-w-[15vw] w-full opacity-100"
+              class="max-w-[20vw] w-full opacity-100"
             />
           </div>
           {/* Desktop image */}
           <img
             src={desktopSrc}
             alt={desktopAlt}
-            class=" max-h-[60vh] w-auto mx-auto relative z-0"
+            class="w-full relative z-0"
           />
         </div>
       </div>

@@ -20,6 +20,14 @@ export interface Project {
   fullPageSmartphoneImage?: Image;
   desktopCollageImage?: Image;
   workplaceImage?: Image;
+  galleryImage1?: Image;
+  galleryImage1AltText?: string;
+  galleryImage2?: Image;
+  galleryImage2AltText?: string;
+  galleryImage3?: Image;
+  galleryImage3AltText?: string;  
+  galleryImage4?: Image;
+  galleryImage4AltText?: string;
   introText?: string;
   challengeText?: string;
   solutionText?: string;

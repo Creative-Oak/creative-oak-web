@@ -44,6 +44,14 @@ export const handler: Handlers<Project> = {
       challengeText,
       solutionText,
       resultText,
+      galleryImage1,
+      galleryImage1AltText,
+      galleryImage2,
+      galleryImage2AltText,
+      galleryImage3,
+      galleryImage3AltText,
+      galleryImage4,
+      galleryImage4AltText,
       "relatedProjects": *[
         _type == "project" && 
         slug.current != $slug &&

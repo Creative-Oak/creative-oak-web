@@ -147,6 +147,71 @@ export default {
         hotspot: true,
       },
     },
+    // Gallery Images for Animated Section
+    {
+      name: "galleryImage1",
+      type: "image",
+      title: "Gallery Image 1",
+      description: "First image in the animated gallery section",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "galleryImage1AltText",
+      type: "string",
+      title: "Gallery Image 1 Alt Text",
+      validation: (Rule: Rule) =>
+        Rule.warning("Alt text is important for accessibility!"),
+    },
+    {
+      name: "galleryImage2",
+      type: "image",
+      title: "Gallery Image 2",
+      description: "Second image in the animated gallery section",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "galleryImage2AltText",
+      type: "string",
+      title: "Gallery Image 2 Alt Text",
+      validation: (Rule: Rule) =>
+        Rule.warning("Alt text is important for accessibility!"),
+    },
+    {
+      name: "galleryImage3",
+      type: "image",
+      title: "Gallery Image 3",
+      description: "Third image in the animated gallery section",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "galleryImage3AltText",
+      type: "string",
+      title: "Gallery Image 3 Alt Text",
+      validation: (Rule: Rule) =>
+        Rule.warning("Alt text is important for accessibility!"),
+    },
+    {
+      name: "galleryImage4",
+      type: "image",
+      title: "Gallery Image 4",
+      description: "Fourth image in the animated gallery section",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "galleryImage4AltText",
+      type: "string",
+      title: "Gallery Image 4 Alt Text",
+      validation: (Rule: Rule) =>
+        Rule.warning("Alt text is important for accessibility!"),
+    },
     {
       name: "introText",
       type: "text",

@@ -32,6 +32,7 @@ import * as $AboutUsSection_AboutUsSection from "./islands/AboutUsSection/AboutU
 import * as $AnimatedAboutSection from "./islands/AnimatedAboutSection.tsx";
 import * as $AnimatedCTASection from "./islands/AnimatedCTASection.tsx";
 import * as $AnimatedContentSection from "./islands/AnimatedContentSection.tsx";
+import * as $AnimatedImageSection from "./islands/AnimatedImageSection.tsx";
 import * as $AnimatedServiceSection from "./islands/AnimatedServiceSection.tsx";
 import * as $ArrowAnimation from "./islands/ArrowAnimation.tsx";
 import * as $ArticlesIsland from "./islands/ArticlesIsland.tsx";
@@ -92,6 +93,7 @@ const manifest = {
     "./islands/AnimatedAboutSection.tsx": $AnimatedAboutSection,
     "./islands/AnimatedCTASection.tsx": $AnimatedCTASection,
     "./islands/AnimatedContentSection.tsx": $AnimatedContentSection,
+    "./islands/AnimatedImageSection.tsx": $AnimatedImageSection,
     "./islands/AnimatedServiceSection.tsx": $AnimatedServiceSection,
     "./islands/ArrowAnimation.tsx": $ArrowAnimation,
     "./islands/ArticlesIsland.tsx": $ArticlesIsland,
