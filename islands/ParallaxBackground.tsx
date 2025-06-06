@@ -50,9 +50,10 @@ export default function ParallaxBackground({
 
       // Only apply parallax when element is in view
       if (rect.bottom >= 0 && rect.top <= windowHeight) {
-        // Calculate parallax offset
+        // Calculate parallax offset with enhanced mobile effect
         const relativePos = (scrollY - elementTop + windowHeight) / (windowHeight + elementHeight);
-        const parallaxOffset = (relativePos - 0.5) * 100 * parallaxSpeed;
+        const multiplier = isMobile ? 200 : 120; // Much stronger effect on mobile
+        const parallaxOffset = (relativePos - 0.5) * multiplier * parallaxSpeed;
         
         background.style.transform = `translateY(${parallaxOffset}px) scale(1.1)`;
       }
@@ -97,9 +98,9 @@ export default function ParallaxBackground({
           backgroundAttachment: isMobile ? "scroll" : "fixed",
           backgroundRepeat: "no-repeat",
           zIndex: 1,
-          // For mobile parallax, we need extra height to accommodate the transform
-          height: isMobile ? "120%" : "100%",
-          top: isMobile ? "-10%" : "0",
+          // Extra height for mobile to accommodate the stronger transform
+          height: isMobile ? "150%" : "100%",
+          top: isMobile ? "-25%" : "0",
         }}
       />
 

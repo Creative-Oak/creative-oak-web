@@ -172,6 +172,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
           <ParallaxBackground
             imageUrl={urlFor(data.fullPageSmartphoneImage, 2400)}
             minHeight="75svh"
+            parallaxSpeed={1.5}
           />
           <Splitter />
         </>
@@ -238,9 +239,9 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
         <>
           <section className="bg-white py-8 md:py-16">
             <div className="container mx-auto px-4 md:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-20 items-center">
                 {/* Result Text - Takes 1/3 on larger screens */}
-                <div className="lg:col-span-1">
+                <div className="lg:col-span-1 mb-8 lg:mb-0">
                   <h2 className="text-md  text-brand-black opacity-50 font-lexend">
                     The result
                   </h2>
