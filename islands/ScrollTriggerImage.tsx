@@ -81,7 +81,8 @@ export default function ScrollTriggerImage({
             <img
               src={finalMobileSrc}
               alt={mobileAlt}
-              class="max-w-[15vw] w-full opacity-100"
+              style={{maxWidth: "15vw"}}
+              class="w-full opacity-100"
             />
           </div>
 
