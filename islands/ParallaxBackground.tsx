@@ -42,6 +42,7 @@ export default function ParallaxBackground({
       if (!container || !background) return;
 
       const rect = container.getBoundingClientRect();
+      
       const scrollY = globalThis.scrollY;
       const elementTop = rect.top + scrollY;
       const elementHeight = rect.height;
