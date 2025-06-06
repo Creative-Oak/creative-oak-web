@@ -181,15 +181,15 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
         <>
           <section className="bg-brand-blue py-8 md:py-16">
             <div className="container mx-auto px-4 md:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-20 items-center">
-                <div className="w-full h-full col-span-2">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 items-center">
+                <div className="w-full h-full md:col-span-2 mb-8 md:mb-0">
                   <img
                     src={urlFor(data.workplaceImage)}
                     alt={`${data.title} Workplace`}
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <div className="col-span-1">
+                <div className="md:col-span-1">
                   {data.challengeText && (
                     <>
                       <h3 className="text-md  text-brand-white opacity-60 ">
