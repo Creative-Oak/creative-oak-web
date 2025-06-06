@@ -108,6 +108,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
               <div className="mb-4">
                 <h4 className="text-sm  text-brand-black opacity-50 uppercase tracking-wide mb-1">
                   Year
+                  
                 </h4>
                 <p className="text-brand-black ">
                   {new Date(data.releaseDate).getFullYear()}
