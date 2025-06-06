@@ -34,7 +34,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
       <section className="bg-brand-blue relative flex flex-col min-h-[80svh] justify-center items-center pt-32 pb-12 overflow-hidden">
         <div className="w-full max-w-7xl px-6 mx-auto">
           <h1 className="text-l md:text-l font-bold text-brand-white font-lexend text-left">
-            <a href="/works" className="opacity-20 hover:opacity-100 transition-opacity duration-300">Works/</a>
+            <a href="/works" className="opacity-30 md:opacity-20 hover:opacity-100 focus:opacity-100 active:opacity-100 transition-opacity duration-300">Works/</a>
             {data.title}
           </h1>
           <h2 className="text-brand-white text-4xl font-bold font-lexend mb-4 md:mb-8">
