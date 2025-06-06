@@ -1,6 +1,16 @@
 import { Image } from "@sanity/types";
 import { BlockContent } from "../utils/renderText.tsx";
 
+interface VideoAsset {
+  _ref: string;
+  _type: string;
+}
+
+interface VideoFile {
+  _type: string;
+  asset: VideoAsset;
+}
+
 export interface Project {
   title: string;
   mainContent: BlockContent[];
@@ -12,11 +22,16 @@ export interface Project {
   slug: string;
   primaryImageAltText: string;
   metaDescription: string;
+  industry?: string;
   projectType: "website" | "other";
   desktopImage?: Image;
   desktopImageAltText?: string;
   mobileImage?: Image;
   mobileImageAltText?: string;
+  desktopVideo?: VideoFile;
+  desktopVideoAltText?: string;
+  mobileVideo?: VideoFile;
+  mobileVideoAltText?: string;
   fullPageSmartphoneImage?: Image;
   desktopCollageImage?: Image;
   workplaceImage?: Image;

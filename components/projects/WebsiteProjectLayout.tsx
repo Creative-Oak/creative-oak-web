@@ -1,5 +1,5 @@
 import { Project } from "../../types/Project.ts";
-import { urlFor } from "../../utils/imageBuild.ts";
+import { urlFor, urlForFile } from "../../utils/imageBuild.ts";
 import ScrollTriggerImage from "../../islands/ScrollTriggerImage.tsx";
 import Splitter from "../other/splitter.tsx";
 import ParallaxBackground from "../../islands/ParallaxBackground.tsx";
@@ -31,7 +31,7 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
 
   return (
     <>
-      <section className="bg-brand-blue relative flex flex-col min-h-[80svh] justify-center items-center pt-32 pb-12">
+      <section className="bg-brand-blue relative flex flex-col min-h-[80svh] justify-center items-center pt-32 pb-12 overflow-hidden">
         <div className="w-full max-w-7xl px-6 mx-auto">
           <h1 className="text-l md:text-l font-bold text-brand-white font-lexend text-left">
             <a href="/works" className="opacity-20 hover:opacity-100 transition-opacity duration-300">Works/</a>
@@ -52,15 +52,17 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
           </div> */}
           {/* Desktop version with ScrollTriggerImage */}
           <div className=" w-full">
-            {data.desktopImage && data.mobileImage
+            {(data.desktopImage || data.desktopVideo) && data.mobileImage
               ? (
                 <ScrollTriggerImage
-                  desktopSrc={urlFor(data.desktopImage)}
+                  desktopSrc={data.desktopImage ? urlFor(data.desktopImage) : undefined}
                   mobileSrc={urlFor(data.mobileImage)}
-                  desktopAlt={data.desktopImageAltText ||
+                  desktopVideoSrc={data.desktopVideo ? urlForFile(data.desktopVideo.asset) : undefined}
+                  desktopAlt={data.desktopVideoAltText || data.desktopImageAltText ||
                     `${data.title} Desktop View`}
                   mobileAlt={data.mobileImageAltText ||
                     `${data.title} Mobile View`}
+                  isVideo={!!data.desktopVideo}
                 />
               )
               : (
@@ -121,12 +123,14 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
               </div>
               
               {/* Industry */}
-              <div className="mb-4">
-                <h4 className="text-sm  text-brand-black opacity-50 uppercase tracking-wide mb-1">Industry</h4>
-                <p className="text-brand-black ">
-                  Beverage
-                </p>
-              </div>
+              {data.industry && (
+                <div className="mb-4">
+                  <h4 className="text-sm  text-brand-black opacity-50 uppercase tracking-wide mb-1">Industry</h4>
+                  <p className="text-brand-black ">
+                    {data.industry}
+                  </p>
+                </div>
+              )}
 
               {/* Type */}
               <div className="mb-4">

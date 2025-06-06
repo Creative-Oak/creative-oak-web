@@ -42,7 +42,30 @@ export const urlFor = (source: Image, width?: number, height?: number) => {
 export const urlForFile = (ref: VideoAsset) => {
   if (!ref?._ref) return "";
 
-  return `https://cdn.sanity.io/files/${client.config().projectId}/${client.config().dataset}/${
-    ref._ref.replace("file-", "").replace("-mp4", ".mp4")
-  }`;
+  const projectId = client.config().projectId;
+  const dataset = client.config().dataset;
+  
+  // Extract the file reference without the "file-" prefix
+  let fileRef = ref._ref.replace("file-", "");
+  
+  // Determine file extension based on the reference
+  let extension = "";
+  if (fileRef.endsWith("-webm")) {
+    extension = ".webm";
+    fileRef = fileRef.replace("-webm", "");
+  } else if (fileRef.endsWith("-mp4")) {
+    extension = ".mp4";
+    fileRef = fileRef.replace("-mp4", "");
+  } else if (fileRef.endsWith("-mov")) {
+    extension = ".mov";
+    fileRef = fileRef.replace("-mov", "");
+  } else if (fileRef.endsWith("-avi")) {
+    extension = ".avi";
+    fileRef = fileRef.replace("-avi", "");
+  } else {
+    // Fallback: assume mp4 if no recognized format
+    extension = ".mp4";
+  }
+
+  return `https://cdn.sanity.io/files/${projectId}/${dataset}/${fileRef}${extension}`;
 };

@@ -32,11 +32,16 @@ export const handler: Handlers<Project> = {
       "categories": categories[]->title,
       primaryImageAltText,
       metaDescription,
+      industry,
       projectType,
       desktopImage,
       desktopImageAltText,
       mobileImage,
       mobileImageAltText,
+      desktopVideo,
+      desktopVideoAltText,
+      mobileVideo,
+      mobileVideoAltText,
       fullPageSmartphoneImage,
       desktopCollageImage,
       workplaceImage,
@@ -69,7 +74,7 @@ export const handler: Handlers<Project> = {
 
     try {
       const project = await client.fetch(projectQuery, { slug });
-
+   
       if (!project) {
         return ctx.renderNotFound();
       }

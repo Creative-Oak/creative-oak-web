@@ -1,15 +1,22 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 
 interface ScrollTriggerImageProps {
-  desktopSrc: string;
+  desktopSrc?: string;
   mobileSrc: string;
   desktopAlt: string;
   mobileAlt: string;
+  desktopVideoSrc?: string;
+  isVideo?: boolean;
 }
 
-export default function ScrollTriggerImage(
-  { desktopSrc, mobileSrc, desktopAlt, mobileAlt }: ScrollTriggerImageProps,
-) {
+export default function ScrollTriggerImage({
+  desktopSrc,
+  mobileSrc,
+  desktopAlt,
+  mobileAlt,
+  desktopVideoSrc,
+  isVideo = false,
+}: ScrollTriggerImageProps) {
   const mobileImageRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -51,6 +58,10 @@ export default function ScrollTriggerImage(
     };
   }, []);
 
+  // Desktop can be video or image, mobile overlay is always image
+  const finalDesktopSrc = isVideo && desktopVideoSrc ? desktopVideoSrc : desktopSrc;
+  const finalMobileSrc = mobileSrc; // Mobile overlay always uses image
+
   return (
     <div
       ref={containerRef}
@@ -58,7 +69,7 @@ export default function ScrollTriggerImage(
     >
       <div class=" relative">
         <div class="relative w-full">
-          {/* Smartphone image - positioned absolutely to overlap */}
+          {/* Mobile content - positioned absolutely to overlap (ALWAYS IMAGE) */}
           <div
             ref={mobileImageRef}
             class="absolute transition-all duration-500 ease-out z-10 hidden md:block"
@@ -68,17 +79,42 @@ export default function ScrollTriggerImage(
             }}
           >
             <img
-              src={mobileSrc}
+              src={finalMobileSrc}
               alt={mobileAlt}
-              class="max-w-[20vw] w-full opacity-100"
+              class="max-w-[15vw] w-full opacity-100"
             />
           </div>
-          {/* Desktop image */}
-          <img
-            src={desktopSrc}
-            alt={desktopAlt}
-            class="w-full relative z-0"
-          />
+
+          {/* Desktop content - can be video or image */}
+          {isVideo && desktopVideoSrc ? (
+            <video
+              class="w-full relative z-0"
+              autoplay
+              loop
+              muted
+              playsInline
+              className={"border-brand-black border-2 shadow-custom-black"}
+              style={{ aspectRatio: "16/9",  }} // 1920x1080 scales to 16:9
+              aria-label={desktopAlt}
+            >
+              <source src={desktopVideoSrc} type="video/webm" />
+              <source src={desktopVideoSrc.replace('.webm', '.mp4')} type="video/mp4" />
+              {/* Fallback image if video fails */}
+              {desktopSrc && (
+                <img
+                  src={desktopSrc}
+                  alt={desktopAlt}
+                  class="w-full relative z-0"
+                />
+              )}
+            </video>
+          ) : (
+            <img
+              src={finalDesktopSrc}
+              alt={desktopAlt}
+              class="w-full relative z-0"
+            />
+          )}
         </div>
       </div>
     </div>

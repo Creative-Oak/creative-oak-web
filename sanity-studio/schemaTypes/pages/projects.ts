@@ -86,6 +86,12 @@ export default {
       validation: (Rule: Rule) =>
         Rule.max(160).warning("Keep meta descriptions under 160 characters!"),
     },
+    {
+      name: "industry",
+      type: "string",
+      title: "Industry",
+      description: "The industry or sector this project belongs to (e.g., Beverage, Technology, Healthcare)",
+    },
     // New fields for portfolio project layout
     {
       name: "desktopImage",
@@ -104,6 +110,22 @@ export default {
         Rule.warning("Alt text is important for accessibility!"),
     },
     {
+      name: "desktopVideo",
+      type: "file",
+      title: "Desktop Video",
+      description: "Video showing the project on desktop devices (1920x1080 recommended, WebM preferred for smaller file sizes)",
+      options: {
+        accept: "video/*",
+      },
+    },
+    {
+      name: "desktopVideoAltText",
+      type: "string",
+      title: "Desktop Video Alt Text",
+      validation: (Rule: Rule) =>
+        Rule.warning("Alt text is important for accessibility!"),
+    },
+    {
       name: "mobileImage",
       type: "image",
       title: "Mobile Image",
@@ -116,6 +138,22 @@ export default {
       name: "mobileImageAltText",
       type: "string",
       title: "Mobile Image Alt Text",
+      validation: (Rule: Rule) =>
+        Rule.warning("Alt text is important for accessibility!"),
+    },
+    {
+      name: "mobileVideo",
+      type: "file",
+      title: "Mobile Video",
+      description: "Video showing the project on mobile devices (vertical aspect ratio recommended, WebM preferred for smaller file sizes)",
+      options: {
+        accept: "video/*",
+      },
+    },
+    {
+      name: "mobileVideoAltText",
+      type: "string",
+      title: "Mobile Video Alt Text",
       validation: (Rule: Rule) =>
         Rule.warning("Alt text is important for accessibility!"),
     },
