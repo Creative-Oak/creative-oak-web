@@ -61,7 +61,7 @@ export default function ScrollTriggerImage(
           {/* Smartphone image - positioned absolutely to overlap */}
           <div
             ref={mobileImageRef}
-            class="absolute transition-all duration-500 ease-out z-10"
+            class="absolute transition-all duration-500 ease-out z-10 hidden md:block"
             style={{
               transform:
                 `translate(calc(${baseX}rem + ${position.x}rem), calc(${baseY}% - 5rem + ${position.y}rem)) rotate(15deg)`,

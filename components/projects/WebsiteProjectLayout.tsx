@@ -11,7 +11,7 @@ interface WebsiteProjectLayoutProps {
 }
 
 const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
-  console.log(data);
+
   // Prepare images for the animated section
   const animatedImages = [
     ...(data.galleryImage1 ? [{
