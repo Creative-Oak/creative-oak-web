@@ -27,7 +27,7 @@ const ServiceSection = () => {
         gsap.timeline({
             scrollTrigger: {
                 trigger: sectionRef.current,
-                start: isMobile ? "top 95%" : "top 70%", // Earlier start on mobile
+                start: isMobile ? "top 55%" : "top 80%", // Earlier start on mobile
                 end: "bottom 95%", // End when section is 10% in view
                 scrub: 1, // Smooth scrub with 1 second lag
                 // markers: true, // Uncomment to see trigger points for debugging
