@@ -23,10 +23,11 @@ const ServiceSection = () => {
         gsap.set(split.chars, { opacity: 0 });
 
         // Create timeline with ScrollTrigger scrub animation
+        const isMobile = globalThis.innerWidth < 768; // md breakpoint
         gsap.timeline({
             scrollTrigger: {
                 trigger: sectionRef.current,
-                start: "top 70%", // Start when section is 90% in view
+                start: isMobile ? "top 95%" : "top 70%", // Earlier start on mobile
                 end: "bottom 95%", // End when section is 10% in view
                 scrub: 1, // Smooth scrub with 1 second lag
                 // markers: true, // Uncomment to see trigger points for debugging
