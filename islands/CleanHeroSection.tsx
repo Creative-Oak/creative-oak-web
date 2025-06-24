@@ -124,7 +124,7 @@ export default function CleanHeroSection({
           <div className="relative mb-8">
             <h1 
               ref={titleRef}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold font-lexend leading-tight break-words"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold font-lexend leading-5 break-words"
             >
               {title}
             </h1>
