@@ -51,6 +51,13 @@ export default function CleanHeroSection({
       }
     }
 
+    // Immediately set initial states to ensure no flash
+    gsap.set(titleSpans, { y: "100%" });
+    gsap.set(accentRef.current, { opacity: 0, y: 20 });
+    gsap.set(descriptionRef.current, { opacity: 0, y: 20 });
+    gsap.set(lineRef.current, { scaleX: 0 });
+    gsap.set(dotsRef.current?.children, { opacity: 0, scale: 0 });
+
     // Create main timeline
     const tl = gsap.timeline({
       defaults: {
@@ -88,6 +95,11 @@ export default function CleanHeroSection({
         from: "random",
       },
     }, "-=0.8");
+
+    // Start the animation after a delay
+    gsap.delayedCall(0.5, () => {
+      tl.play();
+    });
 
     // Add scroll-based parallax to dots
     gsap.to(dotsRef.current, {
