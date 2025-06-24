@@ -25,18 +25,11 @@ export default function CleanHeroSection({
   useEffect(() => {
     if (!sectionRef.current || !titleRef.current || !descriptionRef.current || !lineRef.current || !dotsRef.current) return;
 
-    // Create main timeline
-    const tl = gsap.timeline({
-      defaults: {
-        ease: "power3.out",
-      },
-    });
-
     // Split title into words for animation
     const titleWords = titleRef.current.textContent?.split(" ") || [];
     titleRef.current.innerHTML = titleWords.map(word => 
       `<span class="inline-block overflow-hidden whitespace-normal align-top">
-        <span class="inline-block transform">${word}</span>
+        <span class="inline-block transform translate-y-full">${word}</span>
       </span>`
     ).join(" ");
 
@@ -51,36 +44,43 @@ export default function CleanHeroSection({
       
       for (let i = 0; i < rows * cols; i++) {
         const dot = document.createElement('div');
-        dot.className = 'absolute w-1 h-1 bg-brand-yellow rounded-full';
+        dot.className = 'absolute w-1 h-1 bg-brand-yellow rounded-full opacity-0 scale-0';
         dot.style.top = `${Math.floor(i / cols) * gap}px`;
         dot.style.left = `${(i % cols) * gap}px`;
         dotsRef.current.appendChild(dot);
       }
     }
 
-    // Animate elements
-    tl.from(titleSpans, {
-      y: "100%",
+    // Create main timeline
+    const tl = gsap.timeline({
+      defaults: {
+        ease: "power3.out",
+      },
+    });
+
+    // Animate elements (GSAP will animate from the CSS-defined initial states)
+    tl.to(titleSpans, {
+      y: "0%",
       duration: 1,
       stagger: 0.1,
     })
-    .from(accentRef.current, {
-      opacity: 0,
-      y: 20,
+    .to(accentRef.current, {
+      opacity: 1,
+      y: 0,
       duration: 0.6,
     }, "-=0.4")
-    .from(lineRef.current, {
-      scaleX: 0,
+    .to(lineRef.current, {
+      scaleX: 1,
       duration: 1,
     }, "-=0.6")
-    .from(descriptionRef.current, {
-      opacity: 0,
-      y: 20,
+    .to(descriptionRef.current, {
+      opacity: 1,
+      y: 0,
       duration: 0.6,
     }, "-=0.8")
-    .from(dotsRef.current?.children, {
-      opacity: 0,
-      scale: 0,
+    .to(dotsRef.current?.children, {
+      opacity: 1,
+      scale: 1,
       duration: 0.4,
       stagger: {
         each: 0.02,
@@ -101,7 +101,8 @@ export default function CleanHeroSection({
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => {
+      // @ts-ignore - ScrollTrigger.getAll() exists but typing might be incomplete
+      ScrollTrigger.getAll().forEach((trigger: any) => {
         trigger.kill();
       });
     };
@@ -123,6 +124,7 @@ export default function CleanHeroSection({
         <div className="max-w-4xl">
           <div className="relative mb-8">
             <h1 
+            style={{lineHeight: "1.2"}}
               ref={titleRef}
               className="text-5xl md:text-6xl lg:text-7xl font-bold font-lexend leading-5 break-words"
             >
@@ -131,7 +133,7 @@ export default function CleanHeroSection({
             {accent && (
               <span 
                 ref={accentRef}
-                className="absolute -top-6 left-0 text-brand-blue text-lg font-medium"
+                className="absolute -top-6 left-0 text-brand-blue text-lg font-medium opacity-0 translate-y-5"
               >
                 {accent}
               </span>
@@ -139,12 +141,12 @@ export default function CleanHeroSection({
             {/* Animated line */}
             <div 
               ref={lineRef}
-              className="absolute -bottom-4 left-0 h-[3px] w-24 bg-brand-blue transform origin-left"
+              className="absolute -bottom-4 left-0 h-[3px] w-24 bg-brand-blue transform origin-left scale-x-0"
             />
           </div>
           <p 
             ref={descriptionRef}
-            className="text-xl md:text-2xl text-gray-600 max-w-2xl"
+            className="text-xl md:text-2xl text-gray-600 max-w-2xl opacity-0 translate-y-5"
           >
             {description}
           </p>
