@@ -14,7 +14,7 @@ interface RouteConfig {
 }
 
 export const handler = async (_req: Request, _ctx: HandlerContext): Promise<Response> => {
-  const baseUrl = Deno.env.get("BASE_URL") || "https://creativeoak.dk";
+  const baseUrl = Deno.env.get("BASE_URL") || "https://creativeoak.io";
   
   // Scan routes directory
   const scannedRoutes = await scanRoutes();
