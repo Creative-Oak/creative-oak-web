@@ -34,6 +34,13 @@ const CustomHead = ({ ogType = "website", ...props }: CustomHeadProps) => {
             {/* Canonical URL */}
             <link rel="canonical" href={props.url} />
 
+       
+            {/* Language */}
+            <meta
+                name="language"
+                content="en-US"
+            />
+
             {/* Open Graph meta tags */}
             <meta
                 property="og:title"
