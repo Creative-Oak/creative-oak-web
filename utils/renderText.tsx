@@ -232,7 +232,7 @@ const renderTextContent = (
             key={idx}
             {...(linkMark.targetBlank ? {
               target: "_blank",
-              rel: "noopener noreferrer"
+              rel: "noopener"
             } : {})}
             className="text-brand-red hover:underline"
           >

@@ -252,7 +252,7 @@ export default {
     },
     {
       name: "introText",
-      type: "text",
+      type: "blockContent",
       title: "Intro Text",
       description:
         "Introductory text about the project (appears after the hero section)",

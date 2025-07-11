@@ -43,7 +43,7 @@ export interface Project {
   galleryImage3AltText?: string;  
   galleryImage4?: Image;
   galleryImage4AltText?: string;
-  introText?: string;
+  introText?: BlockContent[];
   challengeText?: string;
   solutionText?: string;
   resultText?: string;

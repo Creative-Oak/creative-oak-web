@@ -5,6 +5,7 @@ import Splitter from "../other/splitter.tsx";
 import ParallaxBackground from "../../islands/ParallaxBackground.tsx";
 import ArrowAnimation from "../../islands/ArrowAnimation.tsx";
 import AnimatedImageSection from "../../islands/AnimatedImageSection.tsx";
+import renderMainContent, { BlockContent } from "../../utils/renderText.tsx";
 
 interface WebsiteProjectLayoutProps {
   data: Project;
@@ -93,9 +94,9 @@ const WebsiteProjectLayout = ({ data }: WebsiteProjectLayoutProps) => {
                   <h2 className="text-md  text-brand-black opacity-50 mb-2  font-lexend">
                     About
                   </h2>
-                  <p className="text-lg  font-poppins leading-8 text-brand-black">
-                    {data.introText}
-                  </p>
+                  <div className="text-lg  font-poppins leading-8 text-brand-black">
+                    {renderMainContent(data.introText)}
+                  </div>
                 </>
               )}
             </div>
